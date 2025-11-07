@@ -1,0 +1,18 @@
+---
+name: Deployment (Auto)
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    name: Deployment
+    uses: AdobeDocs/adp-devsite-workflow/.github/workflows/gatsby-deploy.yml@main
+    secrets: inherit
+    with:
+      env: "prod"
+      clean: true
+      excludeSubfolder: "photoshop, audio-video-api, s3dapi, indesign-apis, lightroom"
+      index-mode: "index"
+      NODE_OPTIONS: "--max-old-space-size=8192"
