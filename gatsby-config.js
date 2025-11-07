@@ -19,9 +19,17 @@ module.exports = {
         path: '/'
       },
       {
+        title: 'Getting Started',
+        path: '/getting-started/'
+      },
+      {
         title: 'Guides',
         path: '/guides/'
       },
+      {
+        title: 'API Reference',
+        path: '/api/'
+      }
     ],
     subPages: [
       {
@@ -70,28 +78,6 @@ module.exports = {
           ]
         },
       {
-        title: 'API Reference',
-        path: '/guides/api/upload_image',
-        pages: [
-          {
-            title: "Upload",
-            path: "/guides/api/upload_image/"
-          },
-          {
-            title: "Generate Images",
-            path: "/guides/api/image_generation/"
-          },
-          {
-            title: "Exapnd Image",
-            path: "/guides/api/generative_expand/"
-          },
-          {
-            title: "Fill Image",
-            path: "/guides/api/generative_fill/"
-          }
-        ]
-      },
-      {
         title: 'Changelog',
         path: '/guides/changelog/',
       },
@@ -108,7 +94,11 @@ module.exports = {
             path: '/guides/help/troubleshooting/'
           }
         ]
-      }     
+      },     
+      {
+        title: 'Authentication',
+        path: '/getting-started/'
+      }
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]
