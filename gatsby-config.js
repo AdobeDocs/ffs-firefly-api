@@ -96,9 +96,16 @@ module.exports = {
         ]
       },     
       {
-        title: 'Authentication',
-        path: '/getting-started/'
-      }
+        title: 'Getting Started',
+        path: '/getting-started/',
+        header: true,
+        pages: [
+          {
+            title: 'Authentication',
+            path: '/getting-started/'
+          }
+        ]
+      },
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]
