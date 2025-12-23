@@ -138,4 +138,4 @@ curl -X GET "https://firefly-api.adobe.io/v3/status/<YOUR_JOB_ID>" \
 
 <!-- Links -->
 [1]: ../structure-image-reference/index.md
-[2]: ../authentication/index.md
+[2]: ../../../getting-started/index.md

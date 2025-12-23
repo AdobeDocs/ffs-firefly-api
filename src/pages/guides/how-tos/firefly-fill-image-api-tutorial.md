@@ -59,7 +59,7 @@ You may walk through this tutorial step-by-step or [jump immediately to the full
 
 ## Prerequisites
 
-- You'll need a Firefly Services **Client ID** and **Client Secret**. To get these credentials, see the [Adobe Developer Console](../concepts/dev-console) page.
+- You'll need a Firefly Services **Client ID** and **Client Secret**. To get these credentials, see the [Adobe Developer Console](../../getting-started/dev-console) page.
 
 ### Set up your environment
 

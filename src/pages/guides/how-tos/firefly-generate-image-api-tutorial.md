@@ -86,7 +86,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../concepts/dev-console) page.
+This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../../getting-started/dev-console) page.
 
 ### Set Up Your Environment
 

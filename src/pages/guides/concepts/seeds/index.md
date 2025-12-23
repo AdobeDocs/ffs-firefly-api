@@ -59,7 +59,7 @@ When Firefly generates an image that you want to preserve and modify more precis
 
 Prerequisites
 
-You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide](../authentication/index.md). **Securely store these credentials and never expose them in client-side or public code.**
+You'll need a Firefly **Client ID** and **Access Token** for this exercise. Learn how to retrieve them in the [Authentication Guide](../../../getting-started/index.md). **Securely store these credentials and never expose them in client-side or public code.**
 
 ### Find the seed
 

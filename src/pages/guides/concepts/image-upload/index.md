@@ -60,7 +60,7 @@ The Firefly Upload Endpoint allows you to upload images directly from local stor
 
 ### Prerequisites
 
-If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../authentication/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+If you don't already have a Firefly **Client ID** and **Access Token**, learn how to retrieve them in the [Authentication Guide](../../../getting-started/index.md) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
 
 ### Upload Source Image
 

@@ -72,4 +72,4 @@ curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
 -d 'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
 ```
 
-Read more about generating access tokens in the [authentication guide](../authentication/index.md). There, you can also find the steps for rotating your client secret programmatically.
+Read more about generating access tokens in the [authentication guide](../index.md). There, you can also find the steps for rotating your client secret programmatically.

@@ -190,5 +190,5 @@ You'll see results similar to our example below. Notice that all the defined pre
 
 <!-- links -->
 [1]: ../../api/
-[2]: ../authentication/index.md
+[2]: ../../../getting-started/index.md
 [3]: ../../images/puppy-renaissance-artist.jpeg

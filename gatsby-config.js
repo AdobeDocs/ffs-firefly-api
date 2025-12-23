@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         title: 'Concepts',
-        path: '/guides/concepts/authentication/',
+        path: '/guides/concepts/custom-models/',
         pages: [
           {
             title: 'Custom Models Overview',

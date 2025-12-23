@@ -60,7 +60,7 @@ You will need:
 
 [Generating access tokens](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) can be accomplished either directly from the Developer Console UI or programmatically.
 
-To generate an access token programatically, refer to the [Authentication guide](../authentication/index.md).
+To generate an access token programatically, refer to the [Authentication guide](../index.md).
 
 ## Best Practices
 
