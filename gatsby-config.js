@@ -109,32 +109,14 @@ module.exports = {
           ]
         },
       {
-        title: 'Changelog',
-        path: '/guides/changelog/',
-      },
-      {
-        title: 'Help',
-        path: '/guides/help/best-practices/',
-        pages:[
-          {
-            title: 'Best Practices',
-            path: '/guides/help/best-practices/'
-          },
-          {
-            title: 'Troubleshooting',
-            path: '/guides/help/troubleshooting/'
-          },
-          {
-            title: 'Technical Usage Notes',
-            path: '/guides/help/usage_notes/'
-          }
-        ]
-      },     
-      {
         title: 'Getting Started',
         path: '/getting-started/',
         header: true,
         pages: [
+          {
+            title: 'Authentication',
+            path: '/getting-started/'
+          },
           {
             title: 'Create Credentials',
             path: '/getting-started/create-credentials/'
@@ -144,8 +126,26 @@ module.exports = {
             path: '/getting-started/dev-console/'
           },
           {
-            title: 'Authentication',
-            path: '/getting-started/'
+            title: 'Help',
+            path: '/getting-started/help/best-practices/',
+            pages:[
+              {
+                title: 'Best Practices',
+                path: '/getting-started/help/best-practices/'
+              },
+              {
+                title: 'Troubleshooting',
+                path: '/getting-started/help/troubleshooting/'
+              },
+              {
+                title: 'Technical Usage Notes',
+                path: '/getting-started/help/usage_notes/'
+              }
+            ]
+          },
+          {
+            title: 'Changelog',
+            path: '/getting-started/changelog/'
           }
         ]
       },

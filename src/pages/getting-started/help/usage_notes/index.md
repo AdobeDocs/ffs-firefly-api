@@ -48,3 +48,4 @@ Videos can be generated with dimensions for these supported aspect ratios:
 | 1:1 | 1080w x 1080h |
 | 1:1 | 720w x 720h |
 | 1:1 | 540w x 540h |
+
