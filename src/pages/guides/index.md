@@ -33,99 +33,374 @@ keywords:
   - Authorization
   - Credentials
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Quickstart
+  description: A quickstart guide to the Adobe Firefly API
+twitter:
+  card: summary
+  title: Quickstart
+  description: A quickstart guide to the Adobe Firefly API
 ---
 
 # Quickstart Guide
 
-This guide will show you how to make your first successful call to the Firefly [Text to Image API](./api/image_generation/).
+Generate your first image with Firefly Services
 
-You need a valid API key and an access token to call the Firefly Text To Image endpoint. If you don't have an API key (aka: client id) or access token yet, visit the [Getting Started guide](../../guides/get-started.md/) for instructions.
+![an illustration of a cat coding on a laptop](./images/cat-coding.jpeg)
 
-If you already have a project configured with Firefly Services in the [Adobe Developer Console](https://developer.adobe.com/console), you can generate an access token there, or use the credentials from it (client ID and client secret) to generate an access token with the following `curl` command, replacing the`{CLIENT_ID}` and `{CLIENT_SECRET}` values with your own.
+## Prerequisites
 
-<!-- Log into the [Adobe Developer Console](https://developer.adobe.com/console) using the profile that your admin created for you and create an access token. [Learn more](../get-started.md/#generate-an-api-key-and-access-token-from-the-adobe-developer-console) about creating an access token. -->
+### Credentials
+
+If you don't already have a Firefly API or Firefly Services **Client ID** and **Client Secret**, retrieve them from your [Adobe Developer Console project](https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview) before reading further. **Securely store these credentials and never expose them in client-side or public code.**
+
+### Set Up Your Environment
+
+Before we begin this tutorial, run the following in a secure terminal:
+
+<CodeBlock slots="heading, code" repeat="2" languages="Python, JavaScript" />
+
+#### JavaScript
 
 ```bash
-curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded' \
--d 'grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+mkdir firefly-api-generate-images-tutorial
+cd firefly-api-generate-images-tutorial
+npm init --y
+npm install axios qs
+touch index.js
 ```
 
-<InlineAlert variant="warning" slots="text" />
-
-Access tokens expire every 24 hours and it is wise that you rotate them programmatically before they expire. The token endpoint above returns expiry information alongside the token itself. Read more about this in our [auth guide](./concepts/authentication/index.md). Once you have this token, you are ready to make your first request to the generateImages endpoint.
-
-Now, replace your API key and access token in the example below, and you're all set to make your first request to the generateImages endpoint.
-
-## Request Headers
-
-* `X-Api-Key`: This is a required parameter -- provide your client ID from the Developer Console project.
-* `Authorization`: This is a required header -- provide your access token.
-* `Content-Type`: Specifies the media type of the request body.
-
-## Example Request
+#### Python
 
 ```bash
-curl --location 'https://firefly-api.adobe.io/v2/images/generate' \
---header 'X-Api-Key: {CLIENT_ID}' \
---header 'Authorization: {ACCESS_TOKEN}' \
+mkdir firefly-api-generate-images-tutorial
+cd firefly-api-generate-images-tutorial
+python -m pip install requests
+touch main.py
+```
+
+Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
+
+## Retrieve an Access Token
+
+Open a secure terminal and `export` your **Client ID** and **Client Secret** as environment variables so that your later commands can access them:
+
+```bash
+export FIREFLY_SERVICES_CLIENT_ID=yourClientIdAsdf123
+export FIREFLY_SERVICES_CLIENT_SECRET=yourClientSecretAsdf123
+```
+
+Generate an access token:
+
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
+
+#### cURL
+
+```bash
+curl --location 'https://ims-na1.adobelogin.com/ims/token/v3' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode "client_id=$FIREFLY_SERVICES_CLIENT_ID" \
+--data-urlencode "client_secret=$FIREFLY_SERVICES_CLIENT_SECRET" \
+--data-urlencode 'scope=openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+```
+
+#### Python
+
+```python
+def retrieve_access_token():
+    client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+    client_secret = os.environ['FIREFLY_SERVICES_CLIENT_SECRET']
+
+    token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
+    payload = {
+        'grant_type': 'client_credentials',
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'scope': 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+    }
+
+    response = requests.post(token_url, data=payload)
+    response.raise_for_status()
+    token_data = response.json()
+    print("Access Token Retrieved")
+    return token_data['access_token']
+```
+
+#### JavaScript
+
+```js
+async function retrieveAccessToken() {
+  const data = qs.stringify({
+    grant_type: 'client_credentials',
+    client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
+    client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
+    scope: 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis',
+  });
+
+  const config = {
+    method: 'post',
+    url: 'https://ims-na1.adobelogin.com/ims/token/v3',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log('Access Token Retrieved');
+    return response.data.access_token;
+  } catch (error) {
+    console.error('Error retrieving access token:', error.response.data);
+  }
+}
+```
+
+The response will look like this:
+
+```json
+{"access_token":"yourAccessTokenAsdf123","token_type":"bearer","expires_in":86399}
+```
+
+Export this access token so that the next script can conveniently access it:
+
+```bash
+export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
+```
+
+## Generate an Image
+
+Next, call the [Firefly Generate Images API](./api/image_generation/V3_Async/):
+
+<CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
+
+#### cURL
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-async' \
 --header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header "x-api-key: $FIREFLY_SERVICES_CLIENT_ID" \
+--header "Authorization: Bearer $FIREFLY_SERVICES_ACCESS_TOKEN" \
 --data '{
-    "n": 1,
-    "prompt": "Horse on a field.",
-    "contentClass": "photo",
+    "prompt": "a realistic illustration of a cat coding"
+}'
+```
+
+#### Python
+
+```python
+def generate_image(access_token):
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-api-key': os.environ['FIREFLY_SERVICES_CLIENT_ID'],
+        'Authorization': f'Bearer {access_token}'
+    }
+
+    data = {
+        'prompt': 'a realistic illustration of a cat coding',  # Replace with your actual prompt
+    }
+
+    response = requests.post(
+        'https://firefly-api.adobe.io/v3/images/generate-async',
+        headers=headers,
+        json=data
+    )
+    response.raise_for_status()
+    job_response = response.json()
+    print("Generate Image Response:", job_response)
+    return job_response
+```
+
+#### JavaScript
+
+```js
+async function generateImage(accessToken) {
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "x-api-key": process.env.FIREFLY_SERVICES_CLIENT_ID,
+    Authorization: `Bearer ${accessToken}`,
+  };
+
+  const data = {
+    prompt: "a realistic illustration of a cat coding", // Replace with your actual prompt
+  };
+
+  const config = {
+    method: "post",
+    url: "https://firefly-api.adobe.io/v3/images/generate-async",
+    headers: headers,
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    return response.data;
+  } catch (error) {
+    console.error("Error during generateImage:", error);
+  }
+}
+```
+
+The response will look like this:
+
+```json
+{
     "size": {
         "width": 2048,
         "height": 2048
     },
-    "styles": {
-        "presets": ["concept_art"]
-    } 
-}'
-```
-
-## Responses
-
-Got a 200 response code? Great! Your API call was successful. Here is an example response:
-
-```json
-{
-  "version": "2.10.2",
-  "size": {
-    "width": 2048,
-    "height": 2048
-  },
-  "predictedPhotoSettings": {
-    "aperture": 5.6,
-    "shutterSpeed": 0.0005,
-    "fieldOfView": 50
-  },
-  "outputs": [
-    {
-      "seed": 290878684,
-      "image": {
-          "id": "{IMAGE_ID}",
-          "presignedUrl": "https://pre-signed-firefly-prod.s3.amazonaws.com/images/{IMAGE_ID}?..."
-      }
-    }
-  ]
+    "outputs": [
+        {
+            "seed": 1779323515,
+            "image": {
+                "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-12345?lots=of&query=params..."
+            }
+        }
+    ],
+    "contentClass": "art"
 }
 ```
 
-![Horse on a field, photo, concept_art](../images/horse_t2i_sample.jpg)
+## View the Generated Image
 
-### Error Codes
+Open the URL in your browser to see the image you generated with Firefly 🎉
 
-To learn more about each response code, head over to the [**Try it** (Responses)](../guides/api/upload_image/index.md) section.
+## Full Example
 
-### Rate Limits
+You can review the [prerequisites](#prerequisites) section to understand how to set up your environment prior to running this code. Note that this is an example only and is not production-ready and requires additional error handling, logging, security measures, and more before you can run it at scale in a live application.
 
-Read more about the generateImages API's throttling limits [here](./concepts/rate-limits/index.md)
+<CodeBlock slots="heading, code" repeat="2" languages="Python, JavaScript" />
 
-## Try it yourself
+#### Python
 
-Go ahead and try making calls using the __Try it__ feature on the __API Reference__ page. Configure the headers and send a request. Once you get a 200 response code, the response body will contain a pre-signed URL of your image.
+```python
+import os
+import requests
+
+def main():
+    access_token = retrieve_access_token()
+    generate_image(access_token)
+
+def retrieve_access_token():
+    client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+    client_secret = os.environ['FIREFLY_SERVICES_CLIENT_SECRET']
+
+    token_url = 'https://ims-na1.adobelogin.com/ims/token/v3'
+    payload = {
+        'grant_type': 'client_credentials',
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'scope': 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis'
+    }
+
+    response = requests.post(token_url, data=payload)
+    response.raise_for_status()
+    token_data = response.json()
+    print("Access Token Retrieved")
+    return token_data['access_token']
+
+def generate_image(access_token):
+    client_id = os.environ['FIREFLY_SERVICES_CLIENT_ID']
+
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-api-key': client_id,
+        'Authorization': f'Bearer {access_token}'
+    }
+
+    data = {
+        'prompt': 'a realistic illustration of a cat coding',  # Replace with your actual prompt
+    }
+
+    response = requests.post(
+        'https://firefly-api.adobe.io/v3/images/generate-async',
+        headers=headers,
+        json=data
+    )
+    response.raise_for_status()
+    job_response = response.json()
+    print("Generate Image Response:", job_response)
+
+    # Access the generated image URL
+    image_url = job_response['outputs'][0]['image']['url']
+    print(f"You can view the generated image at: {image_url}")
+
+if __name__ == '__main__':
+    main()
+```
+
+#### JavaScript
+
+```js
+const axios = require('axios');
+const qs = require('qs');
+
+(async () => {
+  const accessToken = await retrieveAccessToken();
+  await generateImage(accessToken);
+})();
+
+async function retrieveAccessToken() {
+  const data = qs.stringify({
+    grant_type: 'client_credentials',
+    client_id: process.env.FIREFLY_SERVICES_CLIENT_ID,
+    client_secret: process.env.FIREFLY_SERVICES_CLIENT_SECRET,
+    scope: 'openid,AdobeID,session,additional_info,read_organizations,firefly_api,ff_apis',
+  });
+
+  const config = {
+    method: 'post',
+    url: 'https://ims-na1.adobelogin.com/ims/token/v3',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log('Access Token Retrieved');
+    return response.data.access_token;
+  } catch (error) {
+    console.error('Error retrieving access token:', error.response.data);
+  }
+}
+
+async function generateImage(accessToken) {
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'x-api-key': process.env.FIREFLY_SERVICES_CLIENT_ID,
+    Authorization: `Bearer ${accessToken}`,
+  };
+
+  const data = {
+    prompt: 'a realistic illustration of a cat coding', // Replace with your actual prompt
+  };
+
+  const config = {
+    method: 'post',
+    url: 'https://firefly-api.adobe.io/v3/images/generate-async',
+    headers: headers,
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(config);
+    console.log('Generate Image Response:', response.data);
+
+    // Access the generated image URL
+    const imageUrl = response.data.outputs[0].image.url;
+    console.log(`You can view the generated image at: ${imageUrl}`);
+  } catch (error) {
+    console.error('Error during generateImage:', error.response.data);
+  }
+}
+```
+
+## Deepen Your Understanding
+
+Visit the [Firefly Generate Image API tutorial](./how-tos/firefly-generate-image-api-tutorial.md) to learn more about the rich customization options available to you 🚀
