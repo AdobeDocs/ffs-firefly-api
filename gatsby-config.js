@@ -65,15 +65,31 @@ module.exports = {
         },
         {
           title: 'How-Tos',
-          path: '/guides/how-tos/create-your-first-ff-application.md',
+          path: '/guides/how-tos/firefly-generate-image-api-tutorial/',
           pages:[
             {
-              title: 'Create Your First Firefly API Implementation',
-              path: '/guides/how-tos/create-your-first-ff-application.md'
+              title: 'Firefly Generate Image API Tutorial',
+              path: '/guides/how-tos/firefly-generate-image-api-tutorial/'
             },
             {
-              title: 'Integrating Firefly Services with Microsoft Power Automate',
-              path: '/guides/how-tos/firefly-services-with-powerautomate'
+              title: 'Firefly Expand Image API Tutorial',
+              path: '/guides/how-tos/firefly-expand-image-api-tutorial/'
+            },
+            {
+              title: 'Firefly Fill Image API Tutorial',
+              path: '/guides/how-tos/firefly-fill-image-api-tutorial/'
+            },
+            {
+              title: 'Using the Firefly Asynchronous API',
+              path: '/guides/how-tos/using-async-apis/'
+            },
+            {
+              title: 'Custom Models Generate Image API Tutorial',
+              path: '/guides/how-tos/cm-generate-image/'
+            },
+            {
+              title: 'Grant apps access to a Custom Model',
+              path: '/guides/how-tos/cm-share-model/'
             }
           ]
         },
