@@ -78,4 +78,4 @@ export FIREFLY_SERVICES_ACCESS_TOKEN=yourExampleTokenAsdf123
 
 Ready to put your API authentication to use? Continue to the [Generate Images API][1] guide.
 
-[1]: ../../how-tos/firefly-generate-image-api-tutorial.md
+[1]: ../guides/how-tos/firefly-generate-image-api-tutorial.md
