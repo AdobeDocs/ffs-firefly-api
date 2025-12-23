@@ -28,44 +28,43 @@ keywords:
   - API Usage
   - API performance
 contributors:
-  - https://github.com/amandahuarng
-  - https://github.com/nimithajalal
-  - https://github.com/hollyschinsky
+  - 'https://github.com/amandahuarng'
+  - 'https://github.com/nimithajalal'
+  - 'https://github.com/hollyschinsky'
+  - 'https://github.com/bishoysefin'
 hideBreadcrumbNav: true
+og:
+  title: Rate Limits - Adobe Firefly API
+  description: This guide explains rate limiting for the Adobe Firefly API.
+twitter:
+  card: summary
+  title: Rate Limits - Adobe Firefly API
+  description: This guide explains rate limiting for the Adobe Firefly API.
 ---
 
 # Rate Limits
 
-To ensure our customers enjoy equitable peak performance with Firefly APIs, Adobe places limits on the volume, frequency, and concurrency of API calls, and monitors your API usage to proactively contact you and resolve any risks to API performance. 
+Adobe Firefly API places default rate limits on the volume and frequency of API calls. Contact your account manager to request higher rate limits if needed.
 
-## Overview
+## Summary of Rate Limits
 
-Our API imposes rate limits on how often a user or client can access our services within a specified period.
+Our API imposes the following rate limits **per organization**:
 
-## Why do we have rate limits?
+* **4** requests **per minute (RPM)**
+* **9,000** requests **per day (RPD)** (Relevant for those who have worked with their account manager to increase their rate limits beyond 4 RPM without changing this default daily limit.)
 
-Rate limits are standard practice for APIs, and they serve several important purposes:
+## What to Do If You Run Into Issues
 
-- **Preventing abuse**: Limiting the number of requests from a user prevents malicious users or bots from overwhelming the API, maintaining stability and avoiding disruptions.
-- **Ensuring fair usage**: Setting limits provides all users equal access to resources, preventing any user or organization from monopolizing the API's capacity.
-- **Managing server load**: Control over the request processing rate prevents server overload and ensures consistent user performance.
-- **Protecting against downtime**: Limiting excessive usage helps avoid server downtime, keeping the API available and responsive to legitimate users.
-- **Controlling costs**: Limiting resource consumption helps control costs for users, organizations, or applications, especially when API usage is tied to a pricing plan.
+If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. If you encounter this error, consider any of the following solutions:
 
-## How do these rate limits work?
+* Review your usage and reduce unnecessary requests.
+* Implement retry logic via a [`retry-after` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) or an [exponential backoff strategy](https://en.wikipedia.org/wiki/Exponential_backoff).
+* Contact your account manager to request enabling higher usage rates.
 
-Rate limits are measured in two ways: requests per minute (RPM) and requests per day (RPD). 
+## Why do API rate limits exist?
 
-We limit the rate of API requests by the minute, and day.
+Rate limits are standard practice that serve several important purposes, including:
 
-<InlineAlert variant="info" slots="text1, text2, text3" />
-
-It's important to note that rate limits are imposed at the organization level, not the user level. This means that all users within an organization share the same rate limits. The limits are as follows:
-
-**4** requests **per minute**
-
-**9000** requests **per day**
-
-You may encounter a HTTP 429 "Too Many Requests" error if your usage exceeds either the per-minute, or per day limit. We recommend using the 'retry-after' header to determine the number of seconds you should wait before trying again.
-
-We appreciate that these limits may not be ideal for certain use cases. Please contact us at firefly-professional-services-support@adobe.com, so that we can partner with you on setting the optimal thresholds for your account.
+* Preventing abuse: Protects APIs from being overwhelmed by excessive requests.
+* Protecting against downtime: Reduces the risk of service interruptions.
+* Controlling costs: Helps manage resource consumption and associated expenses.
