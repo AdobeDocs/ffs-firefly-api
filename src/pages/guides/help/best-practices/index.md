@@ -2,18 +2,36 @@
 title: Best Practices
 description: This guide explains best practices for the Adobe Firefly API.
 keywords:
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
   - Adobe Firefly Services
   - Firefly API
   - Integrating Firefly Services
-
 contributors:
-  - https://github.com/nimithajalal
+  - 'https://github.com/nimithajalal'
 hideBreadcrumbNav: true
+og:
+  title: Best Practices
+  description: This guide explains best practices for the Adobe Firefly API.
+twitter:
+  card: summary
+  title: Best Practices
+  description: This guide explains best practices for the Adobe Firefly API.
 ---
 
 # Best Practices for Adobe Firefly API
 
-The Adobe Firefly API provides powerful functionality for developers to integrate creative tools into their applications. To ensure efficient and effective use of the API, it's important to follow best practices. This document outlines key recommendations for using Firefly APIs.
+The Adobe Firefly API provides powerful functionality for developers to integrate creative tools into their applications. To ensure efficient and effective use of the API, it's important to follow best practices. This document outlines key recommendations for using the Adobe Firefly API.
 
 ## Authentication
 
