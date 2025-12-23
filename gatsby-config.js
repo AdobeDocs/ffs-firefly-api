@@ -40,26 +40,41 @@ module.exports = {
         title: 'Concepts',
         path: '/guides/concepts/authentication/',
         pages: [
-          // {
-          //   title: 'Get Credentials',
-          //   path: '/guides/concepts/create-credentials/'
-          // },
           {
-            title: 'Authentication',
-            path: '/guides/concepts/authentication/'
+            title: 'Custom Models Overview',
+            path: '/guides/concepts/custom-models/'
           },
           {
-            title: 'Image Model Styles',
-            path: '/guides/concepts/styles/'
+            title: 'Style Presets',
+            path: '/guides/concepts/style-presets/'
           },
           {
-            title: 'Rate limits',
+            title: 'Style Image Reference',
+            path: '/guides/concepts/style-image-reference/'
+          },
+          {
+            title: 'Structure Image Reference',
+            path: '/guides/concepts/structure-image-reference/'
+          },
+          {
+            title: 'Image Upload',
+            path: '/guides/concepts/image-upload/'
+          },
+          {
+            title: 'Using Masks',
+            path: '/guides/concepts/masking/'
+          },
+          {
+            title: 'Using Placement',
+            path: '/guides/concepts/placement/'
+          },
+          {
+            title: 'Seeds',
+            path: '/guides/concepts/seeds/'
+          },
+          {
+            title: 'Rate Limits',
             path: '/guides/concepts/rate-limits/'
-          },
-          {
-            title: ' Seed ID',
-            path: '/guides/concepts/seed-id'
-
           }
         ]
         },
@@ -108,6 +123,10 @@ module.exports = {
           {
             title: 'Troubleshooting',
             path: '/guides/help/troubleshooting/'
+          },
+          {
+            title: 'Technical Usage Notes',
+            path: '/guides/help/usage_notes/'
           }
         ]
       },     
@@ -116,6 +135,14 @@ module.exports = {
         path: '/getting-started/',
         header: true,
         pages: [
+          {
+            title: 'Create Credentials',
+            path: '/getting-started/create-credentials/'
+          },
+          {
+            title: 'Using Adobe Developer Console',
+            path: '/getting-started/dev-console/'
+          },
           {
             title: 'Authentication',
             path: '/getting-started/'
