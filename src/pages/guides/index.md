@@ -171,7 +171,7 @@ export FIREFLY_SERVICES_ACCESS_TOKEN=yourAccessTokenAsdf123
 
 ## Generate an Image
 
-Next, call the [Firefly Generate Images API](./api/image_generation/V3_Async/):
+Next, call the [Firefly Generate Images API](./api/):
 
 <CodeBlock slots="heading, code" repeat="3" languages="bash, Python, JavaScript" />
 

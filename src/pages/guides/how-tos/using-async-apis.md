@@ -39,11 +39,11 @@ Our original Firefly APIs operated in a synchronous fashion. This meant that you
 
 Currently, the async operations include:
 
-* [Generate Image Async](../api/image_generation/V3_Async/)
-* [Expand Image Async](../api/generative_expand/V3_Async/)
-* [Fill Image Async](../api/generative_fill/V3_Async/)
-* [Generate Object Composite Async](../api/generate-object-composite/V3_Async/)
-* [Generate Similar Images Async](../api/generate-similar/V3_Async/)
+* [Generate Image Async](../api/)
+* [Expand Image Async](../api/)
+* [Fill Image Async](../api/)
+* [Generate Object Composite Async](../api/)
+* [Generate Similar Images Async](../api/)
 
 ## Sequence of Calls
 
@@ -57,7 +57,7 @@ The workflow for each of these is the same:
 
 ## Generating Images with the Async API
 
-Start with this example that uses the asynchronous version of the text to image endpoint, see [Generate Image Async API Reference](../api/image_generation/V3_Async/). For now we won't show authentication which is the same as it is for synchronous calls.
+Start with this example that uses the asynchronous version of the text to image endpoint, see [Generate Image Async API Reference](../api/). For now we won't show authentication which is the same as it is for synchronous calls.
 
 In terms of required and optional arguments, you have the same options that you do with the synchronous endpoint. At minimum, you should send a text prompt; beyond that, you can send optional arguments to help Firefly create the final result. This includes the content class as well as structure and style options. In fact, the only real change to the code for your request beyond what you already do for synchronous requests is to sent it to a different endpoint:
 
@@ -266,7 +266,7 @@ for(let output of jobResult.result.outputs) {
 
 ## Expanding Images with Async APIs
 
-The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asynchronous API](../api/generative_expand/V3_Async/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can resize an image much more efficiently.
+The asynchronous API are even more powerful; in this next example, we take a source image, upload it, and then use the [Expand Image Asynchronous API](../api/) to resize it. Instead of doing one resize after another, we can kick off multiple jobs at once so we can resize an image much more efficiently.
 
 First, let's look at our wrapper function which uses a small subset of available parameters. In this case, our wrapper only needs the source image and your desired size:
 

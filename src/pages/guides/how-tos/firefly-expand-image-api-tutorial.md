@@ -37,7 +37,7 @@ twitter:
 
 # Firefly Expand Image API Tutorial
 
-Generatively expand an image out beyond its edges with the [Expand Image API](../api/generative_expand/V3_Async/)
+Generatively expand an image out beyond its edges with the [Expand Image API](../api/)
 
 ![wallet advertisement hero image](../images/expand-image-tutorial-hero-image.jpeg)
 
@@ -48,8 +48,8 @@ In this tutorial, imagine we are working on a marketing campaign at a Fortune 10
 Before diving into the code, let's preview the high-level steps:
 
 * **Define Target Dimensions:** Each social media platform has specific image size requirements. We define these dimensions for the platforms we plan to target.
-* **Upload Source Image:** Use Firefly's [Upload API](../api/upload_image/V2/) to upload your original image.
-* **Generate Image Variations:** Use Firefly's [Expand Image API](../api/generative_expand/V3_Async/) to create resized variations of the image for each dimension.
+* **Upload Source Image:** Use Firefly's [Upload API](../api/) to upload your original image.
+* **Generate Image Variations:** Use Firefly's [Expand Image API](../api/) to create resized variations of the image for each dimension.
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#full-example).
 
@@ -104,7 +104,7 @@ const SOCIAL_MEDIA_PLATFORMS = [
 
 ## Upload the Source Image
 
- Next, let's upload our source image using Firefly's [Upload API](../api/upload_image/V2/). This image serves as the starting point for all variations.
+ Next, let's upload our source image using Firefly's [Upload API](../api/). This image serves as the starting point for all variations.
 
 ```js
 const axios = require("axios");
@@ -149,7 +149,7 @@ On success, the response looks similar to this:
 
 ## Generate Image Variations
 
-Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/generative_expand/V3_Async/). We use the `axios` library to make HTTPs requests:
+Next, let's create a function that generates images for each social media platform with Firefly's [Expand Image API](../api/). We use the `axios` library to make HTTPs requests:
 
 ```js
 const axios = require('axios');
@@ -343,4 +343,4 @@ We wrote this tutorial in CommmonJS in order to make it easy to get up and runni
 
 ## Deepen Your Understanding
 
-Now that you completed this tutorial, visit its [API Reference](../api/generative_expand/V3_Async/) to explore more advanced use cases to automate image generation with Firefly.
+Now that you completed this tutorial, visit its [API Reference](../api/) to explore more advanced use cases to automate image generation with Firefly.

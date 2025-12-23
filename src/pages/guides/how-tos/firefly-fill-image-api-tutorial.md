@@ -39,7 +39,7 @@ twitter:
 
 # Firefly Fill Image API Tutorial
 
-Generatively edit specific areas of an image with the [Fill Image API](../api/generative_fill/V3_Async/)
+Generatively edit specific areas of an image with the [Fill Image API](../api/)
 
 ||
 | --- | --- | --- |
@@ -91,7 +91,7 @@ In your own applications, use [Photoshop Create Mask API](https://developer.adob
 
 ## Step 1 - Upload the images
 
-Upload both the source image and the mask image using the [Upload API](../api/upload_image/V2):
+Upload both the source image and the mask image using the [Upload API](../api/):
 
 ```js
 const fs = require('fs');
@@ -130,7 +130,7 @@ const backgroundPrompt = 'A professional background for corporate headshots, ble
 
 ## Step 3 - Replace the backgrounds
 
-This JavaScript function calls the [Fill Image API](../api/generative_fill/V3_Async/):
+This JavaScript function calls the [Fill Image API](../api/):
 
 ```js
 async function genFill({ maskId, sourceId, prompt, accessToken }) {
@@ -374,4 +374,4 @@ async function updateEmployeePhotos(accessToken) {
 
 ## Deepen your understanding
 
-Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/generative_fill/V3_Async/) with more technical details for advanced use cases.
+Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/) with more technical details for advanced use cases.
