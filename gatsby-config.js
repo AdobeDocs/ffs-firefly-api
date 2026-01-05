@@ -66,6 +66,10 @@ module.exports = {
             {
               title: 'Integrating Firefly Services with Microsoft Power Automate',
               path: '/guides/how-tos/firefly-services-with-powerautomate'
+            },
+            {
+              title: 'Enhancing Audio Files with the Enhance Speech API',
+              path: '/guides/how-tos/enhancing-audio-files-with-enhance-speech-api'
             }
           ]
         },
