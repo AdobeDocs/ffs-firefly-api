@@ -1,59 +1,67 @@
 ---
-title: Rate Limits - Adobe Firefly API
-description: This guide explains rate limiting for the Adobe Firefly API.
+title: Technical Usage Notes
+description: Technical Usage Notes for Generate Video API.
 keywords:
-  - Adobe Firefly Services
-  - Rate limits
-  - Firefly API
-  - Developer documentation
-  - Rate limiting concepts
-  - API usage limits
-  - Throttling
-  - Rate limiting policies
-  - Quotas
-  - Request limits
-  - API rate limiting strategies
-  - Rate limit enforcement
-  - Rate limit management
-  - Usage quotas
-  - Rate limit headers
-  - Rate limit monitoring
-  - Scalability considerations
-  - Performance optimization
-  - Rate limiting configurations
-  - Rate limit exceptions
-  - Client access
-  - Concurrency
-  - Monitors usage
-  - API Usage
-  - API performance
-contributors:
-  - 'https://github.com/amandahuarng'
-  - 'https://github.com/nimithajalal'
-  - 'https://github.com/hollyschinsky'
-  - 'https://github.com/bishoysefin'
-hideBreadcrumbNav: true
+  - Adobe Firefly API
+  - generative AI
+  - AI image generation
+  - text-to-image
+  - image generation
+  - creative AI
+  - REST API
+  - AI models
+  - generative content
+  - AI art generation
+  - creative automation
+  - content creation
 og:
-  title: Rate Limits - Adobe Firefly API
-  description: This guide explains rate limiting for the Adobe Firefly API.
+  title: Technical Usage Notes
+  description: Technical Usage Notes for Generate Video API.
 twitter:
   card: summary
-  title: Rate Limits - Adobe Firefly API
-  description: This guide explains rate limiting for the Adobe Firefly API.
+  title: Technical Usage Notes
+  description: Technical Usage Notes for Generate Video API.
 ---
 
-# Rate Limits
+# Firefly API usage notes
+
+This document has details about what's currently supported, limitations, and workarounds.
+
+## Generate Video API
+
+These technical notes for usage apply to the Generate Video API.
+
+### Supported aspect ratios
+
+Videos can be generated with dimensions for these supported aspect ratios:
+
+![Supported aspect ratios](./aspectRatios.png)
+
+| Aspect Ratio | Dimensions |
+| ------------- | ------------- |
+| 16:9 | 1920w x 1080h |
+| 16:9 | 1280w x 720h |
+| 16:9 | 960w x 540h |
+| 9:16 | 1080w x 1920h |
+| 9:16 | 720w x 1280h |
+| 9:16 | 540w x 960h |
+| 1:1 | 1080w x 1080h |
+| 1:1 | 720w x 720h |
+| 1:1 | 540w x 540h |
+
+
+## Rate limits
 
 Adobe Firefly API places default rate limits on the volume and frequency of API calls. Contact your account manager to request higher rate limits if needed.
 
-## Summary of Rate Limits
+### Summary of rate limits
 
 Our API imposes the following rate limits **per organization**:
 
 * **4** requests **per minute (RPM)**
 * **9,000** requests **per day (RPD)** (Relevant for those who have worked with their account manager to increase their rate limits beyond 4 RPM without changing this default daily limit.)
 
-## What to Do If You Run Into Issues
+### What to do if you run into issues
 
 If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** error. If you encounter this error, consider any of the following solutions:
 
@@ -61,10 +69,12 @@ If you exceed the rate limits, you'll receive an **HTTP 429 Too Many Requests** 
 * Implement retry logic via a [`retry-after` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After) or an [exponential backoff strategy](https://en.wikipedia.org/wiki/Exponential_backoff).
 * Contact your account manager to request enabling higher usage rates.
 
-## Why do API rate limits exist?
+### Why do API rate limits exist?
 
 Rate limits are standard practice that serve several important purposes, including:
 
 * Preventing abuse: Protects APIs from being overwhelmed by excessive requests.
 * Protecting against downtime: Reduces the risk of service interruptions.
 * Controlling costs: Helps manage resource consumption and associated expenses.
+
+

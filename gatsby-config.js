@@ -126,6 +126,10 @@ module.exports = {
             path: '/getting-started/dev-console/'
           },
           {
+            title: 'Technical Usage Notes',
+            path: '/getting-started/usage-notes/'
+          },
+          {
             title: 'Help',
             path: '/getting-started/help/best-practices/',
             pages:[
@@ -136,10 +140,6 @@ module.exports = {
               {
                 title: 'Troubleshooting',
                 path: '/getting-started/help/troubleshooting/'
-              },
-              {
-                title: 'Technical Usage Notes',
-                path: '/getting-started/help/usage_notes/'
               }
             ]
           },
