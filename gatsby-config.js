@@ -71,10 +71,6 @@ module.exports = {
           {
             title: 'Seeds',
             path: '/guides/concepts/seeds/'
-          },
-          {
-            title: 'Rate Limits',
-            path: '/guides/concepts/rate-limits/'
           }
         ]
         },
