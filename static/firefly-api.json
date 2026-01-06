@@ -24,7 +24,7 @@
     },
     {
         "name": "Manage jobs",
-        "description": "Endpoints for managing running asyncronous jobs."
+        "description": "Endpoints for managing running asynchronous jobs."
       }
   ],
   "paths": {
@@ -2542,8 +2542,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/BaseInputImageV3",
-            "description": "Firefly will create similar variations. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
-            "title": "The reference image"
+            "description": "Firefly will create similar variations. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>"
           },
           "numVariations": {
             "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify `seeds`.",
@@ -2633,8 +2632,7 @@
           },
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
-            "description": "Source image that Firefly expands, fills or uses to generate similar images",
-            "title": "Source image"
+            "description": "Source image that Firefly expands, fills or uses to generate similar images."
           }
         },
         "required": [
