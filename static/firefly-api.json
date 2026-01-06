@@ -20,7 +20,7 @@
   "tags": [
     {
         "name": "Common operations",
-        "description": "Endpoints for common operations."
+        "description": "Core Firefly API operations for generating and manipulating images and videos."
     },
     {
         "name": "Manage jobs",
@@ -241,7 +241,7 @@
                 }
               },
               "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
+                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account.",
                 "schema": {
                   "type": "string"
                 }
@@ -479,7 +479,7 @@
                 }
               },
               "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
+                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account.",
                 "schema": {
                   "type": "string"
                 }
@@ -510,7 +510,7 @@
       "post": {
         "operationId": "expandImagesV3Async",
         "summary": "Expand image",
-        "description": "Change the aspect ratio or size of an image and expand it. You can optionally provide a text prompt and Firefly generates additional filler image based on the prompt. For example, you can add a prompt to as Firefly to generate pine trees and a forest landscape which fills empty parts of the newly expanded image.\n\nThis task is performed asynchronously, which means that a successful response returns a <code>jobID</code>. Use this ID with the Get Result endpoint to check the status of the job and get the processed image result or with the Cancel Job endpoint to cancel the job.",
+        "description": "Change the aspect ratio or size of an image to expand it. Optionally, provide a text prompt to generate additional imagery for the expansion.",
         "tags": ["Common operations"],
         "requestBody": {
           "content": {
@@ -700,7 +700,7 @@
                 }
               },
               "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
+                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account.",
                 "schema": {
                   "type": "string"
                 }
@@ -731,7 +731,7 @@
       "post": {
         "operationId": "fillImagesV3Async",
         "summary": "Fill image",
-        "description": "Fills an area of an image based on images that Firefly generates based on your prompt. We call this part of an image an image, and this mask defines the area which should be filled. For example you can have an circular mask defined on an image and Firefly can generate the image of a planet in that area.\n\nThis task is performed asynchronously, which means that a successful response returns a <code>jobID</code>. Use this ID with the Get Result endpoint to check the status of the job and get the processed image result or with the Cancel Job endpoint to cancel the job.",
+        "description": "Generates a fill in an area of an image based on a text prompt. A mask defines the area of the image to be filled.",
         "tags": ["Common operations"],
         "requestBody": {
           "content": {
@@ -921,7 +921,7 @@
                 }
               },
               "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
+                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account.",
                 "schema": {
                   "type": "string"
                 }
@@ -1132,7 +1132,7 @@
                 }
               },
               "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
+                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account.",
                 "schema": {
                   "type": "string"
                 }
@@ -1291,7 +1291,7 @@
                 }
               },
               "x-access-rate-limit-level": {
-                "description": "Indicates the level at which the rate limit was applied.",
+                "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account.",
                 "schema": {
                   "type": "string"
                 }
@@ -1329,7 +1329,7 @@
           {
             "name": "x-request-id",
             "in": "header",
-            "description": "A unique request identifier defined by you. This is used by Adobe Support to trace the request in logs. This header is automatically generated by the server if not set it explicitly.",
+            "description": "A unique request identifier defined by you. This is used by Adobe Support to trace the request in logs. This header is automatically generated by the server if not explicitly set.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1494,7 +1494,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successful operation",
+            "description": "Successful Operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -1576,7 +1576,7 @@
         ],
         "parameters": [
           {
-            "description": "Unique identifier for the submitted job",
+            "description": "Unique identifier for the submitted job.",
             "in": "path",
             "name": "jobId",
             "required": true,
@@ -1667,7 +1667,7 @@
             "description": "Successful Response",
             "headers": {
               "Link": {
-                "description": "Links to check job status & cancel job",
+                "description": "Links to check job status and cancel job.",
                 "schema": {
                   "type": "string"
                 }
@@ -1711,7 +1711,7 @@
         ],
         "parameters": [
           {
-            "description": "Unique identifier for the submitted job",
+            "description": "Unique identifier for the submitted job.",
             "in": "path",
             "name": "jobId",
             "required": true,
@@ -2159,7 +2159,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains for input URLs in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>"
+            "description": "The image to expand. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains for input URLs in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>."
           },
           "mask": {
             "$ref": "#/components/schemas/InputMaskV3",
@@ -2241,7 +2241,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains for input URLs in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>"
+            "description": "The image to expand. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains for input URLs in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>."
           },
           "mask": {
             "$ref": "#/components/schemas/InputMaskV3",
@@ -2293,7 +2293,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final expanded image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final expanded image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>.",
             "title": "The size"
           }
         },
@@ -2378,7 +2378,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final image, in pixels. Supported sizes for the output images with `image3` are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li>  <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>Widescreen (16:9) - width 2688px, height 1512px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(7:4)  - width 1344px, height 756px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul> Supported sizes for the output images with `image4` are: <ul> <li>(1:1) - width 2048px, height 2048px</li> <li>(4:3) - width 2304px, height 1792px</li> <li>(3:4) - width 1792px, height 2304px</li> <li>(16:9) - width 2688px, height 1536px</li> <li>(9:16) - width 1440px, height 2560px</li> </ul> "
+            "description": "The desired width and height for the final image, in pixels. Supported sizes for the output images with `image3` are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li>  <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>Widescreen (16:9) - width 2688px, height 1512px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(7:4)  - width 1344px, height 756px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul> Supported sizes for the output images with `image4` are: <ul> <li>(1:1) - width 2048px, height 2048px</li> <li>(4:3) - width 2304px, height 1792px</li> <li>(3:4) - width 1792px, height 2304px</li> <li>(16:9) - width 2688px, height 1536px</li> <li>(9:16) - width 1440px, height 2560px</li> </ul>."
           },
           "structure": {
             "description": "An object with the reference image details for structure.",
@@ -2453,7 +2453,7 @@
           },
           "image": {
             "$ref": "#/components/schemas/InputImageV3",
-            "description": "The image to expand. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains for input URLs in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>"
+            "description": "The image to expand. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains for input URLs in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>."
           },
           "mask": {
             "$ref": "#/components/schemas/BaseInputMaskV3",
@@ -2498,7 +2498,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>.",
             "title": "The size"
           },
           "style": {
@@ -2542,7 +2542,7 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/BaseInputImageV3",
-            "description": "Firefly will create similar variations. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>"
+            "description": "Firefly will create similar variations. Use a URL or an <code>uploadID</code> as the source for the image. Firefly only allows these listed domains: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>."
           },
           "numVariations": {
             "description": "Generate this number of variations. <code>numVariations</code> defaults to the number of seed images, or to 1 if you do not specify `seeds`.",
@@ -2572,7 +2572,7 @@
               "height": 2048,
               "width": 2048
             },
-            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>",
+            "description": "The desired width and height for the final image in pixels. The supported sizes for the output images are: <ul> <li>Square (1:1) - width 2048px, height 2048px </li> <li>Square (1:1) - width 1024px, height 1024px </li> <li>Landscape (4:3)  - width 2304px, height 1792px </li> <li>Portrait (3:4)  - width 1792px, height 2304px</li> <li>Widescreen (16:9) - width 2688px, height 1536px </li> <li>(7:4)  - width 1344px, height 768px </li> <li>(9:7) - width 1152px, height 896px </li> <li>(7:9) - width 896px, height 1152px</li> </ul>.",
             "title": "The size"
           }
         },
@@ -2632,7 +2632,7 @@
           },
           "source": {
             "$ref": "#/components/schemas/PublicBinaryInputV3",
-            "description": "Source image that Firefly expands, fills or uses to generate similar images."
+            "description": "Source image that Firefly expands, fills, or uses to generate similar images."
           }
         },
         "required": [
@@ -2692,7 +2692,7 @@
                 "$ref": "#/components/schemas/PlacementInset"
               }
             ],
-            "description": "Margin values in target size",
+            "description": "Margin values in target size.",
             "title": "Margin values in target size"
           }
         },
@@ -2756,7 +2756,7 @@
             "type": "string"
           },
           "url": {
-            "description": "The pre-signed URL of an uploaded file. Use a URL or an `uploadID` as the source for the image. Firefly only allows these listed domains in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>",
+            "description": "The pre-signed URL of an uploaded file. Use a URL or an `uploadID` as the source for the image. Firefly only allows these listed domains in the request: <ul> <li><code>amazonaws.com</code></li> <li><code>windows.net</code></li> <li><code>dropboxusercontent.com</code></li> <li><code>storage.googleapis.com</code></li> </ul>.",
             "format": "uri",
             "maxLength": 2083,
             "minLength": 1,
@@ -2770,7 +2770,7 @@
       "PublicBinaryOutputV3": {
         "properties": {
           "url": {
-            "description": "This URL expires in one hour",
+            "description": "This URL expires in one hour.",
             "format": "uri",
             "maxLength": 2083,
             "minLength": 1,
@@ -3218,7 +3218,7 @@
         "properties": {
           "custom_models": {
             "type": "array",
-            "description": "Custom Models List",
+            "description": "List of custom models.",
             "items": {
               "$ref": "#/components/schemas/CustomModelFF3pInfo"
             }
@@ -3228,7 +3228,7 @@
           },
           "total_count": {
             "type": "integer",
-            "description": "Total results for query",
+            "description": "Total number of results for the query.",
             "format": "int32"
           }
         },
@@ -3293,7 +3293,7 @@
           },
           "samplePrompt": {
             "type": "string",
-            "description": "Example string provided by the custom model's trainer"
+            "description": "Example string provided by the custom model's trainer."
           },
           "displayName": {
             "type": "string",
@@ -3304,7 +3304,7 @@
             "description": "When 'trainingMode' is 'subject', this string specifies the subject for the prompt."
           }
         },
-        "description": "Custom Model info",
+        "description": "Custom Model info.",
         "title": "CustomModelFF3pInfo"
       },
       "BaseModel": {
@@ -3358,35 +3358,35 @@
         "properties": {
           "orderBy": {
             "type": "string",
-            "description": "List orderby"
+            "description": "List order-by."
           },
           "start": {
             "type": "string",
-            "description": "List start position"
+            "description": "List start position."
           },
-          "next": {
-            "type": "string",
-            "description": "List next position"
-          },
-          "count": {
-            "type": "integer",
-            "description": "List page size",
-            "format": "int32"
-          },
-          "type": {
-            "type": "string",
-            "description": "List page type"
-          },
-          "property": {
-            "type": "string",
-            "description": "List page property"
-          }
+            "next": {
+              "type": "string",
+              "description": "List next position."
+            },
+            "count": {
+              "type": "integer",
+              "description": "List page size.",
+              "format": "int32"
+            },
+            "type": {
+              "type": "string",
+              "description": "List page type."
+            },
+            "property": {
+              "type": "string",
+              "description": "List page property."
+            }
         },
-        "description": "List Page",
+        "description": "List Page.",
         "title": "PageSpec"
       },
       "StorageImageResponse": {
-        "description": "Storage response",
+        "description": "Storage response.",
         "type": "object",
         "properties": {
           "images": {
@@ -3401,7 +3401,7 @@
       },
       "StorageImage": {
         "type": "object",
-        "description": "Source image",
+        "description": "Source image.",
         "required": [
           "id"
         ],
@@ -3418,11 +3418,11 @@
         "properties": {
           "message": {
             "type": "string",
-            "description": "Error message"
+            "description": "Error message."
           },
           "error_code": {
             "type": "string",
-            "description": "Associated error code"
+            "description": "Associated error code."
           }
         },
         "title": "ErrorBody"
