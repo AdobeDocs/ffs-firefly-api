@@ -18,6 +18,234 @@
     }
   ],
     "paths": {
+      "/v3/images/generate-similar-async": {
+        "post": {
+          "operationId": "generateSimilarImagesV3Async",
+          "summary": "Generate Similar Images Async",
+          "description": "Generate similar images based on a reference image that you provide as a parameter.\n\nThis task is performed asynchronously, which means that a successful response returns a <code>jobID</code>. Use this ID with the Get Result endpoint to check the status of the job and get the processed image result or with the Cancel Job endpoint to cancel the job.",
+          "parameters": [
+            {
+              "name": "x-model-version",
+              "in": "header",
+              "description": "Specify the Firefly model version to use for the image generation.",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "default": "image3",
+                "enum": ["image3", "image4_standard", "image4_ultra"]
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+                }
+              },
+              "multipart/form-data": {
+                "schema": {
+                  "$ref": "#/components/schemas/Body_generateSimilarImagesV3Async"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "202": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AsyncAcceptResponseV3"
+                  }
+                }
+              },
+              "description": "Successful Response",
+              "headers": {
+                "Link": {
+                  "description": "Links to check the job status or cancel the job.",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "400": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "bad_request": {
+                      "value": {
+                        "error_code": "bad_request"
+                      }
+                    },
+                    "empty_input_body": {
+                      "value": {
+                        "error_code": "empty_input_body"
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Bad Request"
+            },
+            "403": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "access_error": {
+                      "value": {
+                        "error_code": "access_error"
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Forbidden",
+              "headers": {
+                "x-access-error": {
+                  "description": "Indicates the reason access is not authorized.",
+                  "schema": {
+                    "type": "string",
+                    "enum": ["quota_exhausted", "user_non_entitled", "user_profile_denied", "invalid_ims_scope"]
+                  }
+                }
+              }
+            },
+            "408": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "timeout_error": {
+                      "value": {
+                        "error_code": "timeout_error"
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Request Timeout"
+            },
+            "413": {
+              "content": {
+                "text/html": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              },
+              "description": "Request Entity Too Large"
+            },
+            "415": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "invalid_content_type": {
+                      "value": {
+                        "error_code": "invalid_content_type"
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Unsupported Media Type"
+            },
+            "422": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "validation_error": {
+                      "value": {
+                        "error_code": "validation_error",
+                        "validation_errors": [
+                          {
+                            "ctx": {
+                              "enum_values": [
+                                "photo",
+                                "art"
+                              ]
+                            },
+                            "loc": [
+                              "body",
+                              "contentClass"
+                            ],
+                            "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                            "type": "type_error.enum"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Unprocessable Entity"
+            },
+            "429": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "rate_limited": {
+                      "value": {
+                        "error_code": "rate_limited"
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Too Many Requests",
+              "headers": {
+                "retry-after": {
+                  "description": "Indicates the date after which the client should retry the request.",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "x-access-rate-limit-level": {
+                  "description": "Indicates the level at which the rate limit was applied. Possible values are:\n- org: The rate limit was applied to the organisation\n- account: The rate limit was applied to the organization's tech account",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "500": {
+              "content": {
+                "application/json": {
+                  "examples": {
+                    "runtime_error": {
+                      "value": {
+                        "error_code": "runtime_error"
+                      }
+                    }
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ApiError"
+                  }
+                }
+              },
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
       "/v3/custom-models": {
         "get": {
           "summary": "Retrieve Custom Models",
