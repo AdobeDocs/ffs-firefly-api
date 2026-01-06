@@ -1,7 +1,7 @@
 {
     "openapi": "3.1.0",
     "info": {
-      "version": "",
+      "version": "3.0.0",
       "title": "Firefly API",
       "description": "REST API for Adobe Firefly services including image generation, image alteration, video generation, and other related services."
   },
@@ -18,6 +18,109 @@
     }
   ],
     "paths": {
+      "/v2/storage/image": {
+        "post": {
+          "summary": "Upload Image",
+          "description": "Upload source image or mask for image-to-image operations, such as fill, expand. This API returns an identifier that is used to refer to uploaded content. The uploaded assets will be valid for 7 days from the date you upload them.",
+          "operationId": "storageImageV2",
+          "requestBody": {
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/webp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            },
+            "description": "The PNG/JPEG/WEBP image to be stored (binary data). The maximum file size supported for uploading an image is 15MB.",
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StorageImageResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorBody"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorBody"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorBody"
+                  }
+                }
+              }
+            },
+            "429": {
+              "description": "Too Many Requests",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorBody"
+                  }
+                }
+              }
+            },
+            "451": {
+              "description": "Unavailable for Legal Reasons",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorBody"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorBody"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "/v3/images/generate-object-composite-async": {
         "post": {
           "operationId": "generateObjectCompositeV3Async",
@@ -2745,7 +2848,7 @@
             },
             "image": {
               "description": "The details of the image used as a keyframe for the generated video. Provided images are used as a first frame or final frame to guide the video generation.",
-              "$ref": "#/components/schemas/InputImageV3"
+              "$ref": "#/components/schemas/InputImageVideoV3"
             },
             "prompt": {
               "description": "The prompt used to generate the video. The longer the prompt, the better.",
@@ -2801,7 +2904,7 @@
           "title": "ClinetoSize",
           "type": "object"
         },
-        "InputImageV3": {
+        "InputImageVideoV3": {
           "properties": {
             "conditions": {
               "default": [],
@@ -2812,7 +2915,7 @@
               "type": "array"
             }
           },
-          "title": "InputImageV3",
+          "title": "InputImageVideoV3",
           "type": "object"
         },
         "ImageConditionV3": {
@@ -3186,6 +3289,46 @@
           },
           "description": "List Page",
           "title": "PageSpec"
+        },
+        "StorageImageResponse": {
+          "description": "Storage response",
+          "type": "object",
+          "properties": {
+            "images": {
+              "type": "array",
+              "description": "Array of objects containing asset ID.",
+              "items": {
+                "$ref": "#/components/schemas/StorageImage"
+              }
+            }
+          },
+          "title": "StorageImageResponse"
+        },
+        "StorageImage": {
+          "type": "object",
+          "description": "Source image",
+          "required": ["id"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "ID associated with the asset. The id will be valid for 7 days from the date of creation."
+            }
+          },
+          "title": "StorageImage"
+        },
+        "ErrorBody": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Error message"
+            },
+            "error_code": {
+              "type": "string",
+              "description": "Associated error code"
+            }
+          },
+          "title": "ErrorBody"
         }
       },
       "securitySchemes": {
