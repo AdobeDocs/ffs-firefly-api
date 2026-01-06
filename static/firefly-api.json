@@ -2163,6 +2163,280 @@
           ],
           "title": "ValidationErrorMessage",
           "type": "object"
+        },
+        "GenerateVideoRequestV3": {
+          "properties": {
+            "bitRateFactor": {
+              "description": "The constant rate factor for encoding video. 0 indicates a lossless generation, with the highest quality and largest file size. 63 indicates the worst quality generation with the smallest file size. The suggested value range is 17-23.",
+              "maximum": 63,
+              "minimum": 0,
+              "default": 18,
+              "type": "integer"
+            },
+            "image": {
+              "description": "The details of the image used as a keyframe for the generated video. Provided images are used as a first frame or final frame to guide the video generation.",
+              "$ref": "#/components/schemas/InputImageV3"
+            },
+            "prompt": {
+              "description": "The prompt used to generate the video. The longer the prompt, the better.",
+              "type": "string",
+              "example": "A lone figure stands in the middle of a vast desert, looking up at the sky, with a sense of awe and wonder."
+            },
+            "seeds": {
+              "description": "The seed reference value. Currently only 1 seed is supported.",
+              "items": {
+                "type": "integer"
+              },
+              "maxItems": 1,
+              "minItems": 1,
+              "type": "array",
+              "example": [1842533538]
+            },
+            "sizes": {
+              "description": "The dimensions of the generated video.",
+              "items": {
+                "$ref": "#/components/schemas/ClinetoSize"
+              },
+              "type": "array"
+            },
+            "videoSettings": {
+              "description": "The camera and shot control settings.",
+              "$ref": "#/components/schemas/VideoSettingsV3"
+            }
+          },
+          "title": "Generating video from prompt",
+          "type": "object"
+        },
+        "ClinetoSize": {
+          "properties": {
+            "height": {
+              "maximum": 8192,
+              "minimum": 1,
+              "description": "The height of the output video.",
+              "type": "integer",
+              "example": 720
+            },
+            "width": {
+              "maximum": 8192,
+              "minimum": 1,
+              "description": "The width of the output video.",
+              "type": "integer",
+              "example": 720
+            }
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "title": "ClinetoSize",
+          "type": "object"
+        },
+        "InputImageV3": {
+          "properties": {
+            "conditions": {
+              "default": [],
+              "description": "The details about the keyframe images used for the video generation.",
+              "items": {
+                "$ref": "#/components/schemas/ImageConditionV3"
+              },
+              "type": "array"
+            }
+          },
+          "title": "InputImageV3",
+          "type": "object"
+        },
+        "ImageConditionV3": {
+          "properties": {
+            "placement": {
+              "$ref": "#/components/schemas/PlacementStart",
+              "description": "Details about the timeline placement of the image."
+            },
+            "source": {
+              "$ref": "#/components/schemas/PublicBinaryInputV3",
+              "description": "The source details of the image."
+            }
+          },
+          "required": [
+            "source",
+            "placement"
+          ],
+          "title": "ImageConditionV3",
+          "type": "object"
+        },
+        "PlacementStart": {
+          "properties": {
+            "position": {
+              "description": "The position of the image on the timeline for the generated video, 0 being the first frame and 1 being the last frame.",
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "position"
+          ],
+          "title": "PlacementStart",
+          "type": "object"
+        },
+        "VideoSettingsV3": {
+          "properties": {
+            "cameraMotion": {
+              "$ref": "#/components/schemas/CameraMotion",
+              "description": "The camera motion control."
+            },
+            "promptStyle": {
+              "$ref": "#/components/schemas/VideoPromptStyle",
+              "description": "The style of the generated video."
+            },
+            "shotAngle": {
+              "$ref": "#/components/schemas/ShotAngle",
+              "description": "The shot angle control."
+            },
+            "shotSize": {
+              "$ref": "#/components/schemas/ShotSize",
+              "description": "The shot size control."
+            }
+          },
+          "type": "object"
+        },
+        "CameraMotion": {
+          "enum": [
+            "camera pan left",
+            "camera pan right",
+            "camera zoom in",
+            "camera zoom out",
+            "camera tilt up",
+            "camera tilt down",
+            "camera locked down",
+            "camera handheld"
+          ],
+          "title": "CameraMotion",
+          "type": "string"
+        },
+        "VideoPromptStyle": {
+          "enum": [
+            "anime",
+            "3d",
+            "fantasy",
+            "cinematic",
+            "claymation",
+            "line art",
+            "stop motion",
+            "2d",
+            "vector art",
+            "black and white"
+          ],
+          "title": "VideoPromptStyle",
+          "type": "string"
+        },
+        "ShotAngle": {
+          "enum": [
+            "aerial shot",
+            "eye_level shot",
+            "high angle shot",
+            "low angle shot",
+            "top-down shot"
+          ],
+          "title": "ShotAngle",
+          "type": "string"
+        },
+        "ShotSize": {
+          "enum": [
+            "close-up shot",
+            "extreme close-up",
+            "medium shot",
+            "long shot",
+            "extreme long shot"
+          ],
+          "title": "ShotSize",
+          "type": "string"
+        },
+        "VideoResult": {
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "The pre-signed URL for the generated video file."
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "title": "VideoResult",
+          "type": "object"
+        },
+        "VideoOutput": {
+          "properties": {
+            "seed": {
+              "type": "integer",
+              "description": "The seed value used for generating this video output."
+            },
+            "video": {
+              "$ref": "#/components/schemas/VideoResult"
+            }
+          },
+          "required": [
+            "seed",
+            "video"
+          ],
+          "title": "VideoOutput",
+          "type": "object"
+        },
+        "AsyncResult": {
+          "properties": {
+            "size": {
+              "$ref": "#/components/schemas/ClinetoSize"
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/VideoOutput"
+              },
+              "description": "Array of generated video outputs."
+            }
+          },
+          "required": [
+            "size",
+            "outputs"
+          ],
+          "title": "AsyncResult",
+          "type": "object"
+        },
+        "AsyncResponseV3": {
+          "properties": {
+            "cancelUrl": {
+              "title": "Cancel URL",
+              "description": "A URL to cancel the job.",
+              "type": "string"
+            },
+            "jobId": {
+              "title": "Job ID",
+              "description": "The ID for the asynchronous job.",
+              "type": "string"
+            },
+            "progress": {
+              "description": "The progress of the running job. The value is the percentage of the job that has been completed.",
+              "type": "integer"
+            },
+            "result": {
+              "description": "The result of the completed job.",
+              "$ref": "#/components/schemas/AsyncResult"
+            },
+            "status": {
+              "title": "Status",
+              "description": "The status of the job.",
+              "type": "string"
+            },
+            "statusUrl": {
+              "title": "Status URL",
+              "description": "A URL to show the status of the current job.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "jobId"
+          ],
+          "title": "AsyncResponseV3",
+          "type": "object"
         }
       },
       "securitySchemes": {
