@@ -1,6 +1,7 @@
 ---
 title: Firefly API Reference
 description: Firefly's API reference documentation for image generation and related services.
+layout: none
 keywords:
   - Adobe Firefly Services
   - Firefly API
