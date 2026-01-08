@@ -11,7 +11,7 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/firefly-api/',
+  pathPrefix: process.env.PATH_PREFIX || '/firefly-services/docs/firefly-api/',
   siteMetadata: {
     pages: [
       {
