@@ -12,4 +12,4 @@ keywords:
 hideBreadcrumbNav: true
 ---
 
-<RedoclyAPIBlock src="/firefly-services/docs/firefly-api/openapi.json" hideTryItPanel scrollYOffset={64} generateCodeSamples="languages: [{lang: 'curl'}]" />/>
+<RedoclyAPIBlock src="/firefly-services/docs/firefly-api/firefly-api.json" hideTryItPanel scrollYOffset={64} generateCodeSamples="languages: [{lang: 'curl'}]" />
