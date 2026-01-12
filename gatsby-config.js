@@ -11,17 +11,70 @@
  */
 
 module.exports = {
-  pathPrefix: process.env.PATH_PREFIX || '/firefly-api/',
+  pathPrefix: process.env.PATH_PREFIX || '/firefly-services/docs/firefly-api/',
   siteMetadata: {
     pages: [
       {
-        title: 'Overview',
+        title: 'All Firefly Services',
+        menu: [
+          {
+            title: "Firefly Services Home",
+            description: "Introduction and general information about all Firefly services.",
+            path: "https://developer.adobe.com/firefly-services/docs/guides/?aio_internal"
+          },
+          {
+            title: "Firefly API",
+            description: "Docs and references for Firefly API.",
+            path: "https://developer.adobe.com/firefly-services/docs/firefly-api/?aio_internal"
+          },
+          {
+            title: "Photoshop API",
+            description: "Docs and references for Photoshop API.",
+            path: "https://developer.adobe.com/firefly-services/docs/photoshop/?aio_internal"
+          },
+          {
+            title: "Lightroom API",
+            description: "Docs and references for Lightroom API.",
+            path: "https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal"
+          },
+          {
+            title: "Audio/Video API",
+            description: "Docs and references for Audio/Video API.",
+            path: "https://developer.adobe.com/audio-video-firefly-services/?aio_internal"
+          },
+          {
+            title: "InDesign API",
+            description: "Docs and references for InDesign API.",
+            path: "https://developer.adobe.com/firefly-services/docs/indesign-apis/?aio_internal"
+          },
+          {
+            title: "Substance 3D API",
+            description: "Unlock generative AI for rendering and object composites.",
+            path: "https://developer.adobe.com/firefly-services/docs/s3dapi/?aio_internal"
+          },
+          {
+            title: "Content Tagging API",
+            description: "Docs and references for Content Tagging services.",
+            path: "https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html"
+          }
+        ]
+      },
+      {
+        title: 'About Firefly API',
         path: '/'
+      },
+      {
+        title: 'Getting Started',
+        path: '/getting-started/'
       },
       {
         title: 'Guides',
         path: '/guides/'
       },
+      {
+        title: 'API Reference',
+        path: '/api/'
+      }
     ],
     subPages: [
       {
@@ -30,85 +83,113 @@ module.exports = {
       },
       {
         title: 'Concepts',
-        path: '/guides/concepts/authentication/',
+        path: '/guides/concepts/custom-models/',
         pages: [
-          // {
-          //   title: 'Get Credentials',
-          //   path: '/guides/concepts/create-credentials/'
-          // },
           {
-            title: 'Authentication',
-            path: '/guides/concepts/authentication/'
+            title: 'Custom Models Overview',
+            path: '/guides/concepts/custom-models/'
           },
           {
-            title: 'Image Model Styles',
-            path: '/guides/concepts/styles/'
+            title: 'Style Presets',
+            path: '/guides/concepts/style-presets/'
           },
           {
-            title: 'Rate limits',
-            path: '/guides/concepts/rate-limits/'
+            title: 'Style Image Reference',
+            path: '/guides/concepts/style-image-reference/'
           },
           {
-            title: ' Seed ID',
-            path: '/guides/concepts/seed-id'
-
+            title: 'Structure Image Reference',
+            path: '/guides/concepts/structure-image-reference/'
+          },
+          {
+            title: 'Image Upload',
+            path: '/guides/concepts/image-upload/'
+          },
+          {
+            title: 'Using Masks',
+            path: '/guides/concepts/masking/'
+          },
+          {
+            title: 'Using Placement',
+            path: '/guides/concepts/placement/'
+          },
+          {
+            title: 'Seeds',
+            path: '/guides/concepts/seeds/'
           }
         ]
         },
         {
           title: 'How-Tos',
-          path: '/guides/how-tos/create-your-first-ff-application.md',
+          path: '/guides/how-tos/firefly-generate-image-api-tutorial/',
           pages:[
             {
-              title: 'Create Your First Firefly API Implementation',
-              path: '/guides/how-tos/create-your-first-ff-application.md'
+              title: 'Firefly Generate Image API Tutorial',
+              path: '/guides/how-tos/firefly-generate-image-api-tutorial/'
             },
             {
-              title: 'Integrating Firefly Services with Microsoft Power Automate',
-              path: '/guides/how-tos/firefly-services-with-powerautomate'
+              title: 'Firefly Expand Image API Tutorial',
+              path: '/guides/how-tos/firefly-expand-image-api-tutorial/'
+            },
+            {
+              title: 'Firefly Fill Image API Tutorial',
+              path: '/guides/how-tos/firefly-fill-image-api-tutorial/'
+            },
+            {
+              title: 'Using the Firefly Asynchronous API',
+              path: '/guides/how-tos/using-async-apis/'
+            },
+            {
+              title: 'Custom Models Generate Image API Tutorial',
+              path: '/guides/how-tos/cm-generate-image/'
+            },
+            {
+              title: 'Grant apps access to a Custom Model',
+              path: '/guides/how-tos/cm-share-model/'
             }
           ]
         },
       {
-        title: 'API Reference',
-        path: '/guides/api/upload_image',
+        title: 'Getting Started',
+        path: '/getting-started/',
+        header: true,
         pages: [
           {
-            title: "Upload",
-            path: "/guides/api/upload_image/"
+            title: 'Authentication',
+            path: '/getting-started/'
           },
           {
-            title: "Generate Images",
-            path: "/guides/api/image_generation/"
+            title: 'Create Credentials',
+            path: '/getting-started/create-credentials/'
           },
           {
-            title: "Exapnd Image",
-            path: "/guides/api/generative_expand/"
+            title: 'Using Adobe Developer Console',
+            path: '/getting-started/dev-console/'
           },
           {
-            title: "Fill Image",
-            path: "/guides/api/generative_fill/"
+            title: 'Technical Usage Notes',
+            path: '/getting-started/usage-notes/'
+          },
+          {
+            title: 'Help',
+            path: '/getting-started/help/best-practices/',
+            pages:[
+              {
+                title: 'Best Practices',
+                path: '/getting-started/help/best-practices/'
+              },
+              {
+                title: 'Troubleshooting',
+                path: '/getting-started/help/troubleshooting/'
+              }
+            ]
+          },
+          {
+            title: 'Changelog',
+            path: '/getting-started/changelog/'
           }
         ]
       },
-      {
-        title: 'Changelog',
-        path: '/guides/changelog/',
-      },
-      {
-        title: 'Help',
-        path: '/guides/help/best-practices/',
-        pages:[
-          {
-            title: 'Best Practices',
-            path: '/guides/help/best-practices/'
-          },
-          {
-            title: 'Troubleshooting',
-            path: '/guides/help/troubleshooting/'
-          }
-        ]
-      }     
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`]

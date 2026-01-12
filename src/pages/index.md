@@ -25,7 +25,9 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="heading, text" background="rgb(233, 80, 80)"/>
+<Hero slots="image, heading, text" background="rgb(80, 190, 233)"/>
+
+![Firefly API banner image](/firefly-image-hero.jpg)
 
 # Adobe Firefly API - Firefly Services
 
