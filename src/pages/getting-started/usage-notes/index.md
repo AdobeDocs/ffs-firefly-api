@@ -49,7 +49,6 @@ Videos can be generated with dimensions for these supported aspect ratios:
 | 1:1 | 720w x 720h |
 | 1:1 | 540w x 540h |
 
-
 ## Rate limits
 
 Adobe Firefly API places default rate limits on the volume and frequency of API calls. Contact your account manager to request higher rate limits if needed.
@@ -76,5 +75,3 @@ Rate limits are standard practice that serve several important purposes, includi
 * Preventing abuse: Protects APIs from being overwhelmed by excessive requests.
 * Protecting against downtime: Reduces the risk of service interruptions.
 * Controlling costs: Helps manage resource consumption and associated expenses.
-
-

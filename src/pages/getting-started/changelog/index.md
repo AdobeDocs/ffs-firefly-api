@@ -177,4 +177,3 @@ We're excited to announce the release of our Generate Images API v1.0, the first
 * Introduce defaults for `accept` and `mimetype` headers
 * Add ability to specify JPG quality
 * Rendering image in API References sandbox
-

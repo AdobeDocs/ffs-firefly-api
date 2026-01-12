@@ -58,4 +58,3 @@ The Adobe Firefly API provides powerful functionality for developers to integrat
 
 - Implement logging to track API usage, errors, and performance metrics.
 - Monitor API usage and performance to identify and address issues proactively.
-
