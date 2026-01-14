@@ -66,7 +66,7 @@ A quickstart guide to making your first successful Firefly API call.
 
 <!-- ### API References -->
 
-[Try the API](guides/api/upload_image/)
+[Try the API](./api/index.md)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.
 
