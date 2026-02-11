@@ -2467,7 +2467,7 @@
             "description": "The position of the source image after Firefly adjusts it. The value describes the horizontal and vertical placement and dimensions of the image in the output. Note you cannot use placement for source images when you also apply a mask image."
           },
           "prompt": {
-            "description": "An optional text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
+            "description": "A text prompt up to 1024 characters. The longer the prompt the better Firefly performs.",
             "maxLength": 1024,
             "minLength": 1,
             "title": "The prompt",
