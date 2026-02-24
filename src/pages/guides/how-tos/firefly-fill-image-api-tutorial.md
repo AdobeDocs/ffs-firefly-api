@@ -39,7 +39,7 @@ twitter:
 
 # Firefly Fill Image API Tutorial
 
-Generatively edit specific areas of an image with the [Fill Image API](../api/)
+Generatively edit specific areas of an image with the Fill Image API.
 
 ||
 | --- | --- | --- |

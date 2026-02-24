@@ -68,7 +68,7 @@ twitter:
 
 # Firefly Generate Image API Tutorial
 
-Create custom illustrations and photos with the [Generate Image API](../api/)
+Create custom illustrations and photos with the Generate Image API.
 
 ![paris tourism illustration](../images/gen-image-tutorial-hero.jpeg)
 

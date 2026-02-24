@@ -37,7 +37,7 @@ twitter:
 
 # Firefly Expand Image API Tutorial
 
-Generatively expand an image out beyond its edges with the [Expand Image API](../api/)
+Generatively expand an image out beyond its edges with the Expand Image API.
 
 ![wallet advertisement hero image](../images/expand-image-tutorial-hero-image.jpeg)
 
