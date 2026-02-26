@@ -38,7 +38,7 @@ Learn to generate images using a Firefly Custom Model.
 
 |||
 | --- | --- |
-| ![trained-custom-model](./images/customModelTrained.png) Custom Image Model | ![generated-image](./images/almond.png) Output Image |
+| ![trained-custom-model](./images/custom-model-trained.png) Custom Image Model | ![generated-image](./images/almond.png) Output Image |
 
 ## Overview
 

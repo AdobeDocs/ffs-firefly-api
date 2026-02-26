@@ -69,57 +69,57 @@ Here are the style presets available and examples of the images they generate. U
 
 ||||
 | --- | --- | --- |
-| ![Graphic](../../images/styles/2x/Graphic.png) graphic | ![Wireframe](../../images/styles/2x/Wireframe.png) wireframe | ![Vector look](../../images/styles/2x/Vector_look.png) vector_look
-| ![Black and white](../../images/styles/2x/Black_and_white.png) bw | ![Cool tone](../../images/styles/2x/Cool_tone.png) cool_colors | ![Golden](../../images/styles/2x/Golden.png) golden
-| ![Monochromatic](../../images/styles/2x/Monochromatic.png) monochromatic | ![Muted color](../../images/styles/2x/Muted_color.png) muted_color | ![Pastel color](../../images/styles/2x/Pastel_color.png) pastel_color
-| ![Toned image](../../images/styles/2x/Toned_image.png) toned_image | ![Vibrant colors](../../images/styles/2x/Vibrant_colors.png) vibrant_colors | ![Warm tone](../../images/styles/2x/Warm_tone.png) warm_tone
-| ![Closeup](../../images/styles/2x/Closeup.png) closeup | ![Knolling](../../images/styles/2x/Knolling.png) knolling | ![Landscape photography](../../images/styles/2x/Landscape_photography.png) landscape_photography
-| ![Macrophotography](../../images/styles/2x/Macrophotography.png) macrophotography | ![Photographed through window](../../images/styles/2x/Photographed_through_window.png) photographed_through_window | ![Shallow depth of field](../../images/styles/2x/Shallow_depth_of_field.png) shallow_depth_of_field
-| ![Shot from above](../../images/styles/2x/Shot_from_above.png) shot_from_above | ![Shot from below](../../images/styles/2x/Shot_from_below.png) shot_from_below | ![Surface detail](../../images/styles/2x/Surface_detail.png) surface_detail
-| ![Wide angle](../../images/styles/2x/Wide_angle.png) wide_angle | ![Beautiful](../../images/styles/2x/Beautiful.png) beautiful | ![Bohemian](../../images/styles/2x/Bohemian.png) bohemian
-| ![Chaotic](../../images/styles/2x/Chaotic.png) chaotic | ![Dais](../../images/styles/2x/Dais.png) dais | ![Divine](../../images/styles/2x/Divine.png) divine
-| ![Eclectic](../../images/styles/2x/Eclectic.png) eclectic | ![Futuristic](../../images/styles/2x/Futuristic.png) futuristic | ![Kitschy](../../images/styles/2x/Kitschy.png) kitschy
-| ![Nostalgic](../../images/styles/2x/Nostalgic.png) nostalgic | ![Simple](../../images/styles/2x/Simple.png) simple | ![Antique photo](../../images/styles/2x/Antique_photo.png) antique_photo
-| ![Bioluminescent](../../images/styles/2x/Bioluminescent.png) bioluminescent | ![Bokeh effect](../../images/styles/2x/Bokeh_effect.png) bokeh | ![Color explosion](../../images/styles/2x/Color_explosion.png) color_explosion
-| ![Dark](../../images/styles/2x/Dark.png) dark | ![Faded image](../../images/styles/2x/Faded_image.png) faded_image | ![Fisheye](../../images/styles/2x/Fisheye.png) fisheye
-| ![Gomori photography](../../images/styles/2x/Gomori_photography.png) gomori_photography | ![Grainy film](../../images/styles/2x/Grainy_film.png) grainy_film | ![Iridescent](../../images/styles/2x/Iridescent.png) iridescent
-| ![Isometric](../../images/styles/2x/Isometric.png) isometric | ![Misty](../../images/styles/2x/Misty.png) misty | ![Neon](../../images/styles/2x/Neon.png) neon
-| ![Otherworldly depiction](../../images/styles/2x/Otherworldly_depiction.png) otherworldly_depiction | ![Ultraviolet](../../images/styles/2x/Ultraviolet.png) ultraviolet | ![Underwater](../../images/styles/2x/Underwater.png) underwater
-| ![Backlighting](../../images/styles/2x/Backlighting.png) backlighting | ![Dramatic light](../../images/styles/2x/Dramatic_lighting.png) dramatic_light | ![Golden hour](../../images/styles/2x/Golden_hour.png) golden_hour
-| ![Harsh light](../../images/styles/2x/Harsh_light.png) harsh_light | ![Long-time exposure](../../images/styles/2x/Long_time_exposure.png) long | ![Low lighting](../../images/styles/2x/Low_lighting.png) low_lighting
-| ![Multiexposure](../../images/styles/2x/Multiexposure.png) multiexposure | ![Studio light](../../images/styles/2x/Studio_light.png) studio_light | ![Surreal lighting](../../images/styles/2x/Surreal_lighting.png) surreal_lighting
-| ![3d patterns](../../images/styles/2x/3d_patterns.png) 3d_patterns | ![Charcoal](../../images/styles/2x/Charcoal.png) charcoal | ![Claymation](../../images/styles/2x/Claymation.png) claymation
-| ![Fabric](../../images/styles/2x/Fabric.png) fabric | ![Fur](../../images/styles/2x/Fur.png) fur | ![Guilloche patterns](../../images/styles/2x/Guilloche_patterns.png) guilloche_patterns
-| ![Layered paper](../../images/styles/2x/Layered_paper.png) layered_paper | ![Marble](../../images/styles/2x/Marble.png) marble_sculpture | ![Metal](../../images/styles/2x/Metal.png) made_of_metal
-| ![Origami](../../images/styles/2x/Origami.png) origami | ![Paper mache](../../images/styles/2x/Paper_mache.png) paper_mache | ![Polka-dot pattern](../../images/styles/2x/Polka_dot_pattern.png) polka
-| ![Strange patterns](../../images/styles/2x/Strange_patterns.png) strange_patterns | ![Wood carving](../../images/styles/2x/Wood_carving.png) wood_carving | ![Yarn](../../images/styles/2x/Yarn.png) yarn
-| ![Art deco](../../images/styles/2x/Art_deco.png) art_deco | ![Art nouveau](../../images/styles/2x/Art_nouveau.png) art_nouveau | ![Baroque](../../images/styles/2x/Baroque.png) baroque
-| ![Bauhaus](../../images/styles/2x/Bauhaus.png) bauhaus | ![Constructivism](../../images/styles/2x/Constructivism.png) constructivism | ![Cubism](../../images/styles/2x/Cubism.png) cubism
-| ![Cyberpunk](../../images/styles/2x/Cyberpunk.png) cyberpunk | ![Fantasy](../../images/styles/2x/Fantasy.png) fantasy | ![Fauvism](../../images/styles/2x/Fauvism.png) fauvism
-| ![Film noir](../../images/styles/2x/Film_noir.png) film_noir | ![Glitch art](../../images/styles/2x/Glitch_art.png) glitch_art | ![Impressionism](../../images/styles/2x/Impressionism.png) impressionism
-| ![Industrial](../../images/styles/2x/Industrial.png) industrialism | ![Maximalism](../../images/styles/2x/Maximalism.png) maximalism | ![Minimalism](../../images/styles/2x/Minimalism.png) minimalism
-| ![Modern art](../../images/styles/2x/Modern_art.png) modern_art | ![Modernism](../../images/styles/2x/Modernism.png) modernism | ![Neo-expressionism](../../images/styles/2x/Neoexpressionism.png) neo
-| ![Pointillism](../../images/styles/2x/Pointillism.png) pointillism | ![Psychedelic](../../images/styles/2x/Psychedelic.png) psychedelic | ![Science fiction](../../images/styles/2x/Science_fiction.png) science_fiction
-| ![Steampunk](../../images/styles/2x/Steampunk.png) steampunk | ![Surrealism](../../images/styles/2x/Surrealism.png) surrealism | ![Synthetism](../../images/styles/2x/Synthetism.png) synthetism
-| ![Synthwave](../../images/styles/2x/Synthwave.png) synthwave | ![Vaporwave](../../images/styles/2x/Vaporwave.png) vaporwave | ![Acrylic paint](../../images/styles/2x/Acrylic_paint.png) acrylic_paint
-| ![Bold lines](../../images/styles/2x/Bold_lines.png) bold_lines | ![Chiaroscuro](../../images/styles/2x/Chiaroscuro.png) chiaroscuro | ![Color shift art](../../images/styles/2x/Color_shift_art.png) color_shift_art
-| ![Daguerreotype](../../images/styles/2x/Daguerreotype.png) daguerreotype | ![Digital fractal](../../images/styles/2x/Digital_fractal.png) digital_fractal | ![Doodle drawing](../../images/styles/2x/Doodle_drawing.png) doodle_drawing
-| ![Double exposure](../../images/styles/2x/Double_exposure.png) double_exposure_portrait | ![Fresco](../../images/styles/2x/Fresco.png) fresco | ![Geometric pen](../../images/styles/2x/Geometric_pen.png) geometric_pen
-| ![Halftone](../../images/styles/2x/Halftone.png) halftone | ![Ink](../../images/styles/2x/Ink.png) ink | ![Light painting](../../images/styles/2x/Light_painting.png) light_painting
-| ![Line drawing](../../images/styles/2x/Line_drawing.png) line_drawing | ![Linocut](../../images/styles/2x/Linocut.png) linocut | ![Oil paint](../../images/styles/2x/Oil_paint.png) oil_paint
-| ![Paint Spattering](../../images/styles/2x/Paint_spattering.png) paint_spattering | ![Painting](../../images/styles/2x/Painting.png) painting | ![Palette knife](../../images/styles/2x/Palette_knife.png) palette_knife
-| ![Photo manipulation](../../images/styles/2x/Photo_manipulation.png) photo_manipulation | ![Scribble texture](../../images/styles/2x/Scribble_texture.png) scribble_texture |![Sketch](../../images/styles/2x/Sketch.png) sketch
-| ![Splattering](../../images/styles/2x/Splattering.png) splattering | ![Stippling](../../images/styles/2x/Stippling.png) stippling_drawing | ![Watercolor](../../images/styles/2x/Watercolor.png) watercolor
-| ![3d](../../images/styles/2x/3d.png) 3d | ![Anime](../../images/styles/2x/Anime.png) anime | ![Cartoon](../../images/styles/2x/Cartoon.png) cartoon
-| ![Cinematic](../../images/styles/2x/Cinematic.png) cinematic | ![Comic book](../../images/styles/2x/Comic_book.png) comic_book | ![Concept art](../../images/styles/2x/Concept_art.png) concept_art
-| ![Cyber matrix](../../images/styles/2x/Cyber_matrix.png) cyber_matrix | ![Digital art](../../images/styles/2x/Digital_art.png) digital_art | ![Flat design](../../images/styles/2x/Flat_design.png) flat_design
-| ![Geometric](../../images/styles/2x/Geometric.png) geometric | ![Glassmorphism](../../images/styles/2x/Glassmorphism.png) glassmorphism | ![Glitch graphic](../../images/styles/2x/Glitch_graphic.png) glitch_graphic
-| ![Graffiti](../../images/styles/2x/Graffiti.png) graffiti | ![Hyper realistic](../../images/styles/2x/Hyper_realistic.png) hyper_realistic | ![Interior design](../../images/styles/2x/Interior_design.png) interior_design
-| ![Line gradient](../../images/styles/2x/Line_gradient.png) line_gradient | ![Low poly](../../images/styles/2x/Low_poly.png) low_poly | ![Newspaper collage](../../images/styles/2x/Newspaper_collage.png) newspaper_collage
-| ![Optical illusion](../../images/styles/2x/Optical_illusion.png) optical_illusion | ![Pattern pixel](../../images/styles/2x/Pattern_pixel.png) pattern_pixel | ![Pixel art](../../images/styles/2x/Pixel_art.png) pixel_art
-| ![Pop art](../../images/styles/2x/Pop_art.png) pop_art | ![Product photo](../../images/styles/2x/Product_photo.png) product_photo | ![Psychedelic background](../../images/styles/2x/Psychedelic_background.png) psychedelic_background
-| ![Psychedelic wonderland](../../images/styles/2x/Psychedelic_wonderland.png) psychedelic_wonderland | ![Scandinavian](../../images/styles/2x/Scandinavian.png) scandinavian | ![Splash images](../../images/styles/2x/Splash_images.png) splash_images
-| ![Stamp](../../images/styles/2x/Stamp.png) stamp | ![Trompe l'oeil](../../images/styles/2x/Trompe_loeil.png) trompe_loeil
+| ![Graphic](../../images/styles/2x/graphic.png) graphic | ![Wireframe](../../images/styles/2x/wireframe.png) wireframe | ![Vector look](../../images/styles/2x/vector-look.png) vector_look
+| ![Black and white](../../images/styles/2x/black-and-white.png) bw | ![Cool tone](../../images/styles/2x/cool-tone.png) cool_colors | ![Golden](../../images/styles/2x/golden.png) golden
+| ![Monochromatic](../../images/styles/2x/monochromatic.png) monochromatic | ![Muted color](../../images/styles/2x/muted-color.png) muted_color | ![Pastel color](../../images/styles/2x/pastel-color.png) pastel_color
+| ![Toned image](../../images/styles/2x/toned-image.png) toned_image | ![Vibrant colors](../../images/styles/2x/vibrant-colors.png) vibrant_colors | ![Warm tone](../../images/styles/2x/warm-tone.png) warm_tone
+| ![Closeup](../../images/styles/2x/closeup.png) closeup | ![Knolling](../../images/styles/2x/knolling.png) knolling | ![Landscape photography](../../images/styles/2x/landscape-photography.png) landscape_photography
+| ![Macrophotography](../../images/styles/2x/macrophotography.png) macrophotography | ![Photographed through window](../../images/styles/2x/photographed-through-window.png) photographed_through_window | ![Shallow depth of field](../../images/styles/2x/shallow-depth-of-field.png) shallow_depth_of_field
+| ![Shot from above](../../images/styles/2x/shot-from-above.png) shot_from_above | ![Shot from below](../../images/styles/2x/shot-from-below.png) shot_from_below | ![Surface detail](../../images/styles/2x/surface-detail.png) surface_detail
+| ![Wide angle](../../images/styles/2x/wide-angle.png) wide_angle | ![Beautiful](../../images/styles/2x/beautiful.png) beautiful | ![Bohemian](../../images/styles/2x/bohemian.png) bohemian
+| ![Chaotic](../../images/styles/2x/chaotic.png) chaotic | ![Dais](../../images/styles/2x/dais.png) dais | ![Divine](../../images/styles/2x/divine.png) divine
+| ![Eclectic](../../images/styles/2x/eclectic.png) eclectic | ![Futuristic](../../images/styles/2x/futuristic.png) futuristic | ![Kitschy](../../images/styles/2x/kitschy.png) kitschy
+| ![Nostalgic](../../images/styles/2x/nostalgic.png) nostalgic | ![Simple](../../images/styles/2x/simple.png) simple | ![Antique photo](../../images/styles/2x/antique-photo.png) antique_photo
+| ![Bioluminescent](../../images/styles/2x/bioluminescent.png) bioluminescent | ![Bokeh effect](../../images/styles/2x/bokeh-effect.png) bokeh | ![Color explosion](../../images/styles/2x/color-explosion.png) color_explosion
+| ![Dark](../../images/styles/2x/dark.png) dark | ![Faded image](../../images/styles/2x/faded-image.png) faded_image | ![Fisheye](../../images/styles/2x/fisheye.png) fisheye
+| ![Gomori photography](../../images/styles/2x/gomori-photography.png) gomori_photography | ![Grainy film](../../images/styles/2x/grainy-film.png) grainy_film | ![Iridescent](../../images/styles/2x/iridescent.png) iridescent
+| ![Isometric](../../images/styles/2x/isometric.png) isometric | ![Misty](../../images/styles/2x/misty.png) misty | ![Neon](../../images/styles/2x/neon.png) neon
+| ![Otherworldly depiction](../../images/styles/2x/otherworldly-depiction.png) otherworldly_depiction | ![Ultraviolet](../../images/styles/2x/ultraviolet.png) ultraviolet | ![Underwater](../../images/styles/2x/underwater.png) underwater
+| ![Backlighting](../../images/styles/2x/backlighting.png) backlighting | ![Dramatic light](../../images/styles/2x/dramatic-lighting.png) dramatic_light | ![Golden hour](../../images/styles/2x/golden-hour.png) golden_hour
+| ![Harsh light](../../images/styles/2x/harsh-light.png) harsh_light | ![Long-time exposure](../../images/styles/2x/long-time-exposure.png) long | ![Low lighting](../../images/styles/2x/low-lighting.png) low_lighting
+| ![Multiexposure](../../images/styles/2x/multiexposure.png) multiexposure | ![Studio light](../../images/styles/2x/studio-light.png) studio_light | ![Surreal lighting](../../images/styles/2x/surreal-lighting.png) surreal_lighting
+| ![3d patterns](../../images/styles/2x/3d-patterns.png) 3d_patterns | ![Charcoal](../../images/styles/2x/charcoal.png) charcoal | ![Claymation](../../images/styles/2x/claymation.png) claymation
+| ![Fabric](../../images/styles/2x/fabric.png) fabric | ![Fur](../../images/styles/2x/fur.png) fur | ![Guilloche patterns](../../images/styles/2x/guilloche-patterns.png) guilloche_patterns
+| ![Layered paper](../../images/styles/2x/layered-paper.png) layered_paper | ![Marble](../../images/styles/2x/marble.png) marble_sculpture | ![Metal](../../images/styles/2x/metal.png) made_of_metal
+| ![Origami](../../images/styles/2x/origami.png) origami | ![Paper mache](../../images/styles/2x/paper-mache.png) paper_mache | ![Polka-dot pattern](../../images/styles/2x/polka-dot-pattern.png) polka
+| ![Strange patterns](../../images/styles/2x/strange-patterns.png) strange_patterns | ![Wood carving](../../images/styles/2x/wood-carving.png) wood_carving | ![Yarn](../../images/styles/2x/yarn.png) yarn
+| ![Art deco](../../images/styles/2x/art-deco.png) art_deco | ![Art nouveau](../../images/styles/2x/art-nouveau.png) art_nouveau | ![Baroque](../../images/styles/2x/baroque.png) baroque
+| ![Bauhaus](../../images/styles/2x/bauhaus.png) bauhaus | ![Constructivism](../../images/styles/2x/constructivism.png) constructivism | ![Cubism](../../images/styles/2x/cubism.png) cubism
+| ![Cyberpunk](../../images/styles/2x/cyberpunk.png) cyberpunk | ![Fantasy](../../images/styles/2x/fantasy.png) fantasy | ![Fauvism](../../images/styles/2x/fauvism.png) fauvism
+| ![Film noir](../../images/styles/2x/film-noir.png) film_noir | ![Glitch art](../../images/styles/2x/glitch-art.png) glitch_art | ![Impressionism](../../images/styles/2x/impressionism.png) impressionism
+| ![Industrial](../../images/styles/2x/industrial.png) industrialism | ![Maximalism](../../images/styles/2x/maximalism.png) maximalism | ![Minimalism](../../images/styles/2x/minimalism.png) minimalism
+| ![Modern art](../../images/styles/2x/modern-art.png) modern_art | ![Modernism](../../images/styles/2x/modernism.png) modernism | ![Neo-expressionism](../../images/styles/2x/neoexpressionism.png) neo
+| ![Pointillism](../../images/styles/2x/pointillism.png) pointillism | ![Psychedelic](../../images/styles/2x/psychedelic.png) psychedelic | ![Science fiction](../../images/styles/2x/science-fiction.png) science_fiction
+| ![Steampunk](../../images/styles/2x/steampunk.png) steampunk | ![Surrealism](../../images/styles/2x/surrealism.png) surrealism | ![Synthetism](../../images/styles/2x/synthetism.png) synthetism
+| ![Synthwave](../../images/styles/2x/synthwave.png) synthwave | ![Vaporwave](../../images/styles/2x/vaporwave.png) vaporwave | ![Acrylic paint](../../images/styles/2x/acrylic-paint.png) acrylic_paint
+| ![Bold lines](../../images/styles/2x/bold-lines.png) bold_lines | ![Chiaroscuro](../../images/styles/2x/chiaroscuro.png) chiaroscuro | ![Color shift art](../../images/styles/2x/color-shift-art.png) color_shift_art
+| ![Daguerreotype](../../images/styles/2x/daguerreotype.png) daguerreotype | ![Digital fractal](../../images/styles/2x/digital-fractal.png) digital_fractal | ![Doodle drawing](../../images/styles/2x/doodle-drawing.png) doodle_drawing
+| ![Double exposure](../../images/styles/2x/double-exposure.png) double_exposure_portrait | ![Fresco](../../images/styles/2x/fresco.png) fresco | ![Geometric pen](../../images/styles/2x/geometric-pen.png) geometric_pen
+| ![Halftone](../../images/styles/2x/halftone.png) halftone | ![Ink](../../images/styles/2x/ink.png) ink | ![Light painting](../../images/styles/2x/light-painting.png) light_painting
+| ![Line drawing](../../images/styles/2x/line-drawing.png) line_drawing | ![Linocut](../../images/styles/2x/linocut.png) linocut | ![Oil paint](../../images/styles/2x/oil-paint.png) oil_paint
+| ![Paint Spattering](../../images/styles/2x/paint-spattering.png) paint_spattering | ![Painting](../../images/styles/2x/painting.png) painting | ![Palette knife](../../images/styles/2x/palette-knife.png) palette_knife
+| ![Photo manipulation](../../images/styles/2x/photo-manipulation.png) photo_manipulation | ![Scribble texture](../../images/styles/2x/scribble-texture.png) scribble_texture |![Sketch](../../images/styles/2x/sketch.png) sketch
+| ![Splattering](../../images/styles/2x/splattering.png) splattering | ![Stippling](../../images/styles/2x/stippling.png) stippling_drawing | ![Watercolor](../../images/styles/2x/watercolor.png) watercolor
+| ![3d](../../images/styles/2x/3d.png) 3d | ![Anime](../../images/styles/2x/anime.png) anime | ![Cartoon](../../images/styles/2x/cartoon.png) cartoon
+| ![Cinematic](../../images/styles/2x/cinematic.png) cinematic | ![Comic book](../../images/styles/2x/comic-book.png) comic_book | ![Concept art](../../images/styles/2x/concept-art.png) concept_art
+| ![Cyber matrix](../../images/styles/2x/cyber-matrix.png) cyber_matrix | ![Digital art](../../images/styles/2x/digital-art.png) digital_art | ![Flat design](../../images/styles/2x/flat-design.png) flat_design
+| ![Geometric](../../images/styles/2x/geometric.png) geometric | ![Glassmorphism](../../images/styles/2x/glassmorphism.png) glassmorphism | ![Glitch graphic](../../images/styles/2x/glitch-graphic.png) glitch_graphic
+| ![Graffiti](../../images/styles/2x/graffiti.png) graffiti | ![Hyper realistic](../../images/styles/2x/hyper-realistic.png) hyper_realistic | ![Interior design](../../images/styles/2x/interior-design.png) interior_design
+| ![Line gradient](../../images/styles/2x/line-gradient.png) line_gradient | ![Low poly](../../images/styles/2x/low-poly.png) low_poly | ![Newspaper collage](../../images/styles/2x/newspaper-collage.png) newspaper_collage
+| ![Optical illusion](../../images/styles/2x/optical-illusion.png) optical_illusion | ![Pattern pixel](../../images/styles/2x/pattern-pixel.png) pattern_pixel | ![Pixel art](../../images/styles/2x/pixel-art.png) pixel_art
+| ![Pop art](../../images/styles/2x/pop-art.png) pop_art | ![Product photo](../../images/styles/2x/product-photo.png) product_photo | ![Psychedelic background](../../images/styles/2x/psychedelic-background.png) psychedelic_background
+| ![Psychedelic wonderland](../../images/styles/2x/psychedelic-wonderland.png) psychedelic_wonderland | ![Scandinavian](../../images/styles/2x/scandinavian.png) scandinavian | ![Splash images](../../images/styles/2x/splash-images.png) splash_images
+| ![Stamp](../../images/styles/2x/stamp.png) stamp | ![Trompe l'oeil](../../images/styles/2x/trompe-loeil.png) trompe_loeil
 
 ## Concepts in action
 

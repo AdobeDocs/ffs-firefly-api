@@ -59,11 +59,11 @@ Follow the steps below:
 
 1. Navigate to your project in the [Adobe Developer Console](https://developer.adobe.com/console/home). Click the API credential link, either in the sidenav or under the credentials header.
 
-![Project credentials screenshot](./images/APICred.png)
+![Project credentials screenshot](./images/api-cred.png)
 
 <Columns slots="image, text" repeat="1" />
 
-![Technical Account Email](./images/techAccountEmail.png)
+![Technical Account Email](./images/tech-account-email.png)
 
 2. Copy the **Technical Account Email**. 
 3. Log in to your [Firefly account](https://firefly.adobe.com/) and [navigate to the custom model](https://firefly.adobe.com/custom-models) itself.
@@ -72,7 +72,7 @@ Follow the steps below:
 
 <Columns slots="image, text" repeat="1" />
 
-![Invite to edit screenshot](./images/inviteToEditbutton.png)
+![Invite to edit screenshot](./images/invite-to-editbutton.png)
 
 6. Click **Invite to edit**.
 
