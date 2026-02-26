@@ -37,7 +37,7 @@ twitter:
 
 Use Structure Reference to generate images with structural similarities.
 
-||
+|||
 | --- | --- |
 | ![mountain](../../images/structure-image-reference-mountain.jpeg) Structure Reference Image | ![volcano](../../images/structure-image-reference-volcano.jpeg) Generated Image
 

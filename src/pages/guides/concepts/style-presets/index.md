@@ -67,7 +67,7 @@ Request parameter for presets
 
 Here are the style presets available and examples of the images they generate. Use these presets, in snake_case, in the API request.
 
-||
+||||
 | --- | --- | --- |
 | ![Graphic](../../images/styles/2x/Graphic.png) graphic | ![Wireframe](../../images/styles/2x/Wireframe.png) wireframe | ![Vector look](../../images/styles/2x/Vector_look.png) vector_look
 | ![Black and white](../../images/styles/2x/Black_and_white.png) bw | ![Cool tone](../../images/styles/2x/Cool_tone.png) cool_colors | ![Golden](../../images/styles/2x/Golden.png) golden

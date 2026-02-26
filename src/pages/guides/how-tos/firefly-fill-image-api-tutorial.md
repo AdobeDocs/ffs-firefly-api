@@ -41,7 +41,7 @@ twitter:
 
 Generatively edit specific areas of an image with the Fill Image API.
 
-||
+||||
 | --- | --- | --- |
 | ![source-person-photo-1](../images/source-person-photo-1.png) | ![mask-person-photo-1](../images/mask-person-photo-1.png) | ![result-person-photo-1](../images/result-person-photo-1.jpeg)
 
@@ -80,7 +80,7 @@ touch index.js
 
 Save all four of the images below, two source images and two mask images, as PNG files to your project folder.
 
-||
+|||
 | --- | --- |
 | ![source-person-photo-1](../images/source-person-photo-1.png) source-person-photo-1.png | ![mask-person-photo-1](../images/mask-person-photo-1.png) mask-person-photo-1.png
 | ![source-person-photo-2](../images/source-person-photo-2.png) source-person-photo-2.png | ![mask-person-photo-2](../images/mask-person-photo-2.png) mask-person-photo-2.png
@@ -210,7 +210,7 @@ async function updateEmployeePhotos() {
 }
 ```
 
-||
+|||
 | --- | --- |
 | ![result-person-photo-1](../images/result-person-photo-1.jpeg) | ![result-person-photo-2](../images/result-person-photo-2.jpeg)
 

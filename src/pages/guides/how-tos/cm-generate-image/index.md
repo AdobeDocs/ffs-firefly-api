@@ -36,7 +36,7 @@ twitter:
 
 Learn to generate images using a Firefly Custom Model.
 
-||
+|||
 | --- | --- |
 | ![trained-custom-model](./images/customModelTrained.png) Custom Image Model | ![generated-image](./images/almond.png) Output Image |
 

@@ -44,7 +44,7 @@ twitter:
 
 Use masks to control image manipulation in Firefly APIs
 
-||
+|||
 | --- | --- |
 | ![a picture of a person with a green scenic background](../../images/masking-concept-original.jpg) Image | ![a mask of a person shape with a white background](../../images/masking-concept-mask.jpg) Image Mask |
 

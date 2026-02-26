@@ -41,7 +41,7 @@ twitter:
 Use seeds to generate similar AI images across multiple API requests.
 Learn about seeds and how they're used with Firefly AI.
 
-||
+||||
 | --- | --- | --- |
 | ![original image](../../images/seed-concept-original-image.jpeg) Original Image | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) Same Seed Variation | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) Different Seed Variation |
 
@@ -137,7 +137,7 @@ Generate similar cityscapes by using its seed:
 
 ```1842533538```
 
-||
+|||
 | --- | --- |
 | ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) Original Image | ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) Same Seed Image with Preset Variation
 

@@ -34,7 +34,7 @@ twitter:
 
 Use Style References images to generate variations based on specific styles, colors, artistic methods, or mood.
 
-||
+|||
 | --- | --- |
 | ![mountain](../../images/style-image-reference-mountain.jpeg) Style Reference Image | ![dog](../../images/style-image-reference-dog.jpeg) Generated Image
 

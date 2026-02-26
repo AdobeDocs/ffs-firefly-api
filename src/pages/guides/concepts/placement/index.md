@@ -44,7 +44,7 @@ twitter:
 
 Use placement to control how an image is positioned
 
-||
+|||
 | --- | --- |
 | ![expanded product with placement alignment top right](../../images/sevoi-top-right.png) Right Alignment | ![expanded product with placement alignment top left](../../images/sevoi-top-left.png) Left Alignment |
 
