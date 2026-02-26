@@ -52,7 +52,7 @@ Firefly's Image APIs implement this feature by using the `structure` parameter, 
 
 ## Concepts in action
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Before you start
 
@@ -122,7 +122,7 @@ The request returns a rapid response for the asynchronous job:
 
 5. Use the `jobId` to see the result:
 
-<InlineAlert variant="info" slots="header, text" />
+<InlineAlert variant="info" slots="heading, text" />
 
 NOTE
 

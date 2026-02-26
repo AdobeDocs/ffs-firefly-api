@@ -43,13 +43,13 @@ Once you've [trained a custom model](../../concepts/custom-models/index.md), you
 so that the model is accessible to the [List Custom Models](../../api/index.md) API
 and the [Text to Image](../../api/index.md) API.
 
-<InlineAlert variant="info" slots="header, text" />
+<InlineAlert variant="info" slots="heading, text" />
 
 Note
 
 Any models shared at the organization level are also shared with individual projects.
 
-<Media slots="video"/>
+<Embed slots="video"/>
 
 [Share a custom model](https://youtu.be/_xxXrEWZ8cc)
 
@@ -77,7 +77,7 @@ Follow the steps below:
 
 6. Click **Invite to edit**.
 
-<InlineAlert variant="help" slots="header, text" />
+<InlineAlert variant="help" slots="heading, text" />
 
 Tip
 

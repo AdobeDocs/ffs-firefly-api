@@ -125,7 +125,7 @@ Here are the style presets available and examples of the images they generate. U
 
 Let's use style presets to generate a few image variations.
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Before you start
 
@@ -169,7 +169,7 @@ The request returns a rapid response for the asynchronous job:
 
 3. Use the `jobId` to see the result:
 
-<InlineAlert variant="info" slots="header, text" />
+<InlineAlert variant="info" slots="heading, text" />
 
 NOTE
 

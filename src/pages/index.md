@@ -25,7 +25,7 @@ contributors:
 hideBreadcrumbNav: true
 ---
 
-<Hero slots="image, heading, text" background="rgb(80, 190, 233)"/>
+<Superhero slots="image, heading, text" background="rgb(80, 190, 233)"/>
 
 ![Firefly API banner image](/firefly-image-hero.jpg)
 

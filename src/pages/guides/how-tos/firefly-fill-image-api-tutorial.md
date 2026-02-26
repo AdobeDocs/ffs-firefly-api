@@ -220,7 +220,7 @@ Here is a full example that includes all the steps from this tutorial. If you ha
 
 This tutorial was written in CommonJS. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
- <InlineAlert variant="warning" slots="header, text" />
+ <InlineAlert variant="warning" slots="heading, text" />
 
  This code is for educational purposes only.
 

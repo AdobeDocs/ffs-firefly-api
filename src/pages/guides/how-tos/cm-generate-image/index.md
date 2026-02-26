@@ -460,7 +460,7 @@ Review the full implementation example below to learn more.
 
 You'll need to [set up your environment](#set-up-your-environment) before running this code.
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Example code is NOT production ready
 

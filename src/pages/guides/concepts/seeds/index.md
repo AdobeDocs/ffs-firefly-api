@@ -55,7 +55,7 @@ When Firefly generates an image that you want to preserve and modify more precis
 
 ## Concepts in action
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Prerequisites
 

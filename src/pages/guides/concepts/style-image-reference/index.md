@@ -52,7 +52,7 @@ To influence how strong your reference image's effect is during the image genera
 
 Let's use a style reference image to generate a few image variations.
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Before you start
 
@@ -123,7 +123,7 @@ The request returns a rapid response for the asynchronous job:
 
 6. Use the `jobId` to see the result:
 
-<InlineAlert variant="info" slots="header, text" />
+<InlineAlert variant="info" slots="heading, text" />
 
 NOTE
 
