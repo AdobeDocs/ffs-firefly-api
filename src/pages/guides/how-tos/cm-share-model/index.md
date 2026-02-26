@@ -39,7 +39,7 @@ making them available for use with API endpoints.
 
 ## Overview
 
-Once you've [trained a custom model](../../concepts/custom-models), you need to share it with your technical account
+Once you've [trained a custom model](../../concepts/custom-models/index.md), you need to share it with your technical account
 so that the model is accessible to the [List Custom Models](../../api/) API
 and the [Text to Image](../../api/) API.
 

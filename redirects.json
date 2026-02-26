@@ -1,0 +1,264 @@
+{
+  "total": 64,
+  "offset": 0,
+  "limit": 64,
+  "data": [
+    {
+      "Source": "/firefly-services/docs/firefly-api",
+      "Destination": "/firefly-services/docs/firefly-api/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/index",
+      "Destination": "/firefly-services/docs/firefly-api/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides",
+      "Destination": "/firefly-services/docs/firefly-api/guides/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/using-async-apis/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/using-async-apis"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/firefly-fill-image-api-tutorial/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/firefly-fill-image-api-tutorial"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/firefly-expand-image-api-tutorial/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/firefly-expand-image-api-tutorial"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/cm-share-model",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/cm-share-model/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/cm-share-model/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/cm-share-model/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/cm-generate-image",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/cm-generate-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/how-tos/cm-generate-image/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/how-tos/cm-generate-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/style-presets",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/style-presets/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/style-presets/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/style-presets/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/style-image-reference",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/style-image-reference/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/style-image-reference/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/style-image-reference/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/structure-image-reference",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/structure-image-reference/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/structure-image-reference/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/structure-image-reference/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/seeds",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/seeds/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/seeds/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/seeds/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/placement",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/placement/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/placement/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/placement/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/masking",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/masking/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/masking/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/masking/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/image-upload",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/image-upload/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/image-upload/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/image-upload/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/custom-models",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/custom-models/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/concepts/custom-models/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/concepts/custom-models/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/upload_image",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/upload-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/upload-image",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/upload-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/upload_image/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/upload-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/upload-image/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/upload-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/image_generation",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/image-generation/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/image-generation",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/image-generation/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/image_generation/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/image-generation/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/image-generation/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/image-generation/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative_fill",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-fill/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative-fill",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-fill/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative_fill/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-fill/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative-fill/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-fill/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative_expand",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-expand/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative-expand",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-expand/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative_expand/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-expand/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative-expand/index",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-expand/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/usage-notes",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/usage-notes/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/usage-notes/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/usage-notes/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/help/troubleshooting",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/help/troubleshooting/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/help/troubleshooting/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/help/troubleshooting/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/help/best-practices",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/help/best-practices/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/help/best-practices/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/help/best-practices/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/dev-console",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/dev-console/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/dev-console/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/dev-console/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/create-credentials",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/create-credentials/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/create-credentials/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/create-credentials/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/changelog",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/changelog/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/getting-started/changelog/index",
+      "Destination": "/firefly-services/docs/firefly-api/getting-started/changelog/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/api",
+      "Destination": "/firefly-services/docs/firefly-api/api/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/api/index",
+      "Destination": "/firefly-services/docs/firefly-api/api/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/upload_image/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/upload-image/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/image_generation/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/image-generation/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative_fill/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-fill/"
+    },
+    {
+      "Source": "/firefly-services/docs/firefly-api/guides/api/generative_expand/",
+      "Destination": "/firefly-services/docs/firefly-api/guides/api/generative-expand/"
+    }
+  ],
+  ":type": "sheet"
+}

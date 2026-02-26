@@ -403,4 +403,4 @@ async function generateImage(accessToken) {
 
 ## Deepen Your Understanding
 
-Visit the [Firefly Generate Image API tutorial](./how-tos/firefly-generate-image-api-tutorial.md) to learn more about the rich customization options available to you 🚀
+Visit the [Firefly Generate Image API tutorial](how-tos/firefly-generate-image-api-tutorial.md) to learn more about the rich customization options available to you 🚀

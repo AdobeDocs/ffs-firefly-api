@@ -37,7 +37,7 @@ The Adobe Firefly API makes it easy for you to integrate generative AI into your
 
 #### Resources
 
-* [Quickstart Guide](./guides/) -->
+* [Quickstart Guide](guides/index.md) -->
 
 ## Overview
 
@@ -58,7 +58,7 @@ Try out the API today to:
 
 <!-- ### Get Started -->
 
-[Quickstart Guide](guides/)
+[Quickstart Guide](guides/index.md)
 
 A quickstart guide to making your first successful Firefly API call.
 
@@ -66,7 +66,7 @@ A quickstart guide to making your first successful Firefly API call.
 
 <!-- ### API References -->
 
-[Try the API](./api/index.md)
+[Try the API](api/index.md)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.
 
