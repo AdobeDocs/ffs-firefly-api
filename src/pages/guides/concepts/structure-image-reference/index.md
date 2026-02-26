@@ -39,7 +39,7 @@ Use Structure Reference to generate images with structural similarities.
 
 ||
 | --- | --- |
-| ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Reference Image</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
+| ![mountain](../../images/structure-image-reference-mountain.jpeg) Structure Reference Image | ![volcano](../../images/structure-image-reference-volcano.jpeg) Generated Image
 
 ## Understanding Firefly's Structure Reference
 

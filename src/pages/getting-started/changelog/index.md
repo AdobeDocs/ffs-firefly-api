@@ -35,7 +35,7 @@ twitter:
   title: Changelog - Adobe Firefly API
   description: This is the changelog for Adobe Firefly API
 ---
-<!-- TODO: Update with latest prod details, elaborate on API descriptions -->
+[//]: # (TODO: Update with latest prod details, elaborate on API descriptions)
 # Changelog
 
 ## October 3, 2025

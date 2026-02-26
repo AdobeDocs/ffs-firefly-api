@@ -82,8 +82,8 @@ Save all four of the images below, two source images and two mask images, as PNG
 
 ||
 | --- | --- |
-| ![source-person-photo-1](../images/source-person-photo-1.png) <p style="text-align:center">source-person-photo-1.png</p> | ![mask-person-photo-1](../images/mask-person-photo-1.png) <p style="text-align:center">mask-person-photo-1.png</p>
-| ![source-person-photo-2](../images/source-person-photo-2.png) <p style="text-align:center">source-person-photo-2.png</p> | ![mask-person-photo-2](../images/mask-person-photo-2.png) <p style="text-align:center">mask-person-photo-2.png</p>
+| ![source-person-photo-1](../images/source-person-photo-1.png) source-person-photo-1.png | ![mask-person-photo-1](../images/mask-person-photo-1.png) mask-person-photo-1.png
+| ![source-person-photo-2](../images/source-person-photo-2.png) source-person-photo-2.png | ![mask-person-photo-2](../images/mask-person-photo-2.png) mask-person-photo-2.png
 
 <InlineAlert variant="info" slots="text" />
 
@@ -91,7 +91,7 @@ In your own applications, use [Photoshop Create Mask API](https://developer.adob
 
 ## Step 1 - Upload the images
 
-Upload both the source image and the mask image using the [Upload API](../api/):
+Upload both the source image and the mask image using the [Upload API](../api/index.md):
 
 ```js
 const fs = require('fs');
@@ -130,7 +130,7 @@ const backgroundPrompt = 'A professional background for corporate headshots, ble
 
 ## Step 3 - Replace the backgrounds
 
-This JavaScript function calls the [Fill Image API](../api/):
+This JavaScript function calls the [Fill Image API](../api/index.md):
 
 ```js
 async function genFill({ maskId, sourceId, prompt, accessToken }) {
@@ -374,4 +374,4 @@ async function updateEmployeePhotos(accessToken) {
 
 ## Deepen your understanding
 
-Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/) with more technical details for advanced use cases.
+Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/index.md) with more technical details for advanced use cases.

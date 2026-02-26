@@ -36,7 +36,7 @@ Use Style References images to generate variations based on specific styles, col
 
 ||
 | --- | --- |
-| ![mountain](../../images/style-image-reference-mountain.jpeg) <p style="text-align:center">Style Reference Image</p> | ![dog](../../images/style-image-reference-dog.jpeg) <p style="text-align:center">Generated Image</p>
+| ![mountain](../../images/style-image-reference-mountain.jpeg) Style Reference Image | ![dog](../../images/style-image-reference-dog.jpeg) Generated Image
 
 ## Using a Style Reference
 
@@ -136,6 +136,6 @@ curl -X GET "https://firefly-api.adobe.io/v3/status/<YOUR_JOB_ID>" \
     -H "Content-Type: application/json"
 ```
 
-<!-- Links -->
+[//]: # (Links)
 [1]: ../structure-image-reference/index.md
 [2]: ../../../getting-started/index.md

@@ -46,7 +46,7 @@ Use placement to control how an image is positioned
 
 ||
 | --- | --- |
-| ![expanded product with placement alignment top right](../../images/sevoi-top-right.png) <p style="text-align:center">Right Alignment</p> | ![expanded product with placement alignment top left](../../images/sevoi-top-left.png) <p style="text-align:center">Left Alignment</p> |
+| ![expanded product with placement alignment top right](../../images/sevoi-top-right.png) Right Alignment | ![expanded product with placement alignment top left](../../images/sevoi-top-left.png) Left Alignment |
 
 ## Overview
 

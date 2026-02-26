@@ -33,11 +33,9 @@ hideBreadcrumbNav: true
 
 The Adobe Firefly API makes it easy for you to integrate generative AI into your creative workflows.
 
-<!-- <Resources slots="heading, links"/>
-
-#### Resources
-
-* [Quickstart Guide](guides/index.md) -->
+[//]: # (<Resources slots="heading, links"/>
+[//]: # (#### Resources)
+[//]: # (* [Quickstart Guide](guides/index.md))
 
 ## Overview
 
@@ -56,7 +54,7 @@ Try out the API today to:
 
 <DiscoverBlock slots="link, text"/>
 
-<!-- ### Get Started -->
+[//]: # (### Get Started)
 
 [Quickstart Guide](guides/index.md)
 
@@ -64,10 +62,10 @@ A quickstart guide to making your first successful Firefly API call.
 
 <DiscoverBlock slots="link, text"/>
 
-<!-- ### API References -->
+[//]: # (### API References)
 
 [Try the API](api/index.md)
 
 Try the Adobe Firefly API. Explore, make calls, with full endpoint descriptions.
 
-<br/><br/><br/><br/>
+\<br/\>\<br/\>\<br/\>\<br/\>
