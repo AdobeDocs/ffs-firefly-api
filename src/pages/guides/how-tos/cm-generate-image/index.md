@@ -747,4 +747,4 @@ async function checkJobStatus(statusUrl, accessToken) {
 
 ## Deepen your understanding
 
-Now that you have a working implementation, visit the [reference documentation for the Generate Image API](../../api/index.md) to explore more advanced use cases and automate your workflows.
+Now that you have a working implementation, visit the [reference documentation for the Generate Image API](../../../api/index.md) to explore more advanced use cases and automate your workflows.

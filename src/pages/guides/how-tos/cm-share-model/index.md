@@ -40,8 +40,8 @@ making them available for use with API endpoints.
 ## Overview
 
 Once you've [trained a custom model](../../concepts/custom-models/index.md), you need to share it with your technical account
-so that the model is accessible to the [List Custom Models](../../api/index.md) API
-and the [Text to Image](../../api/index.md) API.
+so that the model is accessible to the [List Custom Models](../../../api/index.md) API
+and the [Text to Image](../../../api/index.md) API.
 
 <InlineAlert variant="info" slots="heading, text" />
 

@@ -91,7 +91,7 @@ In your own applications, use [Photoshop Create Mask API](https://developer.adob
 
 ## Step 1 - Upload the images
 
-Upload both the source image and the mask image using the [Upload API](../api/index.md):
+Upload both the source image and the mask image using the [Upload API](../../api/index.md):
 
 ```js
 const fs = require('fs');
@@ -130,7 +130,7 @@ const backgroundPrompt = 'A professional background for corporate headshots, ble
 
 ## Step 3 - Replace the backgrounds
 
-This JavaScript function calls the [Fill Image API](../api/index.md):
+This JavaScript function calls the [Fill Image API](../../api/index.md):
 
 ```js
 async function genFill({ maskId, sourceId, prompt, accessToken }) {
@@ -374,4 +374,4 @@ async function updateEmployeePhotos(accessToken) {
 
 ## Deepen your understanding
 
-Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/index.md) with more technical details for advanced use cases.
+Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../../api/index.md) with more technical details for advanced use cases.
