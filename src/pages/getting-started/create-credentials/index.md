@@ -41,7 +41,7 @@ This page contains instructions for these admins to create project keys for thei
 
 Navigate to the __API and services__ section. Search for __Adobe Firefly API__.
 
-![API and services page - Firefly API card](../../images/firefly_api_card.png)
+![API and services page - Firefly API card](../../images/firefly-api-card.png)
 
 Can't find the Adobe Firefly API ? No worries, give it a few minutes and try again. Reach out to your Adobe liaison if you cannot see the Firefly API product card.
 
@@ -53,7 +53,7 @@ Once you can see the Firefly API product card, click the __Create project__ butt
 2. Click on __Save configured API__ in the following modal. On the next screen, you will be able to see your __client ID__ (API key).
 3. From the left navigation, select __OAuth Server-to-Server__ and you can click __Retrieve client secret__ to get your client secret.
 
-![OAuth Server-to-Server credential page](../../images/credential_page.png)
+![OAuth Server-to-Server credential page](../../images/credential-page.png)
 
 __To make calls to the Firefly API, developer(s) need a valid client ID (API key) and an access token__. Since organization admins are the only ones who can access these projects in the Console, using the __Generate access token__ button on the credential overview page is not ideal.
 

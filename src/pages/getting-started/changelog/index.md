@@ -35,7 +35,7 @@ twitter:
   title: Changelog - Adobe Firefly API
   description: This is the changelog for Adobe Firefly API
 ---
-<!-- TODO: Update with latest prod details, elaborate on API descriptions -->
+[//]: # (TODO: Update with latest prod details, elaborate on API descriptions)
 # Changelog
 
 ## October 3, 2025
@@ -62,13 +62,13 @@ twitter:
 
 **API updates**
 
-* **Launch of Generate Video API**: Bring text, still shots, or illustrations to life by transforming them into live action clips. The [Generate Video API](../../api/) is now available for use.
+* **Launch of Generate Video API**: Bring text, still shots, or illustrations to life by transforming them into live action clips. The [Generate Video API](../../api/index.md) is now available for use.
 
 ## April 29, 2025
 
 **API updates**
 
-* **New Image Model 4**: The Image Model 4 is now available for use with the [Generate Images](../../api/) and [Generate Similar Images](../../api/) APIs.
+* **New Image Model 4**: The Image Model 4 is now available for use with the [Generate Images](../../api/index.md) and [Generate Similar Images](../../api/index.md) APIs.
 
 ## March 11, 2025
 
@@ -82,11 +82,11 @@ twitter:
 
 We are excited to announce that the following APIs are now generally available:
 
-* [Generate Image Async](../../api/)
-* [Expand Image Async](../../api/)
-* [Fill Image Async](../../api/)
-* [Generate Object Composite Async](../../api/)
-* [Generate Similar Images Async](../../api/)
+* [Generate Image Async](../../api/index.md)
+* [Expand Image Async](../../api/index.md)
+* [Fill Image Async](../../api/index.md)
+* [Generate Object Composite Async](../../api/index.md)
+* [Generate Similar Images Async](../../api/index.md)
 
 ## October 12, 2024
 
@@ -94,9 +94,9 @@ We are excited to announce that the following APIs are now generally available:
 
 We are excited to announce that the following APIs are now generally available and no longer only in preview:
 
-* [Generate Object Composite](../../api/)
-* [Expand Image](../../api/)
-* [Fill Image](../../api/)
+* [Generate Object Composite](../../api/index.md)
+* [Expand Image](../../api/index.md)
+* [Fill Image](../../api/index.md)
 
 ## July 23, 2024
 
@@ -104,8 +104,8 @@ We are excited to announce that the following APIs are now generally available a
 
 We are excited to announce that the following APIs are now generally available and no longer in preview:
 
-* [Generate Similar Images](../../api/)
-* [Generate Images](../../api/)
+* [Generate Similar Images](../../api/index.md)
+* [Generate Images](../../api/index.md)
 
 ## June 18, 2024
 
@@ -113,12 +113,12 @@ We are excited to announce that the following APIs are now generally available a
 
 Firefly Image Model 3 (preview) APIs:
 
-  * New API References added for the newly introduced [Generate Similar Images](../../api/) and [Generate Object Composite](../../api/) APIs.
-  * New V3 API References added for [Generate Images](../../api/), [Expand Image](../../api/) and [Fill Image](../../api/) with support for Firefly Image Model 3 (preview).
+  * New API References added for the newly introduced [Generate Similar Images](../../api/index.md) and [Generate Object Composite](../../api/index.md) APIs.
+  * New V3 API References added for [Generate Images](../../api/index.md), [Expand Image](../../api/index.md) and [Fill Image](../../api/index.md) with support for Firefly Image Model 3 (preview).
 
 Updated guides:
 
-Create your first Firefly APIs implementation guide updated to use the new V3 version of the [Generate Images API](../../api/).
+Create your first Firefly APIs implementation guide updated to use the new V3 version of the [Generate Images API](../../api/index.md).
 
 New guides:
 

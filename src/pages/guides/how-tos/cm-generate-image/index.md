@@ -36,9 +36,9 @@ twitter:
 
 Learn to generate images using a Firefly Custom Model.
 
-||
+|||
 | --- | --- |
-| ![trained-custom-model](./images/customModelTrained.png) <p style="text-align:center">Custom Image Model</p> | ![generated-image](./images/almond.png) <p style="text-align:center">Output Image</p> |
+| ![trained-custom-model](./images/custom-model-trained.png) Custom Image Model | ![generated-image](./images/almond.png) Output Image |
 
 ## Overview
 
@@ -243,7 +243,7 @@ async function listCustomModels(accessToken) {
 ```
 
 The response will look like this:
-<!--TODO: Update response-->
+[//]: # (TODO: Update response)
 
 ```json
 {
@@ -460,7 +460,7 @@ Review the full implementation example below to learn more.
 
 You'll need to [set up your environment](#set-up-your-environment) before running this code.
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Example code is NOT production ready
 
@@ -747,4 +747,4 @@ async function checkJobStatus(statusUrl, accessToken) {
 
 ## Deepen your understanding
 
-Now that you have a working implementation, visit the [reference documentation for the Generate Image API](../../api/) to explore more advanced use cases and automate your workflows.
+Now that you have a working implementation, visit the [reference documentation for the Generate Image API](../../../api/index.md) to explore more advanced use cases and automate your workflows.

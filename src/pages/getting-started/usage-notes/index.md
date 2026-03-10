@@ -35,7 +35,7 @@ These technical notes for usage apply to the Generate Video API.
 
 Videos can be generated with dimensions for these supported aspect ratios:
 
-![Supported aspect ratios](./aspectRatios.png)
+![Supported aspect ratios](./aspect-ratios.png)
 
 | Aspect Ratio | Dimensions |
 | ------------- | ------------- |

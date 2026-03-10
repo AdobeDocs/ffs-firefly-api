@@ -41,9 +41,9 @@ twitter:
 Use seeds to generate similar AI images across multiple API requests.
 Learn about seeds and how they're used with Firefly AI.
 
-||
+||||
 | --- | --- | --- |
-| ![original image](../../images/seed-concept-original-image.jpeg) <p style="text-align:center">Original Image</p> | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) <p style="text-align:center">Same Seed Variation</p> | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) <p style="text-align:center">Different Seed Variation</p>
+| ![original image](../../images/seed-concept-original-image.jpeg) Original Image | ![same seed variation](../../images/seed-concept-same-seed-regeneration.jpeg) Same Seed Variation | ![different seed variation](../../images/seed-concept-different-seed-regeneration.jpeg) Different Seed Variation |
 
 ## About seeds
 
@@ -55,7 +55,7 @@ When Firefly generates an image that you want to preserve and modify more precis
 
 ## Concepts in action
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Prerequisites
 
@@ -137,9 +137,9 @@ Generate similar cityscapes by using its seed:
 
 ```1842533538```
 
-||
+|||
 | --- | --- |
-| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) <p style="text-align:center">Original Image</p> | ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) <p style="text-align:center">Same Seed Image with Preset Variation</p>
+| ![a picture of a futuristic city 1](../../images/seedless-city-1.jpeg) Original Image | ![a variation of futuristic city 1](../../images/seeded-city-1.jpeg) Same Seed Image with Preset Variation
 
 1. Use the command below to generate an image variation of our cityscape. This variation has "landscape photography" and "science fiction" [style presets](../style-presets/index.md) applied to it. Or include other options to experiment with new results.
 

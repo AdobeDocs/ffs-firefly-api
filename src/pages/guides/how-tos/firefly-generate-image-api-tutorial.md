@@ -86,7 +86,7 @@ Depending on your learning style, you may prefer to walk through this tutorial s
 
 ## Prerequisites
 
-This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../../getting-started/dev-console) page.
+This tutorial assumes you possess a Firefly Services **Client ID** and **Client Secret**. If you don't have these credentials, learn how to get them at the [Adobe Developer Console](../../getting-started/dev-console/index.md) page.
 
 ### Set Up Your Environment
 
@@ -290,4 +290,4 @@ We wrote this tutorial in CommmonJS in order to make it easy to get up and runni
 
 ## Deepen Your Understanding
 
-Now that you have a working implementation of the Generate Image API, visit its [reference documentation](../api/) to explore more advanced use cases for automating your workflows.
+Now that you have a working implementation of the Generate Image API, visit its [reference documentation](../../api/index.md) to explore more advanced use cases for automating your workflows.

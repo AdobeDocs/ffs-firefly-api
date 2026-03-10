@@ -39,17 +39,17 @@ making them available for use with API endpoints.
 
 ## Overview
 
-Once you've [trained a custom model](../../concepts/custom-models), you need to share it with your technical account
-so that the model is accessible to the [List Custom Models](../../api/) API
-and the [Text to Image](../../api/) API.
+Once you've [trained a custom model](../../concepts/custom-models/index.md), you need to share it with your technical account
+so that the model is accessible to the [List Custom Models](../../../api/index.md) API
+and the [Text to Image](../../../api/index.md) API.
 
-<InlineAlert variant="info" slots="header, text" />
+<InlineAlert variant="info" slots="heading, text" />
 
 Note
 
 Any models shared at the organization level are also shared with individual projects.
 
-<Media slots="video"/>
+<Embed slots="video"/>
 
 [Share a custom model](https://youtu.be/_xxXrEWZ8cc)
 
@@ -59,25 +59,24 @@ Follow the steps below:
 
 1. Navigate to your project in the [Adobe Developer Console](https://developer.adobe.com/console/home). Click the API credential link, either in the sidenav or under the credentials header.
 
-![Project credentials screenshot](./images/APICred.png)
+![Project credentials screenshot](./images/api-cred.png)
 
-<TextBlock slots="image, text" imgWidth="30%" position="center" />
+<Columns slots="image, text" repeat="1" />
 
-![Technical Account Email](./images/techAccountEmail.png)
+![Technical Account Email](./images/tech-account-email.png)
 
-2. Copy the **Technical Account Email**.
-
+2. Copy the **Technical Account Email**. 
 3. Log in to your [Firefly account](https://firefly.adobe.com/) and [navigate to the custom model](https://firefly.adobe.com/custom-models) itself.
 4. Click the **"..."** button in the top right for more options, then click **Share**.
 5. In the modal window, paste the technical account email in the field for *Add people or groups*.
 
-<TextBlock slots="image, text" imgWidth="30%" position="center" />
+<Columns slots="image, text" repeat="1" />
 
-![Invite to edit screenshot](./images/inviteToEditbutton.png)
+![Invite to edit screenshot](./images/invite-to-editbutton.png)
 
 6. Click **Invite to edit**.
 
-<InlineAlert variant="help" slots="header, text" />
+<InlineAlert variant="help" slots="heading, text" />
 
 Tip
 

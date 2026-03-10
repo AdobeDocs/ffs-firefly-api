@@ -1,0 +1,49 @@
+- pathPrefix:
+    - /firefly-services/docs/firefly-api/
+
+- pages:
+    - All Firefly Services
+        - [Firefly Services Home](https://developer.adobe.com/firefly-services/docs/guides/?aio_internal) Introduction and general information about all Firefly services.
+        - [Firefly API](https://developer.adobe.com/firefly-services/docs/firefly-api/?aio_internal) Docs and references for Firefly API.
+        - [Photoshop API](https://developer.adobe.com/firefly-services/docs/photoshop/?aio_internal) Docs and references for Photoshop API.
+        - [Lightroom API](https://developer.adobe.com/firefly-services/docs/lightroom/?aio_internal) Docs and references for Lightroom API.
+        - [Audio/Video API](https://developer.adobe.com/audio-video-firefly-services/?aio_internal) Docs and references for Audio/Video API.
+        - [InDesign API](https://developer.adobe.com/firefly-services/docs/indesign-apis/?aio_internal) Docs and references for InDesign API.
+        - [Substance 3D API](https://developer.adobe.com/firefly-services/docs/s3dapi/?aio_internal) Unlock generative AI for rendering and object composites.
+        - [Content Tagging API](https://experienceleague.adobe.com/docs/experience-platform/intelligent-services/content-commerce-ai/overview.html) Docs and references for Content Tagging services.
+    - [About Firefly API](/index.md)
+    - [Getting Started](/getting-started/index.md)
+    - [Guides](/guides/index.md)
+    - [API Reference](/api/index.md)
+
+- buttons:
+    - [Submit Feedback](https://developer.adobe.com/firefly-services/docs/guides/support/)
+    - [Console](https://developer.adobe.com/console/) consoleId
+    
+- subPages:
+    - [Quickstart](/guides/index.md)
+    - [Concepts](/guides/concepts/custom-models/index.md)
+        - [Custom Models Overview](/guides/concepts/custom-models/index.md)
+        - [Style Presets](/guides/concepts/style-presets/index.md)
+        - [Style Image Reference](/guides/concepts/style-image-reference/index.md)
+        - [Structure Image Reference](/guides/concepts/structure-image-reference/index.md)
+        - [Image Upload](/guides/concepts/image-upload/index.md)
+        - [Using Masks](/guides/concepts/masking/index.md)
+        - [Using Placement](/guides/concepts/placement/index.md)
+        - [Seeds](/guides/concepts/seeds/index.md)
+    - [How-Tos](/guides/how-tos/firefly-generate-image-api-tutorial.md)
+        - [Firefly Generate Image API Tutorial](/guides/how-tos/firefly-generate-image-api-tutorial.md)
+        - [Firefly Expand Image API Tutorial](/guides/how-tos/firefly-expand-image-api-tutorial.md)
+        - [Firefly Fill Image API Tutorial](/guides/how-tos/firefly-fill-image-api-tutorial.md)
+        - [Using the Firefly Asynchronous API](/guides/how-tos/using-async-apis.md)
+        - [Custom Models Generate Image API Tutorial](/guides/how-tos/cm-generate-image/index.md)
+        - [Grant apps access to a Custom Model](/guides/how-tos/cm-share-model/index.md)
+    - Getting Started header
+    - [Authentication](/getting-started/index.md)
+    - [Create Credentials](/getting-started/create-credentials/index.md)
+    - [Using Adobe Developer Console](/getting-started/dev-console/index.md)
+    - [Technical Usage Notes](/getting-started/usage-notes/index.md)
+    - [Help](/getting-started/help/best-practices/index.md)
+        - [Best Practices](/getting-started/help/best-practices/index.md)
+        - [Troubleshooting](/getting-started/help/troubleshooting/index.md)
+    - [Changelog](/getting-started/changelog/index.md)

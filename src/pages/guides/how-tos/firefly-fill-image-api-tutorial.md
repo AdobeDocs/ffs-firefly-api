@@ -41,7 +41,7 @@ twitter:
 
 Generatively edit specific areas of an image with the Fill Image API.
 
-||
+||||
 | --- | --- | --- |
 | ![source-person-photo-1](../images/source-person-photo-1.png) | ![mask-person-photo-1](../images/mask-person-photo-1.png) | ![result-person-photo-1](../images/result-person-photo-1.jpeg)
 
@@ -59,7 +59,7 @@ You may walk through this tutorial step-by-step or [jump immediately to the full
 
 ## Prerequisites
 
-- You'll need a Firefly Services **Client ID** and **Client Secret**. To get these credentials, see the [Adobe Developer Console](../../getting-started/dev-console) page.
+- You'll need a Firefly Services **Client ID** and **Client Secret**. To get these credentials, see the [Adobe Developer Console](../../getting-started/dev-console/index.md) page.
 
 ### Set up your environment
 
@@ -80,10 +80,10 @@ touch index.js
 
 Save all four of the images below, two source images and two mask images, as PNG files to your project folder.
 
-||
+|||
 | --- | --- |
-| ![source-person-photo-1](../images/source-person-photo-1.png) <p style="text-align:center">source-person-photo-1.png</p> | ![mask-person-photo-1](../images/mask-person-photo-1.png) <p style="text-align:center">mask-person-photo-1.png</p>
-| ![source-person-photo-2](../images/source-person-photo-2.png) <p style="text-align:center">source-person-photo-2.png</p> | ![mask-person-photo-2](../images/mask-person-photo-2.png) <p style="text-align:center">mask-person-photo-2.png</p>
+| ![source-person-photo-1](../images/source-person-photo-1.png) source-person-photo-1.png | ![mask-person-photo-1](../images/mask-person-photo-1.png) mask-person-photo-1.png
+| ![source-person-photo-2](../images/source-person-photo-2.png) source-person-photo-2.png | ![mask-person-photo-2](../images/mask-person-photo-2.png) mask-person-photo-2.png
 
 <InlineAlert variant="info" slots="text" />
 
@@ -91,7 +91,7 @@ In your own applications, use [Photoshop Create Mask API](https://developer.adob
 
 ## Step 1 - Upload the images
 
-Upload both the source image and the mask image using the [Upload API](../api/):
+Upload both the source image and the mask image using the [Upload API](../../api/index.md):
 
 ```js
 const fs = require('fs');
@@ -130,7 +130,7 @@ const backgroundPrompt = 'A professional background for corporate headshots, ble
 
 ## Step 3 - Replace the backgrounds
 
-This JavaScript function calls the [Fill Image API](../api/):
+This JavaScript function calls the [Fill Image API](../../api/index.md):
 
 ```js
 async function genFill({ maskId, sourceId, prompt, accessToken }) {
@@ -210,7 +210,7 @@ async function updateEmployeePhotos() {
 }
 ```
 
-||
+|||
 | --- | --- |
 | ![result-person-photo-1](../images/result-person-photo-1.jpeg) | ![result-person-photo-2](../images/result-person-photo-2.jpeg)
 
@@ -220,7 +220,7 @@ Here is a full example that includes all the steps from this tutorial. If you ha
 
 This tutorial was written in CommonJS. If you'd prefer to use ES6 modules, convert the code by changing the `require` statements to `import` statements and then changing the file name from `index.js` to `index.mjs`.
 
- <InlineAlert variant="warning" slots="header, text" />
+ <InlineAlert variant="warning" slots="heading, text" />
 
  This code is for educational purposes only.
 
@@ -374,4 +374,4 @@ async function updateEmployeePhotos(accessToken) {
 
 ## Deepen your understanding
 
-Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../api/) with more technical details for advanced use cases.
+Now that you have a working implementation of the Fill Image API, visit the [API reference documentation](../../api/index.md) with more technical details for advanced use cases.

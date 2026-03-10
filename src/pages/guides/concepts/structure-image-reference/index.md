@@ -37,9 +37,9 @@ twitter:
 
 Use Structure Reference to generate images with structural similarities.
 
-||
+|||
 | --- | --- |
-| ![mountain](../../images/structure-image-reference-mountain.jpeg) <p style="text-align:center">Structure Reference Image</p> | ![volcano](../../images/structure-image-reference-volcano.jpeg) <p style="text-align:center">Generated Image</p>
+| ![mountain](../../images/structure-image-reference-mountain.jpeg) Structure Reference Image | ![volcano](../../images/structure-image-reference-volcano.jpeg) Generated Image
 
 ## Understanding Firefly's Structure Reference
 
@@ -52,7 +52,7 @@ Firefly's Image APIs implement this feature by using the `structure` parameter, 
 
 ## Concepts in action
 
-<InlineAlert variant="warning" slots="header, text" />
+<InlineAlert variant="warning" slots="heading, text" />
 
 Before you start
 
@@ -122,7 +122,7 @@ The request returns a rapid response for the asynchronous job:
 
 5. Use the `jobId` to see the result:
 
-<InlineAlert variant="info" slots="header, text" />
+<InlineAlert variant="info" slots="heading, text" />
 
 NOTE
 
