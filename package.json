@@ -1,15 +1,14 @@
 {
-  "private": true,
-  "name": "dev-site-documentation-template",
+  "name": "dev-docs-template",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-site-documentation-template"
+    "url": "https://github.com/AdobeDocs/dev-docs-template"
   },
   "author": {
-    "name": "Stephan Ringel",
-    "url": "https://github.com/icaraps"
+    "name": "Tim Kim",
+    "url": "https://github.com/timkim"
   },
   "scripts": {
     "dev": "npx --yes github:AdobeDocs/adp-devsite-utils dev",
@@ -19,6 +18,7 @@
     "normalizeLinks": "npx --yes github:AdobeDocs/adp-devsite-utils normalizeLinks -v",
     "buildSiteWideBanner": "npx --yes github:AdobeDocs/adp-devsite-utils buildSiteWideBanner -v",
     "buildSiteMetadata": "npx --yes github:AdobeDocs/adp-devsite-utils buildSiteMetadata -v",
+    "buildContributors": "npx --yes github:AdobeDocs/adp-devsite-utils buildContributors -v",
     "lint": "npx --yes github:AdobeDocs/adp-devsite-utils runLint -v",
     "lint:errorOnly": "npx --yes github:AdobeDocs/adp-devsite-utils runLint",
     "link:skipdeadlinks": "npx --yes github:AdobeDocs/adp-devsite-utils runLint --skip-dead-links -v",
