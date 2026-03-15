@@ -25,6 +25,10 @@
     {
         "name": "Manage jobs",
         "description": "Endpoints for managing running asynchronous jobs."
+      },
+    {
+        "name": "Object Composite",
+        "description": "Object Composite API v4 for generating composite images with PixelPerfect or X-Stitch mode."
       }
   ],
   "paths": {
@@ -1808,6 +1812,128 @@
           }
         }
       }
+    },
+    "/v4/images/generate-object-composite-async": {
+      "post": {
+        "operationId": "generateObjectCompositeAsync",
+        "summary": "Generate object composite async",
+        "description": "Create a composite image using either PixelPerfect or X-Stitch mode. Mode is selected with the `x-model-version` header (pixelperfect or x-stitch). PixelPerfect places the subject in the masked region and applies generative harmonization. X-Stitch composites the subject seamlessly into the background at the masked location.",
+        "tags": ["Object Composite"],
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "header",
+            "required": true,
+            "description": "Must be application/json for JSON request body.",
+            "schema": {
+              "type": "string",
+              "enum": ["application/json"]
+            }
+          },
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "required": false,
+            "description": "Model mode.",
+            "schema": {
+              "type": "string",
+              "enum": ["pixelperfect", "x-stitch"],
+              "default": "pixelperfect"
+            }
+          },
+          {
+            "name": "x-request-id",
+            "in": "header",
+            "required": false,
+            "description": "Client-provided request ID. Auto-generated if omitted.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OCAPIRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OCAPIResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1860,6 +1986,22 @@
         ],
         "title": "ApiError",
         "type": "object"
+      },
+      "ApiErrorGeneric": {
+        "type": "object",
+        "title": "ApiErrorGeneric",
+        "description": "The error within the error response for non-400 failure responses.",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "description": "The error code."
+          },
+          "message": {
+            "title": "Message",
+            "description": "A human-readable error message.",
+            "type": "string"
+          }
+        }
       },
       "AsyncAcceptResponseV3": {
         "properties": {
@@ -2533,6 +2675,163 @@
         ],
         "title": "Generate object composite from prompt response",
         "type": "object"
+      },
+      "Background": {
+        "type": "object",
+        "title": "Background",
+        "description": "Defines the destination scene and placement area for object compositing. Requires both a background image and a fill area mask.",
+        "required": ["image", "fillAreaMask"],
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/OCImage",
+            "description": "The destination scene where the object will be placed."
+          },
+          "fillAreaMask": {
+            "$ref": "#/components/schemas/OCImage",
+            "description": "Mask indicating the area of the destination scene where the object will be composited. White painted areas define the regions where AI performs the composite."
+          }
+        }
+      },
+      "OCAPIRequest": {
+        "type": "object",
+        "title": "OCAPIRequest",
+        "description": "Request structure for the Generate Object Composite endpoint. Supports PixelPerfect and X-Stitch modes via the x-model-version header.",
+        "required": ["background"],
+        "properties": {
+          "background": {
+            "$ref": "#/components/schemas/Background",
+            "description": "The background scene and placement mask for object compositing."
+          },
+          "object": {
+            "$ref": "#/components/schemas/OCInput"
+          },
+          "output": {
+            "$ref": "#/components/schemas/OCOutput"
+          },
+          "seeds": {
+            "description": "Array of seed image IDs. These reference images help ensure consistent image generation across multiple API calls. If specified alongside `numVariations`, the number of seeds must equal `numVariations`.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 1,
+            "maxItems": 3,
+            "default": [333]
+          },
+          "numVariations": {
+            "type": "integer",
+            "description": "The number of variations to generate. Defaults to the number of seed images, or to 1 if you do not specify `seeds`.",
+            "default": 1,
+            "minimum": 1,
+            "maximum": 3
+          },
+          "preserveBackground": {
+            "type": "boolean",
+            "description": "For X-Stitch operations only. When `true`, preserves the original background details within the masked area during compositing.",
+            "default": false
+          },
+          "blend": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.5,
+            "description": "For PixelPerfect operations only. Controls the blend between harmonized and original object appearance (0.0 = fully harmonized, 1.0 = original preserved)."
+          },
+          "shadowIntensity": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 1,
+            "description": "For X-Stitch operations only. Controls how strongly shadows are applied to the composited result. Lower values reduce shadow intensity."
+          },
+          "harmonization": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.6,
+            "description": "Controls how much the object's colors and lighting are adjusted to match the background scene."
+          }
+        }
+      },
+      "OCAPIResponse": {
+        "type": "object",
+        "title": "OCAPIResponse",
+        "required": ["jobId", "status"],
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "title": "Job ID"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "The status of the submitted job."
+          },
+          "statusUrl": {
+            "type": "string",
+            "title": "Status URL"
+          },
+          "cancelUrl": {
+            "type": "string",
+            "title": "Cancel URL"
+          }
+        }
+      },
+      "OCImage": {
+        "type": "object",
+        "title": "OCImage",
+        "required": ["source"],
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/OCPublicBinaryInput",
+            "description": "A single source reference, either `url` or `uploadId`, must be provided in the request."
+          }
+        }
+      },
+      "OCInput": {
+        "type": "object",
+        "title": "OCInput",
+        "description": "Defines an input image with optional mask for object compositing operations.",
+        "required": ["image"],
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/OCImage",
+            "description": "Presigned URL or uploadId of the image to be processed."
+          },
+          "mask": {
+            "$ref": "#/components/schemas/OCImage",
+            "description": "Pre-signed URL or uploadId of the mask. x-stitch only; not used for PixelPerfect."
+          }
+        }
+      },
+      "OCOutput": {
+        "type": "object",
+        "title": "OCOutput",
+        "properties": {
+          "mediaType": {
+            "type": "string",
+            "title": "Output Media Type",
+            "description": "The MIME type for the output image format.",
+            "enum": ["image/png", "image/jpeg", "image/webp", "image/jxl"],
+            "default": "image/png"
+          }
+        }
+      },
+      "OCPublicBinaryInput": {
+        "type": "object",
+        "title": "OCPublicBinaryInput",
+        "description": "A single source reference, either `url` or `uploadId`, must be provided in the request.",
+        "properties": {
+          "uploadId": {
+            "description": "A pre-signed URL pointing to the object."
+          },
+          "url": {
+            "description": "Pre-signed URL valid for a limited time."
+          }
+        }
       },
       "GenerateSimilarImagesRequestV3": {
         "properties": {
