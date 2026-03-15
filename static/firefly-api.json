@@ -23,12 +23,12 @@
         "description": "Core Firefly API operations for generating and manipulating images and videos."
     },
     {
-        "name": "Manage jobs",
-        "description": "Endpoints for managing running asynchronous jobs."
-      },
-    {
         "name": "Object Composite",
         "description": "Object Composite API v4 for generating composite images with PixelPerfect or X-Stitch mode."
+      },
+      {
+        "name": "Manage jobs",
+        "description": "Endpoints for managing running asynchronous jobs."
       }
   ],
   "paths": {
