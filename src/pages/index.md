@@ -36,7 +36,7 @@ hideBreadcrumbNav: true
 
 The Adobe Firefly API makes it easy for you to integrate generative AI into your creative workflows.
 
-This documentation provides instructions for Adobe Firefly API. Firefly is the natural extension of the technology Adobe has produced over the past 40 years, driven by the belief that people should be empowered to bring their ideas into the world precisely as they imagine them. Describe your creative vision in your own words and we will bring it to life, saving you time and effort.
+This is the user documentation for Adobe Firefly API. Firefly is the natural extension of the technology Adobe has produced over the past 40 years, driven by the belief that people should be empowered to bring their ideas into the world precisely as they imagine them. Describe your creative vision in your own words and we will bring it to life, saving you time and effort.
 
 With Firefly, you can ideate, create, and communicate while significantly improving creative workflows using generative AI. You might have already tried out the Firefly web app, along with features powered by Firefly in Adobe’s flagship apps and Adobe Stock. And now it is available to you as an API. Integrate them with your workflow as it suits your needs.
 
