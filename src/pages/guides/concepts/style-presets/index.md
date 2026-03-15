@@ -189,6 +189,6 @@ You'll see results similar to our example below. Notice that all the defined pre
 ![A renaissance artist puppy generated with presets][3]
 
 [//]: # (links)
-[1]: ../../api/
+[1]: ../../../api/index.md
 [2]: ../../../getting-started/index.md
 [3]: ../../images/puppy-renaissance-artist.jpeg

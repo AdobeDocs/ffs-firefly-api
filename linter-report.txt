@@ -1,0 +1,110 @@
+═══════════════════════════════════════════════════════════════
+                     LINTER REPORT
+═══════════════════════════════════════════════════════════════
+
+Generated: 2026-03-15T06:10:49.081Z
+Mode: Full Linting (all rules + dead links check)
+Target Directory: /Users/aabreu/workspace/ffs-firefly-api
+
+───────────────────────────────────────────────────────────────
+
+Files to process: 25
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/getting-started/changelog/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 167:40
+    Message: Unexpected dead URL `https://clio-assets.adobe.com/firefly/image-controls/v1/content.json`, expected live URL
+    Rule: no-dead-urls
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/getting-started/dev-console/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 61:1
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview`, expected live URL
+    Rule: no-dead-urls
+
+  ⚠️  WARNING
+    Location: Line 56:116
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/`, expected live URL
+    Rule: no-dead-urls
+
+  ⚠️  WARNING
+    Location: Line 56:5
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/`, expected live URL
+    Rule: no-dead-urls
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/getting-started/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 42:116
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/`, expected live URL
+    Rule: no-dead-urls
+
+  ⚠️  WARNING
+    Location: Line 42:5
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/projects/projects-empty/`, expected live URL
+    Rule: no-dead-urls
+
+  ⚠️  WARNING
+    Location: Line 43:55
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview`, expected live URL
+    Rule: no-dead-urls
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/getting-started/usage-notes/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 46:31
+    Message: Unexpected redirecting URL `https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After`, expected final URL `https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After`
+    Rule: no-dead-urls
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/guides/concepts/style-presets/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 192:1
+    Message: Cannot find file `../../api`
+    Rule: missing-file
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/guides/how-tos/cm-generate-image/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 62:78
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview`, expected live URL
+    Rule: no-dead-urls
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/guides/how-tos/using-async-apis.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 312:25
+    Message: Unexpected redirecting URL `https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/upload_image/`, expected final URL `https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/upload-image/`
+    Rule: no-dead-urls
+
+───────────────────────────────────────────────────────────────
+📄 FILE: src/pages/guides/index.md
+───────────────────────────────────────────────────────────────
+  ⚠️  WARNING
+    Location: Line 57:122
+    Message: Unexpected dead URL `https://developer.adobe.com/developer-console/docs/guides/services/services-add-api-oauth-s2s/#api-overview`, expected live URL
+    Rule: no-dead-urls
+
+
+═══════════════════════════════════════════════════════════════
+                        SUMMARY
+═══════════════════════════════════════════════════════════════
+
+  📁 Files processed:    25
+  📄 Files with issues:  8
+  ❌ Total errors:       0
+  ⚠️  Total warnings:     12
+  📋 Total issues:       12
+
+Result: ⚠️  PASSED WITH WARNINGS - No fatal errors
+
+═══════════════════════════════════════════════════════════════
