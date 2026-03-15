@@ -55,7 +55,7 @@ X-Stitch feature parameters:
 - `harmonization` - Control the intensity of the harmonization process to match the background's lighting, color temperature, and atmosphere. Generative Harmonization introduces and enhances lighting and shadow correction for composite realism.
 - `preserveBackground` - Preserves the original background details within the masked area during compositing.
 
-For full techincal details of both modes, see the [Object Composite API v4 Reference](../api/).
+For full technical details of both modes, see the [Object Composite API v4 Reference](../api/).
 
 ## Direct object insertion
 
@@ -80,8 +80,11 @@ Using X-Stitch, customers can composite products into existing or custom-generat
 - `object.image` - The source object image.
 - `object.mask` (optional, x-stitch only) - The object segmentation mask.
 
-<Accordion>
-<AccordionItem header="Example payload" isChevronIcon  position="left">
+<AccordionItem slots="heading, text, code"/>
+
+### Example payload
+
+This is a payload example.
 
 ```json
 {
@@ -115,13 +118,11 @@ Using X-Stitch, customers can composite products into existing or custom-generat
 }
 ```
 
-</AccordionItem>
-</Accordion>
+<AccordionItem slots="heading, text, code"/>
 
-### Example implementations
+### Python implementation
 
-<Accordion>
-<AccordionItem header="Python implementation"  position="left">
+An example of a Python implementation.
 
 ```python
 import requests
@@ -191,8 +192,11 @@ else:
     print(response.json())
 ```
 
-</AccordionItem>
-<AccordionItem header="JavaScript implementation"  position="left">
+<AccordionItem slots="heading, text, code"/>
+
+### JavaScript implementation
+
+An example of a JavaScript implementation.
 
 ```javascript
 const axios = require('axios');
@@ -284,9 +288,6 @@ async function checkJobStatus(jobId) {
 })();
 ```
 
-</AccordionItem>
-</Accordion>
-
 ## Background preservation
 
 Users can insert objects while maintaining the original background details within the masked area when they enable Background Preservation mode. Even within the masked area, the background details are preserved in the composite. Some strong use cases for background preservation are:
@@ -311,8 +312,11 @@ Users can insert objects while maintaining the original background details withi
 
 - `preserveBackground` - Set to `true` to preserve the original background details within the masked area.
 
-<Accordion>
-<AccordionItem header="Example payload" isChevronIcon  position="left">
+<AccordionItem slots="heading, text, code"/>
+
+### Example payload
+
+This is a payload example.
 
 ```json
 {
@@ -341,13 +345,11 @@ Users can insert objects while maintaining the original background details withi
 }
 ```
 
-</AccordionItem>
-</Accordion>
+<AccordionItem slots="heading, text, code"/>
 
-### Example implementations
+### Python implementation
 
-<Accordion>
-<AccordionItem header="Python implementation"  position="left">
+An example of a Python implementation.
 
 ```python
 import requests
@@ -412,8 +414,11 @@ else:
     print(response.json())
 ```
 
-</AccordionItem>
-<AccordionItem header="JavaScript implementation"  position="left">
+<AccordionItem slots="heading, text, code"/>
+
+### JavaScript implementation
+
+An example of a JavaScript implementation.
 
 ```javascript
 const axios = require('axios');
@@ -500,9 +505,6 @@ async function checkJobStatus(jobId) {
 })();
 ```
 
-</AccordionItem>
-</Accordion>
-
 ## Cancel a job
 
 The API allows you to cancel in-progress jobs with the `PUT /v4/cancel/{jobId}` endpoint to save resources and processing time.
@@ -529,4 +531,4 @@ When polling a cancelled job's status, you'll receive:
 ## Additional resources
 
 To get started with your own development, start with [Object Composite Authentication](../getting-started/).
-For more details on the Object Composite API v4, [see the Object Composite APIs Reference](../api/).
+For more details on the Object Composite API v4, [see the Object Composite API Reference](../api/).
