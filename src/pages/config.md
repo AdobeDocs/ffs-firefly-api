@@ -39,7 +39,7 @@
     - [Custom Models Generate Image API Tutorial](/guides/how-tos/cm-generate-image/index.md)
     - [Grant apps access to a Custom Model](/guides/how-tos/cm-share-model/index.md)
     - Object Composite header
-    -[Object Composite API Feature Guide](/guides/how-tos/object-composite/index.md)
+    - [Object Composite API Feature Guide](/guides/how-tos/object-composite/index.md)
     - Getting Started header
     - [Authentication](/getting-started/index.md)
     - [Create Credentials](/getting-started/create-credentials/index.md)

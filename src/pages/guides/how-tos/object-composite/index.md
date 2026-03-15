@@ -1,24 +1,22 @@
 ---
-title: Object Composite API v4 (beta) User Guide
-description: Explore the Object Composite API v4 (beta) and what features are offered with its endpoints.
+title: Object Composite API v4 Feature Guide
+description: Explore the Object Composite API v4 and what features are offered with its endpoints.
 hideBreadcrumbNav: true
 keywords:
   - Object Composite
   - API
   - User Guide
   - Guide
-  - v4 beta
   - X-Stitch
   - PixelPerfect
 ---
-
 # Using the Object Composite API v4
 
-This guide explains the Object Composite API v4 (beta) and the key processing features it offers for generating composites.
+This guide explains the Object Composite API v4 and the key processing features it offers for generating composites.
 
 ## Overview
 
-The Object Composite API v4 (beta) introduces major improvements to Adobe's enterprise-grade image compositing capabilities and unlocks new compositional workflows. The API enables intelligent object insertion, replacement, and harmonization within images, with powerful capabilities for integrating objects into background scenes with realistic lighting, shadows, and harmonization.
+The Object Composite API v4 introduces major improvements to Adobe's enterprise-grade image compositing capabilities and unlocks new compositional workflows. The API enables intelligent object insertion, replacement, and harmonization within images, with powerful capabilities for integrating objects into background scenes with realistic lighting, shadows, and harmonization.
 
 The endpoint supports two modes, selected with the **`x-model-version`** request header:
 
@@ -57,7 +55,7 @@ X-Stitch feature parameters:
 - `harmonization` - Control the intensity of the harmonization process to match the background's lighting, color temperature, and atmosphere. Generative Harmonization introduces and enhances lighting and shadow correction for composite realism.
 - `preserveBackground` - Preserves the original background details within the masked area during compositing.
 
-For full techincal details of both modes, see the [Object Composite API v4 (beta) Reference](../api/).
+For full techincal details of both modes, see the [Object Composite API v4 Reference](../api/).
 
 ## Direct object insertion
 
@@ -130,7 +128,7 @@ import requests
 import json
 
 # Configuration
-API_BASE = "https://firefly-beta.adobe.io"
+API_BASE = "https://firefly-api.adobe.io"
 ACCESS_TOKEN = "your_access_token"
 API_KEY = "your_api_key"
 
@@ -199,7 +197,7 @@ else:
 ```javascript
 const axios = require('axios');
 
-const API_BASE = 'https://firefly-beta.adobe.io';
+const API_BASE = 'https://firefly-api.adobe.io';
 const ACCESS_TOKEN = 'your_access_token';
 const API_KEY = 'your_api_key';
 
@@ -356,7 +354,7 @@ import requests
 import json
 
 # Configuration
-API_BASE = "https://firefly-beta.adobe.io"
+API_BASE = "https://firefly-api.adobe.io"
 ACCESS_TOKEN = "your_access_token"
 API_KEY = "your_api_key"
 
@@ -420,7 +418,7 @@ else:
 ```javascript
 const axios = require('axios');
 
-const API_BASE = 'https://firefly-beta.adobe.io';
+const API_BASE = 'https://firefly-api.adobe.io';
 const ACCESS_TOKEN = 'your_access_token';
 const API_KEY = 'your_api_key';
 
@@ -512,7 +510,7 @@ The API allows you to cancel in-progress jobs with the `PUT /v4/cancel/{jobId}` 
 Use the cancellation request to cancel a job:
 
 ```bash
-curl -X PUT "https://firefly-beta.adobe.io/v4/cancel/{jobId}" \
+curl -X PUT "https://firefly-api.adobe.io/v4/cancel/{jobId}" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "x-api-key: YOUR_API_KEY"
 ```
@@ -531,8 +529,4 @@ When polling a cancelled job's status, you'll receive:
 ## Additional resources
 
 To get started with your own development, start with [Object Composite Authentication](../getting-started/).
-For more details on the Object Composite API v4 (beta), [see the Object Composite APIs Reference](../api/).
-
-<!-- Links -->
-[1]: /getting-started/
-<!-- End of Links -->
+For more details on the Object Composite API v4, [see the Object Composite APIs Reference](../api/).
