@@ -55,7 +55,7 @@ X-Stitch feature parameters:
 - `harmonization` - Control the intensity of the harmonization process to match the background's lighting, color temperature, and atmosphere. Generative Harmonization introduces and enhances lighting and shadow correction for composite realism.
 - `preserveBackground` - Preserves the original background details within the masked area during compositing.
 
-For full technical details of both modes, see the [Object Composite API v4 Reference](../api/).
+For full technical details of both modes, see the [Object Composite API v4 Reference](../../../api/index.md).
 
 ## Direct object insertion
 
@@ -530,5 +530,5 @@ When polling a cancelled job's status, you'll receive:
 
 ## Additional resources
 
-To get started with your own development, start with [Object Composite Authentication](../getting-started/).
-For more details on the Object Composite API v4, [see the Object Composite API Reference](../api/).
+To get started with your own development, start with [Object Composite Authentication](../../../getting-started/index.md).
+For more details on the Object Composite API v4, [see the Object Composite API Reference](../../../api/index.md).
