@@ -1690,243 +1690,264 @@
     "/v3/status/{jobId}": {
       "get": {
         "operationId": "jobResultV3",
-        "summary": "Get job result",
-        "description": "Get the result of the job.",
-        "tags": [
-          "Manage jobs"
-        ],
+        "summary": "Get job status",
+        "description": "Get the status of an asynchronous job.",
         "parameters": [
           {
-            "description": "Unique identifier for the submitted job.",
-            "in": "path",
             "name": "jobId",
+            "in": "path",
             "required": true,
+            "description": "The job ID to retrieve status for.",
             "schema": {
-              "description": "Unique identifier for the submitted job.",
-              "title": "Job URN ID",
-              "type": "string"
+              "type": "string",
+              "title": "Job ID"
             }
           }
         ],
         "responses": {
           "200": {
+            "description": "Success",
             "content": {
               "application/json": {
-                "examples": {
-                  "cancel_pending": {
-                    "value": {
-                      "error_code": "some_error_code",
-                      "jobId": "ede28272-5726-4179-84f0-020250966e32",
-                      "message": "some_message",
-                      "status": "cancel_pending"
-                    }
-                  },
-                  "cancelled": {
-                    "value": {
-                      "error_code": "some_error_code",
-                      "jobId": "ede28272-5726-4179-84f0-020250966e32",
-                      "message": "some_message",
-                      "status": "cancelled"
-                    }
-                  },
-                  "failed": {
-                    "value": {
-                      "error_code": "some_error_code",
-                      "jobId": "ede28272-5726-4179-84f0-020250966e32",
-                      "message": "some_message",
-                      "status": "failed"
-                    }
-                  },
-                  "running": {
-                    "value": {
-                      "jobId": "ede28272-5726-4179-84f0-020250966e32",
-                      "status": "running"
-                    }
-                  },
-                  "succeeded": {
-                    "value": {
-                      "jobId": "ede28272-5726-4179-84f0-020250966e32",
-                      "result": {
-                        "outputs": [
-                          {
-                            "image": {
-                              "url": "https://example.com"
-                            },
-                            "seed": 1
-                          }
-                        ],
-                        "size": {
-                          "height": 1024,
-                          "width": 1024
-                        }
-                      },
-                      "status": "succeeded"
-                    }
-                  },
-                  "timeout": {
-                    "value": {
-                      "error_code": "some_error_code",
-                      "jobId": "ede28272-5726-4179-84f0-020250966e32",
-                      "message": "some_message",
-                      "status": "timeout"
-                    }
-                  }
-                },
                 "schema": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/components/schemas/AsyncTaskResponseV3"
-                    },
-                    {
-                      "$ref": "#/components/schemas/AsyncApiErrorV3"
-                    }
-                  ],
-                  "title": "Response JobResultV3"
+                  "$ref": "#/components/schemas/JobResponse"
                 }
               }
-            },
-            "description": "Success",
-            "headers": {
-              "Link": {
-                "description": "Links to check the job status or cancel the job.",
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
             }
           },
           "404": {
+            "description": "Requested Resource Was Not Found",
             "content": {
               "application/json": {
-                "example": {
-                  "error_code": "unknown_job_id",
-                  "message": "The job id is unknown."
-                },
                 "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
-            },
-            "description": "Requested Resource Was Not Found"
+            }
           },
           "422": {
+            "description": "Unprocessable Entity",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
-            },
-            "description": "Unprocessable Entity"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
           }
         }
       }
     },
     "/v3/cancel/{jobId}": {
       "put": {
-        "operationId": "cancelJobV3",
+        "operationId": "cancelJobV4",
         "summary": "Cancel job",
-        "description": "Cancel the asynchronous job.",
-        "tags": [
-          "Manage jobs"
-        ],
+        "description": "Cancel an asynchronous job.",
         "parameters": [
           {
-            "description": "Unique identifier for the submitted job.",
-            "in": "path",
             "name": "jobId",
+            "in": "path",
             "required": true,
+            "description": "The job ID to cancel.",
             "schema": {
-              "description": "Unique identifier for the submitted job.",
-              "title": "Job URN ID",
-              "type": "string"
+              "type": "string",
+              "title": "Job ID"
             }
           }
         ],
         "responses": {
           "200": {
+            "description": "Job Cancelled"
+          },
+          "401": {
+            "description": "Unauthorized",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
               }
-            },
-            "description": "Success"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
           },
           "404": {
+            "description": "Requested Resource Was Not Found",
             "content": {
               "application/json": {
-                "examples": {
-                  "unknown_job_id": {
-                    "value": {
-                      "error_code": "unknown_job_id",
-                      "message": "The job id is unknown."
-                    }
-                  }
-                },
                 "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
-            },
-            "description": "Not Found"
+            }
           },
           "409": {
+            "description": "Conflict",
             "content": {
               "application/json": {
-                "examples": {
-                  "job_already_canceled": {
-                    "value": {
-                      "error_code": "job_already_canceled",
-                      "message": "The job was already canceled."
-                    }
-                  },
-                  "job_cancel_failed": {
-                    "value": {
-                      "error_code": "job_cancel_failed",
-                      "message": "The job failed to cancel."
-                    }
-                  },
-                  "job_completed": {
-                    "value": {
-                      "error_code": "job_completed",
-                      "message": "The job was already completed."
-                    }
-                  }
-                },
                 "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
-            },
-            "description": "Conflict"
+            }
           },
           "410": {
+            "description": "Gone",
             "content": {
               "application/json": {
-                "examples": {
-                  "job_timeout": {
-                    "value": {
-                      "error_code": "job_timeout",
-                      "message": "The job timed out."
-                    }
-                  }
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
                 },
-                "schema": {
-                  "$ref": "#/components/schemas/AsyncApiErrorV3"
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
-            },
-            "description": "Gone"
+            }
           },
-          "422": {
+          "429": {
+            "description": "Too Many Requests",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
                 }
               }
-            },
-            "description": "Unprocessable Entity"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                },
+                "example": {
+                  "error_code": "string",
+                  "message": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -1996,6 +2017,142 @@
             "title": "Message",
             "description": "A human-readable error message.",
             "type": "string"
+          }
+        }
+      },
+      "JobOutput": {
+        "type": "object",
+        "title": "JobOutput",
+        "description": "A single output entry from the job.",
+        "required": ["seed", "image"],
+        "properties": {
+          "seed": {
+            "type": "integer",
+            "example": 333,
+            "description": "Random seed used for generation."
+          },
+          "image": {
+            "$ref": "#/components/schemas/PublicBinary-Output",
+            "description": "The generated output image."
+          }
+        }
+      },
+      "JobPollPayload": {
+        "type": "object",
+        "title": "JobPollPayload",
+        "description": "Returned when the job is pending, running, failed, cancelled, cancel_pending, or timeout.",
+        "required": ["status", "jobId"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["pending", "running", "failed", "cancelled", "cancel_pending", "timeout"],
+            "description": "Current non-succeeded job status."
+          },
+          "jobId": {
+            "type": "string",
+            "example": "urn:ff:jobs::uuid",
+            "description": "The job ID."
+          },
+          "error_code": {
+            "type": "string",
+            "description": "Error code present when status is failed, cancelled, cancel_pending, or timeout."
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable string describing the error or status."
+          }
+        }
+      },
+      "JobResult": {
+        "type": "object",
+        "title": "JobResult",
+        "description": "Contains output data returned by a successfully completed job.",
+        "required": ["outputs"],
+        "properties": {
+          "outputs": {
+            "type": "array",
+            "description": "List of generated outputs.",
+            "items": {
+              "$ref": "#/components/schemas/JobOutput"
+            }
+          }
+        }
+      },
+      "JobResponse": {
+        "title": "JobResponse",
+        "description": "Represents the job response, which may be either in progress or completed.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/JobSucceededPayload"
+          },
+          {
+            "$ref": "#/components/schemas/JobPollPayload"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "status",
+          "mapping": {
+            "succeeded": "#/components/schemas/JobSucceededPayload",
+            "running": "#/components/schemas/JobPollPayload",
+            "failed": "#/components/schemas/JobPollPayload",
+            "cancelled": "#/components/schemas/JobPollPayload",
+            "cancel_pending": "#/components/schemas/JobPollPayload",
+            "timeout": "#/components/schemas/JobPollPayload"
+          }
+        },
+        "examples": [
+          {
+            "status": "succeeded",
+            "jobId": "urn:ff:jobs::uuid",
+            "result": {
+              "outputs": [
+                {
+                  "seed": 333,
+                  "image": {
+                    "url": "https://example.com"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "status": "running",
+            "jobId": "urn:ff:jobs::uuid"
+          }
+        ]
+      },
+      "JobSucceededPayload": {
+        "type": "object",
+        "title": "JobSucceededPayload",
+        "description": "Returned when the job has completed successfully.",
+        "required": ["status", "jobId", "result"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["succeeded"],
+            "description": "Indicates that the job has succeeded."
+          },
+          "jobId": {
+            "type": "string",
+            "example": "urn:ff:jobs::uuid",
+            "description": "The job ID."
+          },
+          "result": {
+            "$ref": "#/components/schemas/JobResult"
+          }
+        }
+      },
+      "PublicBinary-Output": {
+        "type": "object",
+        "title": "PublicBinary-Output",
+        "description": "Represents binary output (e.g., image, mesh, etc.) with pre-signed URL or storage ID.",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://example.com",
+            "description": "Temporary pre-signed URL to access the output file."
           }
         }
       },
