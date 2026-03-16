@@ -2952,11 +2952,11 @@
         "properties": {
           "image": {
             "$ref": "#/components/schemas/OCImage",
-            "description": "Presigned URL or uploadId of the image to be processed."
+            "description": "Pre-signed URL or `uploadId` of the image to be processed."
           },
           "mask": {
             "$ref": "#/components/schemas/OCImage",
-            "description": "Pre-signed URL or uploadId of the mask. x-stitch only; not used for PixelPerfect."
+            "description": "Pre-signed URL or `uploadId` of the mask. x-stitch only; not used for PixelPerfect."
           }
         }
       },
