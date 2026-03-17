@@ -1,6 +1,6 @@
 ---
-title: Object Composite API v4 Feature Guide
-description: Explore the Object Composite API v4 and what features are offered with its endpoints.
+title: Object Composite API Feature Guide
+description: Explore the Object Composite API and what features are offered with its various endpoints.
 hideBreadcrumbNav: true
 keywords:
   - Object Composite
@@ -10,23 +10,29 @@ keywords:
   - X-Stitch
   - PixelPerfect
 ---
-# Using the Object Composite API v4
+# Using the Object Composite API
 
-This guide explains the Object Composite API v4 and the key processing features it offers for generating composites.
+This guide explains the Object Composite API and the key processing features it offers for generating composites with its various endpoints.
 
 ## Overview
 
-The Object Composite API v4 introduces major improvements to Adobe's enterprise-grade image compositing capabilities and unlocks new compositional workflows. The API enables intelligent object insertion, replacement, and harmonization within images, with powerful capabilities for integrating objects into background scenes with realistic lighting, shadows, and harmonization.
+The Object Composite API operations offer Adobe's enterprise-grade image compositing capabilities and other more specific compositing operations that unlocks new compositional workflows.
 
-The endpoint supports two modes, selected with the **`x-model-version`** request header:
+The API enables intelligent object insertion, replacement, and harmonization within images, with powerful capabilities for integrating objects into background scenes with realistic lighting, shadows, and harmonization.
+
+For Object Composite operations there are a few choices:
+
+- **Object Composite**: Adobe's enterprise-grade image compositing capability.
+
+Execute this operations using a **object composite** request with the endpoint `/v3/images/generate-object-composite-async`.
 
 - **PixelPerfect mode**: Places the subject in the masked region and applies generative harmonization so the subject blends naturally with the background. Use when you want AI-driven harmonization and a single, consistent style.
 
-Use `pixelperfect` for PixelPerfect mode.
+Execute this operations using a **precise composite** request with the endpoint `/v3/images/precise-composite`.
 
-- **X-Stitch mode**: Composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
+- **Object Stitch mode**: Composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
 
-Use `x-stitch` for X-Stitch mode.
+Execute this operations using an **adaptive composite** request with the endpoint `/v3/images/adaptive-composite`.
 
 ### Inputs
 
@@ -55,11 +61,11 @@ X-Stitch feature parameters:
 - `harmonization` - Control the intensity of the harmonization process to match the background's lighting, color temperature, and atmosphere. Generative Harmonization introduces and enhances lighting and shadow correction for composite realism.
 - `preserveBackground` - Preserves the original background details within the masked area during compositing.
 
-For full technical details of both modes, see the [Object Composite API v4 Reference](../../../api/index.md).
+For full technical details, see the [Object Composite API v4 Reference](../../../api/index.md).
 
 ## Direct object insertion
 
-Using X-Stitch, customers can composite products into existing or custom-generated backgrounds, such as brand-specific environments produced with Firefly Custom Models.
+Using Object Stitch, customers can composite products into existing or custom-generated backgrounds, such as brand-specific environments produced with Firefly Custom Models.
 
 ![Image of the background, a clean modern kitchen countertop](./XStitch-comp1.png)
 
