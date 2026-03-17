@@ -49,6 +49,12 @@ In this tutorial you will:
 
 Depending on your learning style, you may prefer to walk through this tutorial step-by-step or [jump immediately to the full source code](#implementation-example) at the bottom of this webpage.
 
+<InlineAlert variant="info" slots="heading, text" />
+
+Note
+
+Negative prompting is not supported for Firefly Custom Models on Image Model 3 or Firefly Custom Models on Image Model 4.
+
 ## Introduction
 
 Imagine you work at a global fragrance company and are creating an on-brand marketing campaign. This season introduced a new fad in the world of scent: almonds. The people want almond candles, almond soap, almond scrubs, and almond perfume. There's almond in every product in the new line. The pitch for this new trend with legumes is they're clean, natural, and (somehow) cozy, and comfortable.
@@ -526,7 +532,6 @@ def generate_image_async(access_token, custom_model_id):
         "seeds": [66080, 82683],
         "size": {"width": 2048, "height": 2048},
         "prompt": "Laika running over rolling green hills with a big vibrant sun in the background",
-        "negativePrompt": "red",
         "contentClass": "photo",
         "visualIntensity": 6,
         "style": {
@@ -695,7 +700,6 @@ async function generateImageAsync(accessToken, customModelId) {
       "seeds": [66080, 82683],
       "size": { "width": 2048, "height": 2048 },
       "prompt": "Laika running over rolling green hills with a big vibrant sun in the background",
-      "negativePrompt": "red",
       "contentClass": "photo",
       "visualIntensity": 6,
       "style": {
