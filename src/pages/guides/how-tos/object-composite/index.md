@@ -22,15 +22,21 @@ The API enables intelligent object insertion, replacement, and harmonization wit
 
 For Object Composite operations there are a few choices:
 
-- **Object Composite**: Adobe's enterprise-grade image compositing capability.
+### Object Composite
+
+Object Composite is Adobe's enterprise-grade image compositing capability.
 
 Execute this operations using a **object composite** request with the endpoint `/v3/images/generate-object-composite-async`.
 
-- **PixelPerfect mode**: Places the subject in the masked region and applies generative harmonization so the subject blends naturally with the background. Use when you want AI-driven harmonization and a single, consistent style.
+### PixelPerfect Composite
+
+PixelPerfect Composite places the subject in the masked region and applies generative harmonization so the subject blends naturally with the background. Use when you want AI-driven harmonization and a single, consistent style.
 
 Execute this operations using a **precise composite** request with the endpoint `/v3/images/precise-composite`.
 
-- **Object Stitch mode**: Composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
+### Object Stitch Composite
+
+Object Stitch Composite composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
 
 Execute this operations using an **adaptive composite** request with the endpoint `/v3/images/adaptive-composite`.
 
