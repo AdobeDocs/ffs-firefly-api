@@ -2244,7 +2244,7 @@
             "description": "Required. Selected areas of a background image that Firefly uses to fill the source image."
           },
           "negativePrompt": {
-            "description": "An optional text prompt up to 1024 characters. Avoid these characteristics in the generated image.",
+            "description": "An optional text prompt up to 1024 characters. Avoid these characteristics in the generated image. Not supported for Firefly Custom Models on Image Model 3 or Firefly Custom Models on Image Model 4.",
             "maxLength": 1024,
             "title": "Avoid prompt",
             "type": "string"
@@ -2334,7 +2334,7 @@
             "description": "Include the specific custom model ID when a custom model type is designated in the `x-model-version` header parameter."
           },
           "negativePrompt": {
-            "description": "A negative prompt of things Firefly will try to avoid generating in the image.",
+            "description": "A negative prompt of things Firefly will try to avoid generating in the image. Not supported for Firefly Custom Models on Image Model 3 or Firefly Custom Models on Image Model 4.",
             "maxLength": 1024,
             "type": "string"
           },
