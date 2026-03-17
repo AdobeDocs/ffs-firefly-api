@@ -1162,7 +1162,7 @@
     "/v3/images/precise-composite": {
       "post": {
         "operationId": "preciseComposite",
-        "summary": "Precise composite",
+        "summary": "Generate precise composite",
         "description": "Submits an asynchronous precise composite generation job using the PixelPerfect pipeline.",
         "tags": ["Common Operations"],
         "parameters": [
@@ -1282,7 +1282,7 @@
     "/v3/images/adaptive-composite": {
       "post": {
         "operationId": "adaptiveComposite",
-        "summary": "Adaptive composite",
+        "summary": "Generate adaptive composite",
         "description": "Submits an asynchronous adaptive composite generation job using the Object Stitch pipeline.",
         "tags": ["Common Operations"],
         "parameters": [
