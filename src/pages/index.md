@@ -46,6 +46,12 @@ Try out the API today to:
 - Tweak your images by replacing sections of images using fill.
 - Use expand to adapt to different sizes for different marketing channels.
 
+## What's new with Image Model 5?
+
+ The Image5 model is Firefly's latest model and is a leap forward in realism, lighting, and composition with native 4 MP resolution for sharper, more expressive results across photography, text, and illustration.​
+
+ It also supports the new Instruct Edit capability, which enables users to generate and refine in one seamless workflow using natural language to make precise and intuitive edits.​
+
 ## Discover
 
 <DiscoverBlock slots="link, text"/>
