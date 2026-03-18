@@ -26,6 +26,7 @@
         "name": "Manage jobs",
         "description": "Endpoints for managing running asynchronous jobs."
       }
+  ],
   "paths": {
     "/v3/images/generate-async": {
       "post": {
