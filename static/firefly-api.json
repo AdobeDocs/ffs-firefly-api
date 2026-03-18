@@ -25,12 +25,7 @@
     {
         "name": "Manage jobs",
         "description": "Endpoints for managing running asynchronous jobs."
-      },
-    {
-        "name": "Image Model 5",
-        "description": "Asynchronous image generation using Firefly Image5 model (v4 endpoint)."
       }
-  ],
   "paths": {
     "/v3/images/generate-async": {
       "post": {
@@ -277,7 +272,7 @@
         "operationId": "firefly_image_v5_generate_async_v4",
         "summary": "Generate images with Image5",
         "description": "Generate images asynchronously using Firefly's Image5 model.",
-        "tags": ["Image Model 5"],
+        "tags": ["Common operations"],
         "parameters": [
           {
             "name": "x-model-version",
