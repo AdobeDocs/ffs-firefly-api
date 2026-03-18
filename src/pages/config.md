@@ -33,6 +33,8 @@
         - [Seeds](/guides/concepts/seeds/index.md)
     - [How-Tos](/guides/how-tos/firefly-generate-image-api-tutorial.md)
         - [Firefly Generate Image API Tutorial](/guides/how-tos/firefly-generate-image-api-tutorial.md)
+        - [Migrating to Image5](/guides/how-tos/cm-generate-image/breaking-changes.md)
+        - [Using the Generate Image API with Image5](/guides/how-tos/cm-generate-image/feature-guide.md)
         - [Firefly Expand Image API Tutorial](/guides/how-tos/firefly-expand-image-api-tutorial.md)
         - [Firefly Fill Image API Tutorial](/guides/how-tos/firefly-fill-image-api-tutorial.md)
         - [Using the Firefly Asynchronous API](/guides/how-tos/using-async-apis.md)
