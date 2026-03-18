@@ -25,6 +25,10 @@
     {
         "name": "Manage jobs",
         "description": "Endpoints for managing running asynchronous jobs."
+      },
+    {
+        "name": "Image Model 5",
+        "description": "Asynchronous image generation using Firefly Image5 model (v4 endpoint)."
       }
   ],
   "paths": {
@@ -264,6 +268,259 @@
               }
             },
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v4/images/generate-async": {
+      "post": {
+        "operationId": "firefly_image_v5_generate_async_v4",
+        "summary": "Generate images with Image5",
+        "description": "Generate images asynchronously using Firefly's Image5 model.",
+        "tags": ["Image Model 5"],
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["image5"],
+              "default": "image5"
+            },
+            "description": "The model version to use for image generation."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageGenerateRequestV3"
+              },
+              "examples": {
+                "fullPayload": {
+                  "summary": "Full payload example",
+                  "value": {
+                    "prompt": "A futuristic city glowing at night, with neon lights and flying cars",
+                    "aspectRatio": "16:9",
+                    "modelId": "firefly_image",
+                    "numVariations": 1,
+                    "seeds": [42345],
+                    "modelSpecificPayload": {
+                      "localeCode": "en-US"
+                    },
+                    "referenceBlobs": [
+                      {
+                        "source": {
+                          "url": "https://example.com/reference-image.jpg"
+                        },
+                        "usage": "general"
+                      }
+                    ]
+                  }
+                },
+                "textToImageGeneration": {
+                  "summary": "Text-to-Image generation",
+                  "value": {
+                    "prompt": "A hyper-detailed illustration of a floating city at sunrise",
+                    "aspectRatio": "16:9",
+                    "modelId": "firefly_image",
+                    "numVariations": 1,
+                    "referenceBlobs": []
+                  }
+                },
+                "imageToImageInstructEdit": {
+                  "summary": "Image-to-Image instruct edit",
+                  "value": {
+                    "prompt": "Add warm sunset lighting and enhance the reflection on the water",
+                    "modelId": "firefly_image",
+                    "numVariations": 1,
+                    "referenceBlobs": [
+                      {
+                        "source": {
+                          "uploadId": "123e4567-e89b-12d3-a456-426614174000"
+                        },
+                        "usage": "general"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AsyncTaskResponse"
+                },
+                "example": {
+                  "links": {
+                    "cancel": {
+                      "href": "https://firefly-api.adobe.io/v3/cancel/job-abc123"
+                    },
+                    "result": {
+                      "href": "https://firefly-api.adobe.io/v3/status/job-abc123"
+                    }
+                  },
+                  "progress": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Requested Resource Was Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Gone",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "451": {
+            "description": "Unavailable For Legal Reasons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Client Closed Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
           }
         }
       }
@@ -1861,6 +2118,11 @@
         "title": "ApiError",
         "type": "object"
       },
+      "AspectRatio": {
+        "type": "string",
+        "title": "AspectRatio",
+        "enum": ["1:1", "4:3", "3:4", "16:9", "9:16"]
+      },
       "AsyncAcceptResponseV3": {
         "properties": {
           "cancelUrl": {
@@ -1929,6 +2191,44 @@
         },
         "title": "AsyncApiErrorV3",
         "type": "object"
+      },
+      "AsyncTaskLink": {
+        "type": "object",
+        "title": "AsyncTaskLink",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "type": "string",
+            "title": "Href"
+          }
+        }
+      },
+      "AsyncTaskLinkType": {
+        "type": "string",
+        "title": "AsyncTaskLinkType",
+        "enum": ["cancel", "result"]
+      },
+      "AsyncTaskResponse": {
+        "type": "object",
+        "title": "AsyncTaskResponse",
+        "description": "Response type for async requests.",
+        "required": ["links"],
+        "properties": {
+          "links": {
+            "type": "object",
+            "title": "Links",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AsyncTaskLink"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/AsyncTaskLinkType"
+            }
+          },
+          "progress": {
+            "type": "number",
+            "title": "Progress"
+          }
+        }
       },
       "AsyncTaskResponseV3": {
         "properties": {
@@ -2323,6 +2623,11 @@
         "title": "Fill images response.",
         "type": "object"
       },
+      "FireflyModelId": {
+        "type": "string",
+        "title": "FireflyModelId",
+        "enum": ["firefly_image"]
+      },
       "GenerateImagesRequestV3": {
         "properties": {
           "contentClass": {
@@ -2405,6 +2710,109 @@
         ],
         "title": "Generating images from prompt",
         "type": "object"
+      },
+      "ImageGenerateRequestV3": {
+        "type": "object",
+        "title": "ImageGenerateRequestV3",
+        "required": ["prompt"],
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "The prompt",
+            "description": "The prompt used to generate the image. The longer the prompt, the better.",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "aspectRatio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "description": "The aspect ratio of the requested generations. This controls the size of the generated image."
+          },
+          "modelId": {
+            "$ref": "#/components/schemas/FireflyModelId",
+            "description": "The specific model to use for image generation. Available options: 'firefly_image' for Firefly Image model."
+          },
+          "modelSpecificPayload": {
+            "$ref": "#/components/schemas/ModelSpecificPayloadV3",
+            "description": "Additional model-specific parameters for controlling the generation process."
+          },
+          "numVariations": {
+            "type": "integer",
+            "maximum": 1,
+            "title": "The number of variations",
+            "description": "The number of image variations to generate. Greater than 1 is not supported. Only one image per variation is allowed. For multiple variations, send separate requests."
+          },
+          "referenceBlobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferenceBlobV3"
+            },
+            "title": "Reference blobs",
+            "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported per request for the instruct edit functionality. Presigned URLs are not supported - images must be uploaded to Adobe storage.",
+            "default": [],
+            "minItems": 0
+          },
+          "seeds": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 1,
+            "title": "The seeds for the generations",
+            "description": "The seed value to vary the image generation. Only one seed per variation is allowed. If specified alongside with numVariations, the number of seeds must be equal to numVariations."
+          }
+        }
+      },
+      "ModelSpecificPayloadV3": {
+        "type": "object",
+        "title": "ModelSpecificPayloadV3",
+        "description": "Model-specific payload parameters for V3 generation workflows.",
+        "properties": {
+          "localeCode": {
+            "type": "string",
+            "title": "The locale code used for image generations",
+            "description": "The locale code (following RFC 5646 format, e.g., 'en-US') will be used to generate content that is more relevant for user's country and language.",
+            "example": "en-US"
+          }
+        }
+      },
+      "ReferenceBlobV3": {
+        "type": "object",
+        "title": "ReferenceBlobV3",
+        "description": "Reference blob for V3 API. Style Guide compliant: The 'source' property specifies the input location, and other properties like 'usage' are peers of 'source'.",
+        "required": ["source"],
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/ReferenceBlobSourceV3",
+            "description": "The source location of the reference image."
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ReferenceBlobUsageV3",
+            "description": "The usage of the reference blob. Available options: 'general' for general reference."
+          }
+        }
+      },
+      "ReferenceBlobSourceV3": {
+        "type": "object",
+        "title": "ReferenceBlobSourceV3",
+        "description": "Source specification for a reference blob input asset.",
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Upload ID",
+            "description": "The ID of an asset previously uploaded to the Firefly Upload Image API."
+          },
+          "url": {
+            "type": "string",
+            "title": "URL",
+            "description": "URL of the reference image. Presigned URLs are not supported for Image5; images must be uploaded to Adobe storage."
+          }
+        }
+      },
+      "ReferenceBlobUsageV3": {
+        "type": "string",
+        "title": "ReferenceBlobUsageV3",
+        "enum": ["general"]
       },
       "GenerateImagesResponseV3": {
         "properties": {
