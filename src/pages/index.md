@@ -52,6 +52,8 @@ Try out the API today to:
 
  It also supports the new Instruct Edit capability, which enables users to generate and refine in one seamless workflow using natural language to make precise and intuitive edits.​
 
+ If you've already implemented image generation with the Firefly API, you can migrate to the Image5 model by following the [Migrating to Image5](/guides/how-tos/cm-generate-image/breaking-changes.md) guide.
+
 ## Discover
 
 <DiscoverBlock slots="link, text"/>
