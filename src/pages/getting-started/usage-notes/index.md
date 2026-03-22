@@ -83,3 +83,22 @@ Videos can be generated with dimensions for these supported aspect ratios:
 | 1:1 | 1080w x 1080h |
 | 1:1 | 720w x 720h |
 | 1:1 | 540w x 540h |
+
+### Allowed storage domains
+
+Images for use with the composite APIas can be uploaded with the /v2/storage/image API. If that API is used to upload an image, then the uploadId is returned. The value of the `source.url` properties in those API requests is a pre-signed URL referencing an image that is stored in a supported domain.
+
+The following domains are allowed for storage URLs used with the API:
+
+| Domain | Provider |
+| --- | --- |
+| amazonaws.com | Amazon Web Services |
+| amazonaws.com:443 | Amazon Web Services |
+| windows.net | Microsoft Azure |
+| windows.net:443 | Microsoft Azure |
+| dropboxusercontent.com | Dropbox |
+| dropboxusercontent.com:443 | Dropbox |
+| storage.googleapis.com | Google Cloud |
+| storage.googleapis.com:443 | Google Cloud |
+| assets.frame.io | Frame.io |
+| adobe.io | Adobe |

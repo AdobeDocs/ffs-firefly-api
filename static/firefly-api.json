@@ -2250,10 +2250,10 @@
           "url": {
             "type": "string",
             "format": "uri",
-            "description": "Presigned URL of the image."
+            "description": "Pre-signed URL of the image from a supported domain. [See Allowed storage domains](https://github.com/your-repo/your-project/blob/main/src/pages/getting-started/usage-notes/index.md#allowed-storage-domains) for the current list."
           }
         },
-        "description": "Image Source - exactly one of url or uploadId must be provided in the request."
+        "description": "The image source. Exactly one of `url` or `uploadId` must be provided in the request."
       },
       "ObjectInput": {
         "type": "object",
