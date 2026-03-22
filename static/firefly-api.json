@@ -1206,14 +1206,6 @@
                   "$ref": "#/components/schemas/AsyncJobResponse"
                 }
               }
-            },
-            "headers": {
-              "Link": {
-                "description": "Links to check the job status or cancel the job.",
-                "schema": {
-                  "type": "string"
-                }
-              }
             }
           },
           "400": {
@@ -1324,14 +1316,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AsyncJobResponse"
-                }
-              }
-            },
-            "headers": {
-              "Link": {
-                "description": "Links to check the job status or cancel the job.",
-                "schema": {
-                  "type": "string"
                 }
               }
             }
@@ -2140,14 +2124,14 @@
       },
       "AdaptiveCompositeRequest": {
         "type": "object",
-        "required": ["background"],
+        "required": ["background", "object"],
         "properties": {
           "background": {
             "$ref": "#/components/schemas/BackgroundInput",
             "description": "Background image and fill area mask."
           },
           "object": {
-            "$ref": "#/components/schemas/ObjectInput",
+            "$ref": "#/components/schemas/AdaptiveObjectInput",
             "description": "Object image and optional mask."
           },
           "numVariations": {
@@ -2193,9 +2177,22 @@
           }
         }
       },
+      "AdaptiveObjectInput": {
+        "type": "object",
+        "required": ["image"],
+        "properties": {
+          "image": {
+            "$ref": "#/components/schemas/ImageRef",
+            "description": "Object image to be composited onto the background."
+          },
+          "mask": {
+            "$ref": "#/components/schemas/ImageRef",
+            "description": "Optional object mask."
+          }
+        }
+      },
       "AsyncJobResponse": {
         "type": "object",
-        "required": ["status", "jobId", "statusUrl", "cancelUrl"],
         "properties": {
           "status": {
             "type": "string",
@@ -2265,10 +2262,6 @@
           "image": {
             "$ref": "#/components/schemas/ImageRef",
             "description": "Object image to be composited onto the background."
-          },
-          "mask": {
-            "$ref": "#/components/schemas/ImageRef",
-            "description": "Optional object mask."
           }
         }
       },
@@ -2326,7 +2319,6 @@
       },
       "ValidationErrorDetail": {
         "type": "object",
-        "required": ["loc", "msg", "type"],
         "properties": {
           "loc": {
             "type": "array",
@@ -2359,7 +2351,6 @@
       },
       "ValidationErrorResponse": {
         "type": "object",
-        "required": ["error_code", "message", "validation_errors"],
         "properties": {
           "error_code": {
             "type": "string",
