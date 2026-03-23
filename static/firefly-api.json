@@ -27,7 +27,7 @@
         "description": "Object composite image generation: prompt-based composite, precise composite, and adaptive composite endpoints."
     },
     {
-      "name": "Upscale (beta)",
+      "name": "Upscale",
       "description": "Image upscaling with the creative upsampler (beta)."
     },
     {
