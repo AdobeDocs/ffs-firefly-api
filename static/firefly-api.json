@@ -24,7 +24,7 @@
     },
     {
         "name": "Composite Operations",
-        "description": "Object composite image generation: prompt-based composite, PixelPerfect (precise composite), and X-Stitch (adaptive composite)."
+        "description": "Object composite image generation: prompt-based composite, precise composite, and adaptive composite endpoints."
     },
     {
         "name": "Manage jobs",
@@ -1167,7 +1167,7 @@
       "post": {
         "operationId": "preciseComposite",
         "summary": "Generate precise composite",
-        "description": "Submits an asynchronous precise composite generation job using the PixelPerfect pipeline.",
+        "description": "Submits an asynchronous precise composite generation job using the precise composite pipeline.",
         "tags": ["Common Operations", "Composite Operations"],
         "parameters": [
           {
@@ -1269,7 +1269,7 @@
       "post": {
         "operationId": "adaptiveComposite",
         "summary": "Generate adaptive composite",
-        "description": "Submits an asynchronous adaptive composite generation job using the Object Stitch pipeline.",
+        "description": "Submits an asynchronous adaptive composite generation job using the adaptive composite pipeline.",
         "tags": ["Common Operations", "Composite Operations"],
         "parameters": [
           {

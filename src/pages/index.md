@@ -48,7 +48,7 @@ Generate brand-aligned image variations at scale
 
 <DiscoverBlock slots="link, text"/>
 
-[Object Composite](#object-composite-api-v4)
+[Object Composite](#object-composite-api)
 
 Blend product shots and objects into generated scenes with complementing tones, colors, lighting, shadows, and textures.
 
@@ -73,35 +73,37 @@ The Custom Models API lets you:
 
 To get started, see the [Custom Models overview](guides/concepts/custom-models/index.md), the [Custom Models Generate Image API tutorial](guides/how-tos/cm-generate-image/index.md), and [Grant apps access to a Custom Model](guides/how-tos/cm-share-model/index.md).
 
-## Object Composite API v4
+## Composite Operations APIs
 
 Blend product shots and objects into generated scenes with complementing tones, colors, lighting, shadows, and textures.
 
-This service offers the new and improved Object Composite API v4 with **X-Stitch** and **PixelPerfect** modes.
+This service offers the Object Composite API, **Adaptive Composite**, and **Precise Composite**.
 
-Object Composites with Adobe Firefly allows you to upload an image, such as a product photo, and use a text prompt to generate a composited scene for the product.
+Composites with Adobe Firefly allows you to upload an image, such as a product photo, and use a text prompt to generate a composited scene for the product.
 
-The Object Composites feature can be used to:
+The Composite Operations APIs can be used to:
 
 - Create captivating product shots with different setups, backgrounds, and visual design variations.
 - Generate engaging social media creatives with custom images and product photos.
 - Help customers visualize scenarios by showcasing the product in different settings and environments.
 
-### What's different about Object Composite v4?
+### What are the Composite Operations APIs?
 
-The Object Composite v4 API is improved over previous versions of the service in the following ways:
+The Precise Composite API is improved over previous versions of the service in the following ways:
 
 - **Higher Fidelity and Realism** - The new ME model significantly outperforms the previous MD model in object-edge accuracy, lighting realism, and contextual scene generation.
   
-- **Enhanced Masking** - Enhanced masking (leveraging the latest Photoshop mask models) eliminates the "halo" effect common in OC v3 outputs.
+- **Enhanced Masking** - Enhanced masking (leveraging the latest Photoshop mask models) eliminates the "halo" effect common in v3 outputs.
 
 - **True Visual Integration via Harmonization** - Generative Harmonization reintroduces and enhances lighting and shadow correction for composite realism. Developers can control harmonization strength (0–100%) or toggle the feature off entirely to fine-tune visual output.
 
-- **Bring-Your-Own-Background to X-Stitch** - Using X-Stitch, customers can now composite products into existing or custom-generated backgrounds—such as brand-specific environments produced with Firefly Custom Models. This allows greater creative control, brand consistency, and multi-scene reuse across campaigns.
+Use Adaptive Composite to:
 
-- **Intelligent Object Rotation** - The X-Stitch model analyzes the target background and automatically adjusts the object's rotation to match environmental cues (for example, perspective or lighting direction).
+- **Bring-Your-Own-Background to Adaptive Composite** - Using Adaptive Composite, customers can now composite products into existing or custom-generated backgrounds—such as brand-specific environments produced with Firefly Custom Models. This allows greater creative control, brand consistency, and multi-scene reuse across campaigns.
 
-To get started, see the [Object Composite API v4 Feature Guide](guides/how-tos/object-composite/index.md).
+- **Intelligent Object Rotation** - The Adaptive Composite model analyzes the target background and automatically adjusts the object's rotation to match environmental cues (for example, perspective or lighting direction).
+
+To get started, see the [Object Composite API Feature Guide](guides/how-tos/object-composite/index.md).
 
 ## Discover
 

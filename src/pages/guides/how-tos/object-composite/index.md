@@ -7,8 +7,8 @@ keywords:
   - API
   - User Guide
   - Guide
-  - X-Stitch
-  - PixelPerfect
+  - Adaptive Composite
+  - Precise Composite
 ---
 # Using the Object Composite API
 
@@ -28,15 +28,15 @@ Object Composite is Adobe's enterprise-grade image compositing capability.
 
 Execute this operations using a **object composite** request with the endpoint `/v3/images/generate-object-composite-async`.
 
-### PixelPerfect Composite
+### Precise Composite
 
-PixelPerfect Composite places the subject in the masked region and applies generative harmonization so the subject blends naturally with the background. Use when you want AI-driven harmonization and a single, consistent style.
+Precise Composite places the subject in the masked region and applies generative harmonization so the subject blends naturally with the background. Use when you want AI-driven harmonization and a single, consistent style.
 
 Execute this operations using a **precise composite** request with the endpoint `/v3/images/precise-composite`.
 
-### Object Stitch Composite
+### Adaptive Composite
 
-Object Stitch Composite composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
+Adaptive Composite composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
 
 Execute this operations using an **adaptive composite** request with the endpoint `/v3/images/adaptive-composite`.
 
@@ -57,21 +57,21 @@ The API is powerful in a variety of workflows but will often require these input
   - Black pixels (#000000) indicate areas to preserve.
   - Use clean, anti-aliased masks for smooth edges.
 
-PixelPerfect feature parameters:
+Precise Composite feature parameters:
 
 - `blend` - Control the blend between harmonized and original object appearance.
 
-X-Stitch feature parameters:
+Adaptive Composite feature parameters:
 
 - `shadowIntensity` - Control how strongly shadows are applied to the composited result. Use higher values (for example, 0.8–1) when objects should cast realistic shadows, natural lighting is important, or the scene has directional lighting. Lower values reduce shadow intensity.
 - `harmonization` - Control the intensity of the harmonization process to match the background's lighting, color temperature, and atmosphere. Generative Harmonization introduces and enhances lighting and shadow correction for composite realism.
 - `preserveBackground` - Preserves the original background details within the masked area during compositing.
 
-For full technical details, see the [Object Composite API v4 Reference](../../../api/index.md).
+For full technical details, see the [Object Composite API Reference](../../../api/index.md).
 
 ## Direct object insertion
 
-Using Object Stitch, customers can composite products into existing or custom-generated backgrounds, such as brand-specific environments produced with Firefly Custom Models.
+Using Adaptive Composite, customers can composite products into existing or custom-generated backgrounds, such as brand-specific environments produced with Firefly Custom Models.
 
 ![Image of the background, a clean modern kitchen countertop](./XStitch-comp1.png)
 
@@ -90,7 +90,7 @@ Using Object Stitch, customers can composite products into existing or custom-ge
 - `background.image` - The destination scene.
 - `background.fillAreaMask` - The area of the destination scene where the object will be placed.
 - `object.image` - The source object image.
-- `object.mask` (optional, x-stitch only) - The object segmentation mask.
+- `object.mask` (optional, adaptive composite only) - The object segmentation mask.
 
 <AccordionItem slots="heading, text, code"/>
 
@@ -149,7 +149,6 @@ headers = {
     "Authorization": f"Bearer {ACCESS_TOKEN}",
     "x-api-key": API_KEY,
     "Content-Type": "application/json",
-    "x-model-version": "x-stitch"
 }
 
 # Request payload
@@ -189,7 +188,7 @@ payload = {
 
 # Submit job
 response = requests.post(
-    f"{API_BASE}/v4/images/generate-object-composite-async",
+    f"{API_BASE}/v3/images/adaptive-composite",
     headers=headers,
     json=payload
 )
@@ -217,7 +216,7 @@ const API_BASE = 'https://firefly-api.adobe.io';
 const ACCESS_TOKEN = 'your_access_token';
 const API_KEY = 'your_api_key';
 
-async function stitchObject() {
+async function adaptiveComposite() {
   const payload = {
     background: {
       image: {
@@ -254,14 +253,13 @@ async function stitchObject() {
 
   try {
     const response = await axios.post(
-      `${API_BASE}/v4/images/generate-object-composite-async`,
+      `${API_BASE}/v3/images/adaptive-composite`,
       payload,
       {
         headers: {
           'Authorization': `Bearer ${ACCESS_TOKEN}`,
           'x-api-key': API_KEY,
           'Content-Type': 'application/json',
-          'x-model-version': 'x-stitch'
         }
       }
     );
@@ -294,7 +292,7 @@ async function checkJobStatus(jobId) {
 
 // Usage
 (async () => {
-  const job = await stitchObject();
+  const job = await adaptiveComposite();
   const status = await checkJobStatus(job.jobId);
   console.log('Job Status:', status);
 })();
@@ -376,7 +374,6 @@ headers = {
     "Authorization": f"Bearer {ACCESS_TOKEN}",
     "x-api-key": API_KEY,
     "Content-Type": "application/json",
-    "x-model-version": "x-stitch"
 }
 
 # Request payload
@@ -411,7 +408,7 @@ payload = {
 
 # Submit job
 response = requests.post(
-    f"{API_BASE}/v4/images/generate-object-composite-async",
+    f"{API_BASE}/v3/images/adaptive-composite",
     headers=headers,
     json=payload
 )
@@ -439,7 +436,7 @@ const API_BASE = 'https://firefly-api.adobe.io';
 const ACCESS_TOKEN = 'your_access_token';
 const API_KEY = 'your_api_key';
 
-async function stitchObject() {
+async function adaptiveComposite() {
   const payload = {
     background: {
       image: {
@@ -471,14 +468,13 @@ async function stitchObject() {
 
   try {
     const response = await axios.post(
-      `${API_BASE}/v4/images/generate-object-composite-async`,
+      `${API_BASE}/v3/images/adaptive-composite`,
       payload,
       {
         headers: {
           'Authorization': `Bearer ${ACCESS_TOKEN}`,
           'x-api-key': API_KEY,
           'Content-Type': 'application/json',
-          'x-model-version': 'x-stitch'
         }
       }
     );
@@ -511,7 +507,7 @@ async function checkJobStatus(jobId) {
 
 // Usage
 (async () => {
-  const job = await stitchObject();
+  const job = await adaptiveComposite();
   const status = await checkJobStatus(job.jobId);
   console.log('Job Status:', status);
 })();
@@ -519,12 +515,12 @@ async function checkJobStatus(jobId) {
 
 ## Cancel a job
 
-The API allows you to cancel in-progress jobs with the `PUT /v4/cancel/{jobId}` endpoint to save resources and processing time.
+The API allows you to cancel in-progress jobs with the `PUT /v3/cancel/{jobId}` endpoint to save resources and processing time.
 
 Use the cancellation request to cancel a job:
 
 ```bash
-curl -X PUT "https://firefly-api.adobe.io/v4/cancel/{jobId}" \
+curl -X PUT "https://firefly-api.adobe.io/v3/cancel/{jobId}" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "x-api-key: YOUR_API_KEY"
 ```
@@ -543,4 +539,4 @@ When polling a cancelled job's status, you'll receive:
 ## Additional resources
 
 To get started with your own development, start with [Object Composite Authentication](../../../getting-started/index.md).
-For more details on the Object Composite API v4, [see the Object Composite API Reference](../../../api/index.md).
+For more details on the Object Composite API, [see the Object Composite API Reference](../../../api/index.md).
