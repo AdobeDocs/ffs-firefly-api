@@ -21,6 +21,8 @@ keywords:
   - Custom Models
   - Custom Models API
   - brand-aligned image generation
+  - upscale
+  - Upscale API
 contributors:
   - https://github.com/amandahuarng
   - https://github.com/nimithajalal
@@ -51,6 +53,12 @@ Generate brand-aligned image variations at scale
 [Composite Operations APIs](#composite-operations-apis)
 
 Blend product shots and objects into generated scenes with complementing tones, colors, lighting, shadows, and textures.
+
+<DiscoverBlock slots="link, text"/>
+
+[Upscale API (beta)](#upscale-api-beta)
+
+Enhance image resolution and quality at scale with the Upscale API (beta).
 
 ## Custom Models API
 
@@ -104,6 +112,35 @@ Use Adaptive Composite to:
 - **Intelligent Object Rotation** - The Adaptive Composite model analyzes the target background and automatically adjusts the object's rotation to match environmental cues (for example, perspective or lighting direction).
 
 To get started, see the [Object Composite API Feature Guide](guides/how-tos/object-composite/index.md).
+
+## Upscale API (beta)
+
+Enhance image resolution and quality quickly and effortlessly, without pixelation or retakes.
+
+Demand for high-resolution images is growing across digital platforms, but traditional upscaling often causes pixelation and quality loss. The Upscale API delivers automated image enhancement that saves time and resources. Integrate it into Adobe products or use it in your own workflows to improve image quality where it matters, while keeping details crisp and accurate.
+
+### What can the Upscale API do?
+
+Upsampling use-cases include:
+
+**User Assets Upsampler**: Increase the resolution of your own photos and artwork while preserving detail and avoiding artificial or hallucinated content. Use this use-case to:
+
+- **Preserve the original**: Follow the source image closely and avoid introducing new or artificial elements.
+- **Transform low-resolution sources**: Turn small or low-quality images into high-resolution versions suitable for print, display, or downstream workflows.
+- **Support multiple scale factors**: Upsample to 2×, 4×, or 6× depending on your needs.
+
+**Generated Image Upsampler**: Maintain crispness and correct fine details in images created by generative AI (e.g., textures, patterns) when zooming in.This capability focuses on two dimensions of quality:
+
+- **Crispness**: The upscaled image retains the sharpness of the original generation.
+- **Correctness**: Fine details (e.g., textures like flowers, grass, or fabric) stay coherent when you zoom in, instead of breaking down into a messy or blurry appearance.
+
+**MD Upsampler (Fill & Expand)**: Upscale only the generated parts of an image (from fill or expand) so they match the sharpness and quality of the rest of the image.This capability lets you:
+
+- **Match the original resolution**: Upscale the generated section so it matches the crispness of the surrounding image.
+- **Improve correctness**: Refine details in the generated area (e.g., textures, edges) so they look correct when zooming in, not like a disorderly or blurry mass.
+- **Create a seamless result**: Make it much less obvious which part of the image was created with Firefly—so the full image feels cohesive.
+
+To get started, see [Getting Started](getting-started/index.md) for authentication and setup, and the [API Reference](api/index.md) for Upscale endpoints and schemas.
 
 ## Discover
 
