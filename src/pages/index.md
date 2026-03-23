@@ -48,7 +48,7 @@ Generate brand-aligned image variations at scale
 
 <DiscoverBlock slots="link, text"/>
 
-[Object Composite](#object-composite-api)
+[Composite Operations APIs](#composite-operations-apis)
 
 Blend product shots and objects into generated scenes with complementing tones, colors, lighting, shadows, and textures.
 
