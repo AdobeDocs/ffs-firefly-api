@@ -90,7 +90,7 @@ Using Adaptive Composite, customers can composite products into existing or cust
 - `background.image` - The destination scene.
 - `background.fillAreaMask` - The area of the destination scene where the object will be placed.
 - `object.image` - The source object image.
-- `object.mask` (optional, adaptive composite only) - The object segmentation mask.
+- `object.mask` - The object segmentation mask.
 
 <AccordionItem slots="heading, text, code"/>
 
@@ -538,5 +538,5 @@ When polling a cancelled job's status, you'll receive:
 
 ## Additional resources
 
-To get started with your own development, start with [Object Composite Authentication](../../../getting-started/index.md).
-For more details on the Object Composite API, [see the Object Composite API Reference](../../../api/index.md).
+To get started with your own development, start with [Composite Authentication](../../../getting-started/index.md).
+For more details on the Composite Operations APIs, [see the Composite Operations APIs API Reference](../../../api/index.md).
