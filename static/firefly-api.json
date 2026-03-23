@@ -2768,7 +2768,7 @@
         "type": "string"
       },
       "ContentClassV3": {
-        "description": "An enumeration.",
+        "description": "The content class of the image.",
         "enum": [
           "photo",
           "art"
