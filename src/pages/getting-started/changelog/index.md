@@ -38,6 +38,15 @@ twitter:
 [//]: # (TODO: Update with latest prod details, elaborate on API descriptions)
 # Changelog
 
+## March 24, 2026
+
+**API updates**
+
+* **Launch of Composite Operations APIs**: The Composite Operations APIs are now available for use.
+  * [Precise Composite API](../../api/index.md)
+  * [Adaptive Composite API](../../api/index.md)
+  * [Object Composite API](../../api/index.md)
+
 ## October 3, 2025
 
 **API updates**
