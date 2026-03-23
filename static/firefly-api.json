@@ -27,16 +27,12 @@
         "description": "Object composite image generation: prompt-based composite, precise composite, and adaptive composite endpoints."
     },
     {
+      "name": "Upscale",
+      "description": "Image upscaling with the creative upsampler (beta)."
+    },
+    {
         "name": "Manage jobs",
         "description": "Endpoints for managing running asynchronous jobs."
-      },
-    {
-        "name": "Storage",
-        "description": "Asset upload for use as input to async image operations."
-      },
-    {
-        "name": "Upscale",
-        "description": "Image upscaling with the creative upsampler (beta)."
       }
   ],
   "paths": {
@@ -1824,7 +1820,7 @@
         "summary": "Upload image",
         "description": "Upload source image or mask for image-to-image operations, such as fill, expand, or upscale (beta). This API returns an identifier that is used to refer to uploaded content. The uploaded assets will be valid for 7 days from the date you upload them.",
         "operationId": "storageImageV2",
-        "tags": ["Common Operations", "Storage"],
+        "tags": ["Common Operations"],
         "requestBody": {
           "content": {
             "image/jpeg": {
