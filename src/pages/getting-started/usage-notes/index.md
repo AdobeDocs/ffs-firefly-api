@@ -25,29 +25,7 @@ twitter:
 
 # Firefly API usage notes
 
-This document has details about what's currently supported, limitations, and workarounds.
-
-## Generate Video API
-
-These technical notes for usage apply to the Generate Video API.
-
-### Supported aspect ratios
-
-Videos can be generated with dimensions for these supported aspect ratios:
-
-![Supported aspect ratios](./aspect-ratios.png)
-
-| Aspect Ratio | Dimensions |
-| ------------- | ------------- |
-| 16:9 | 1920w x 1080h |
-| 16:9 | 1280w x 720h |
-| 16:9 | 960w x 540h |
-| 9:16 | 1080w x 1920h |
-| 9:16 | 720w x 1280h |
-| 9:16 | 540w x 960h |
-| 1:1 | 1080w x 1080h |
-| 1:1 | 720w x 720h |
-| 1:1 | 540w x 540h |
+This document has details about what's currently supported, limitations, and workarounds for the Firefly API.
 
 ## Rate limits
 
@@ -75,3 +53,52 @@ Rate limits are standard practice that serve several important purposes, includi
 * Preventing abuse: Protects APIs from being overwhelmed by excessive requests.
 * Protecting against downtime: Reduces the risk of service interruptions.
 * Controlling costs: Helps manage resource consumption and associated expenses.
+
+## Object Composite API usage
+
+These are technical details and known limitations for the Object Composite API.
+
+### Size limitations
+
+**Maximum image size** supported is 10MB.
+
+## Generate Video API usage
+
+These technical notes for usage apply to the Generate Video API.
+
+### Supported aspect ratios
+
+Videos can be generated with dimensions for these supported aspect ratios:
+
+![Supported aspect ratios](./aspect-ratios.png)
+
+| Aspect Ratio | Dimensions |
+| ------------- | ------------- |
+| 16:9 | 1920w x 1080h |
+| 16:9 | 1280w x 720h |
+| 16:9 | 960w x 540h |
+| 9:16 | 1080w x 1920h |
+| 9:16 | 720w x 1280h |
+| 9:16 | 540w x 960h |
+| 1:1 | 1080w x 1080h |
+| 1:1 | 720w x 720h |
+| 1:1 | 540w x 540h |
+
+### Allowed storage domains
+
+Images for use with the composite APIas can be uploaded with the /v2/storage/image API. If that API is used to upload an image, then the uploadId is returned. The value of the `source.url` properties in those API requests is a pre-signed URL referencing an image that is stored in a supported domain.
+
+The following domains are allowed for storage URLs used with the API:
+
+| Domain | Provider |
+| --- | --- |
+| amazonaws.com | Amazon Web Services |
+| amazonaws.com:443 | Amazon Web Services |
+| windows.net | Microsoft Azure |
+| windows.net:443 | Microsoft Azure |
+| dropboxusercontent.com | Dropbox |
+| dropboxusercontent.com:443 | Dropbox |
+| storage.googleapis.com | Google Cloud |
+| storage.googleapis.com:443 | Google Cloud |
+| assets.frame.io | Frame.io |
+| adobe.io | Adobe |
