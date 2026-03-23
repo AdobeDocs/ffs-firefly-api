@@ -2181,8 +2181,7 @@
           },
           "jobId": {
             "type": "string",
-            "description": "Job URN identifier.",
-            "example": "urn:ff:jobs::e411fc5d-f159-45e6-a575-16a24c3903ff"
+            "description": "Job URN identifier."
           },
           "statusUrl": {
             "type": "string",
@@ -2379,7 +2378,7 @@
           },
           "jobId": {
             "type": "string",
-            "example": "urn:ff:jobs::uuid",
+            "example": "<string>",
             "description": "The job ID."
           },
           "error_code": {
@@ -2432,7 +2431,7 @@
         "examples": [
           {
             "status": "succeeded",
-            "jobId": "urn:ff:jobs::uuid",
+            "jobId": "<string>",
             "result": {
               "outputs": [
                 {
@@ -2446,7 +2445,7 @@
           },
           {
             "status": "running",
-            "jobId": "urn:ff:jobs::uuid"
+            "jobId": "<string>"
           }
         ]
       },
@@ -2463,7 +2462,7 @@
           },
           "jobId": {
             "type": "string",
-            "example": "urn:ff:jobs::uuid",
+            "example": "<string>",
             "description": "The job ID."
           },
           "result": {
