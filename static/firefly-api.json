@@ -1175,16 +1175,6 @@
               "type": "string",
               "enum": ["application/json"]
             }
-          },
-          {
-            "name": "x-request-id",
-            "in": "header",
-            "required": false,
-            "description": "Client-provided request ID. Auto-generated if omitted.",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
         "requestBody": {
@@ -1286,16 +1276,6 @@
             "schema": {
               "type": "string",
               "enum": ["application/json"]
-            }
-          },
-          {
-            "name": "x-request-id",
-            "in": "header",
-            "required": false,
-            "description": "Client-provided request ID. Auto-generated if omitted.",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
             }
           }
         ],
