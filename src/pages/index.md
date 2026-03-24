@@ -105,6 +105,14 @@ Use Adaptive Composite to:
 
 To get started, see the [Object Composite API Feature Guide](guides/how-tos/object-composite/index.md).
 
+## What's new with Image Model 5?
+
+ The Image5 model is Firefly's latest model and is a leap forward in realism, lighting, and composition with native 4 MP resolution for sharper, more expressive results across photography, text, and illustration.​
+
+ It also supports the new Instruct Edit capability, which enables users to generate and refine in one seamless workflow using natural language to make precise and intuitive edits.​
+
+ If you've already implemented image generation with the Firefly API, you can migrate to the Image5 model by following the [Migrating to Image5](/guides/how-tos/cm-generate-image/breaking-changes.md) guide.
+
 ## Discover
 
 <DiscoverBlock slots="link, text"/>

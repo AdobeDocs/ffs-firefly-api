@@ -212,10 +212,30 @@
                         }
                       ]
                     }
+                  },
+                  "unsupported_value": {
+                    "summary": "Unsupported value",
+                    "value": {
+                      "error_code": "validation_error",
+                      "validation_errors": [
+                        {
+                          "loc": ["body", "seeds"],
+                          "msg": "ensure this value has at most 1 items",
+                          "type": "value_error.list.max_items"
+                        }
+                      ]
+                    }
+                  },
+                  "assertion_violation": {
+                    "summary": "Assertion violation",
+                    "value": {
+                      "error_code": "cai_assertion_violation_error",
+                      "message": "Request failed content assertion checks."
+                    }
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -268,6 +288,310 @@
               }
             },
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v4/images/generate-async": {
+      "post": {
+        "operationId": "firefly_image_v5_generate_async_v4",
+        "summary": "Generate images with Image5",
+        "description": "Generate images asynchronously using Firefly's Image5 model.",
+        "tags": ["Common Operations"],
+        "parameters": [
+          {
+            "name": "x-model-version",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["image5"],
+              "default": "image5"
+            },
+            "description": "The model version to use for image generation."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageGenerateRequestV3"
+              },
+              "examples": {
+                "fullPayload": {
+                  "summary": "Full payload example",
+                  "value": {
+                    "prompt": "A futuristic city glowing at night, with neon lights and flying cars",
+                    "aspectRatio": "16:9",
+                    "modelId": "firefly_image",
+                    "numVariations": 1,
+                    "seeds": [42345],
+                    "modelSpecificPayload": {
+                      "localeCode": "en-US"
+                    },
+                    "referenceBlobs": [
+                      {
+                        "source": {
+                          "url": "https://example.com/reference-image.jpg"
+                        },
+                        "usage": "general"
+                      }
+                    ]
+                  }
+                },
+                "textToImageGeneration": {
+                  "summary": "Text-to-Image generation",
+                  "value": {
+                    "prompt": "A hyper-detailed illustration of a floating city at sunrise",
+                    "aspectRatio": "16:9",
+                    "modelId": "firefly_image",
+                    "numVariations": 1,
+                    "referenceBlobs": []
+                  }
+                },
+                "imageToImageInstructEdit": {
+                  "summary": "Image-to-Image instruct edit",
+                  "value": {
+                    "prompt": "Add warm sunset lighting and enhance the reflection on the water",
+                    "modelId": "firefly_image",
+                    "numVariations": 1,
+                    "referenceBlobs": [
+                      {
+                        "source": {
+                          "uploadId": "123e4567-e89b-12d3-a456-426614174000"
+                        },
+                        "usage": "general"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AsyncTaskResponse"
+                },
+                "example": {
+                  "links": {
+                    "cancel": {
+                      "href": "https://firefly-api.adobe.io/v3/cancel/job-abc123"
+                    },
+                    "result": {
+                      "href": "https://firefly-api.adobe.io/v3/status/job-abc123"
+                    }
+                  },
+                  "progress": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Requested Resource Was Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Gone",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                },
+                "examples": {
+                  "invalid_enum": {
+                    "summary": "Invalid enum value",
+                    "value": {
+                      "error_code": "validation_error",
+                      "validation_errors": [
+                        {
+                          "loc": ["body", "aspectRatio"],
+                          "msg": "value is not a valid enumeration member; permitted: '1:1', '4:3', '3:4', '16:9', '9:16'",
+                          "type": "type_error.enum"
+                        }
+                      ]
+                    }
+                  },
+                  "unsupported_value": {
+                    "summary": "Unsupported value",
+                    "value": {
+                      "error_code": "validation_error",
+                      "validation_errors": [
+                        {
+                          "loc": ["body", "numVariations"],
+                          "msg": "ensure this value is less than or equal to 1",
+                          "type": "value_error.number.not_le"
+                        }
+                      ]
+                    }
+                  },
+                  "assertion_violation": {
+                    "summary": "Assertion violation",
+                    "value": {
+                      "error_code": "cai_assertion_violation_error",
+                      "message": "Request failed content assertion checks."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "451": {
+            "description": "Unavailable For Legal Reasons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
+                },
+                "examples": {
+                  "prompt_unsafe": {
+                    "summary": "Unsafe prompt",
+                    "value": {
+                      "error_code": "prompt_unsafe",
+                      "message": "The prompt did not pass content policy checks."
+                    }
+                  },
+                  "input_image_unsafe": {
+                    "summary": "Unsafe input image",
+                    "value": {
+                      "error_code": "input_media_unsafe",
+                      "message": "The input image did not pass content policy checks."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Client Closed Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not Implemented",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
           }
         }
       }
@@ -453,7 +777,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -674,7 +998,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -895,7 +1219,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -957,7 +1281,7 @@
         "operationId": "generateObjectCompositeV3Async",
         "summary": "Generate object composite",
         "description": "Combines your image and images generated by Firefly to create an image composite, or scene. The images that Firefly generates are based on a text prompt that you provide. You can upload an image with or without an image mask, such as a product photo, but for a successful result one of the following conditions must be true: <ul> <li>The request size is larger than the input image, OR</li> <li>The image contains a transparent layer/channel, OR</li> <li>A mask is provided</li> </ul>",
-        "tags": ["Common Operations", "Composite Operations"],
+        "tags": ["Composite Operations"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1106,7 +1430,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -1168,7 +1492,7 @@
         "operationId": "preciseComposite",
         "summary": "Generate precise composite",
         "description": "Submits an asynchronous precise composite generation job using the precise composite pipeline.",
-        "tags": ["Common Operations", "Composite Operations"],
+        "tags": ["Composite Operations"],
         "parameters": [
           {
             "name": "content-type",
@@ -1207,7 +1531,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
                 }
               }
             }
@@ -1228,6 +1552,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                }
+              }
+            }
+          },
+          "451": {
+            "description": "Unavailable For Legal Reasons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
                 }
               }
             }
@@ -1270,7 +1614,7 @@
         "operationId": "adaptiveComposite",
         "summary": "Generate adaptive composite",
         "description": "Submits an asynchronous adaptive composite generation job using the adaptive composite pipeline.",
-        "tags": ["Common Operations", "Composite Operations"],
+        "tags": ["Composite Operations"],
         "parameters": [
           {
             "name": "content-type",
@@ -1309,7 +1653,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
                 }
               }
             }
@@ -1330,6 +1674,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                }
+              }
+            }
+          },
+          "451": {
+            "description": "Unavailable For Legal Reasons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
                 }
               }
             }
@@ -1475,7 +1839,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -1755,7 +2119,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorBody"
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
+                },
+                "examples": {
+                  "prompt_unsafe": {
+                    "summary": "Unsafe prompt",
+                    "value": {
+                      "error_code": "prompt_unsafe",
+                      "message": "The prompt did not pass content policy checks."
+                    }
+                  },
+                  "input_image_unsafe": {
+                    "summary": "Unsafe input image",
+                    "value": {
+                      "error_code": "input_media_unsafe",
+                      "message": "The input image did not pass content policy checks."
+                    }
+                  }
                 }
               }
             }
@@ -1778,6 +2158,7 @@
         "operationId": "jobResultV3",
         "summary": "Get job status",
         "description": "Get the status of an asynchronous job.",
+        "tags": ["Manage jobs"],
         "parameters": [
           {
             "name": "jobId",
@@ -1848,11 +2229,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 },
                 "example": {
-                  "error_code": "string",
-                  "message": "string"
+                  "error_code": "validation_error",
+                  "validation_errors": [
+                    {
+                      "loc": ["parameters", "jobId"],
+                      "msg": "invalid job identifier format",
+                      "type": "value_error"
+                    }
+                  ]
                 }
               }
             }
@@ -1907,6 +2294,7 @@
         "operationId": "cancelJobV4",
         "summary": "Cancel job",
         "description": "Cancel an asynchronous job.",
+        "tags": ["Manage jobs"],
         "parameters": [
           {
             "name": "jobId",
@@ -2089,6 +2477,11 @@
         ],
         "title": "ApiError",
         "type": "object"
+      },
+      "AspectRatio": {
+        "type": "string",
+        "title": "AspectRatio",
+        "enum": ["1:1", "4:3", "3:4", "16:9", "9:16"]
       },
       "ApiErrorGeneric": {
         "type": "object",
@@ -2332,12 +2725,23 @@
           }
         }
       },
+      "ValidationErrorCode422": {
+        "type": "string",
+        "title": "ValidationErrorCode422",
+        "description": "Error code for HTTP 422 responses (request validation only).",
+        "enum": [
+          "validation_error",
+          "cai_assertion_violation_error"
+        ]
+      },
       "ValidationErrorResponse": {
         "type": "object",
+        "title": "ValidationErrorResponse",
+        "description": "Error response body for HTTP 422 (validation failures).",
+        "required": ["error_code"],
         "properties": {
           "error_code": {
-            "type": "string",
-            "example": "bad_request"
+            "$ref": "#/components/schemas/ValidationErrorCode422"
           },
           "message": {
             "type": "string",
@@ -2349,6 +2753,35 @@
               "$ref": "#/components/schemas/ValidationErrorDetail"
             },
             "description": "List of field-level validation errors."
+          }
+        }
+      },
+      "ContentPolicyErrorCode451": {
+        "type": "string",
+        "title": "ContentPolicyErrorCode451",
+        "description": "Error code for HTTP 451 responses (content policy, legal, or safety).",
+        "enum": [
+          "legal_error",
+          "prompt_unsafe",
+          "prompt_entity_denied",
+          "image_unsafe",
+          "video_unsafe",
+          "reference_image_unsafe_error",
+          "input_media_unsafe"
+        ]
+      },
+      "ContentPolicyErrorResponse": {
+        "type": "object",
+        "title": "ContentPolicyErrorResponse",
+        "description": "Error response body for HTTP 451 (content policy, legal, or safety).",
+        "required": ["error_code"],
+        "properties": {
+          "error_code": {
+            "$ref": "#/components/schemas/ContentPolicyErrorCode451"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error description."
           }
         }
       },
@@ -2556,6 +2989,44 @@
         },
         "title": "AsyncApiErrorV3",
         "type": "object"
+      },
+      "AsyncTaskLink": {
+        "type": "object",
+        "title": "AsyncTaskLink",
+        "required": ["href"],
+        "properties": {
+          "href": {
+            "type": "string",
+            "title": "Href"
+          }
+        }
+      },
+      "AsyncTaskLinkType": {
+        "type": "string",
+        "title": "AsyncTaskLinkType",
+        "enum": ["cancel", "result"]
+      },
+      "AsyncTaskResponse": {
+        "type": "object",
+        "title": "AsyncTaskResponse",
+        "description": "Response type for async requests.",
+        "required": ["links"],
+        "properties": {
+          "links": {
+            "type": "object",
+            "title": "Links",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AsyncTaskLink"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/AsyncTaskLinkType"
+            }
+          },
+          "progress": {
+            "type": "number",
+            "title": "Progress"
+          }
+        }
       },
       "AsyncTaskResponseV3": {
         "properties": {
@@ -2950,6 +3421,11 @@
         "title": "Fill images response.",
         "type": "object"
       },
+      "FireflyModelId": {
+        "type": "string",
+        "title": "FireflyModelId",
+        "enum": ["firefly_image"]
+      },
       "GenerateImagesRequestV3": {
         "properties": {
           "contentClass": {
@@ -3032,6 +3508,109 @@
         ],
         "title": "Generating images from prompt",
         "type": "object"
+      },
+      "ImageGenerateRequestV3": {
+        "type": "object",
+        "title": "ImageGenerateRequestV3",
+        "required": ["prompt"],
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "The prompt",
+            "description": "The prompt used to generate the image. The longer the prompt, the better.",
+            "minLength": 1,
+            "maxLength": 1500
+          },
+          "aspectRatio": {
+            "$ref": "#/components/schemas/AspectRatio",
+            "description": "The aspect ratio of the requested generations. This controls the size of the generated image."
+          },
+          "modelId": {
+            "$ref": "#/components/schemas/FireflyModelId",
+            "description": "The specific model to use for image generation. Available options: 'firefly_image' for Firefly Image model."
+          },
+          "modelSpecificPayload": {
+            "$ref": "#/components/schemas/ModelSpecificPayloadV3",
+            "description": "Additional model-specific parameters for controlling the generation process."
+          },
+          "numVariations": {
+            "type": "integer",
+            "maximum": 1,
+            "title": "The number of variations",
+            "description": "The number of image variations to generate. Greater than 1 is not supported. Only one image per variation is allowed. For multiple variations, send separate requests."
+          },
+          "referenceBlobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferenceBlobV3"
+            },
+            "title": "Reference blobs",
+            "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported. [Pre-signed URLs can be used from supported domains](https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/#image-api-usage).",
+            "default": [],
+            "maxItems": 1
+          },
+          "seeds": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 1,
+            "title": "The seeds for the generations",
+            "description": "The seed value to vary the image generation. Only one seed per variation is allowed. If specified alongside with numVariations, the number of seeds must be equal to numVariations."
+          }
+        }
+      },
+      "ModelSpecificPayloadV3": {
+        "type": "object",
+        "title": "ModelSpecificPayloadV3",
+        "description": "Model-specific payload parameters for V3 generation workflows.",
+        "properties": {
+          "localeCode": {
+            "type": "string",
+            "title": "The locale code used for image generations",
+            "description": "The locale code (following RFC 5646 format, e.g., 'en-US') will be used to generate content that is more relevant for user's country and language.",
+            "example": "en-US"
+          }
+        }
+      },
+      "ReferenceBlobV3": {
+        "type": "object",
+        "title": "ReferenceBlobV3",
+        "description": "Reference blob for V3 API. Style Guide compliant: The 'source' property specifies the input location, and other properties like 'usage' are peers of 'source'.",
+        "required": ["source"],
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/ReferenceBlobSourceV3",
+            "description": "The source location of the reference image."
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ReferenceBlobUsageV3",
+            "description": "The usage of the reference blob. Available options: 'general' for general reference."
+          }
+        }
+      },
+      "ReferenceBlobSourceV3": {
+        "type": "object",
+        "title": "ReferenceBlobSourceV3",
+        "description": "Source specification for a reference blob input asset. Input images must meet these requirements: file size must be 10 MB or less; image area must be between 512×512 and 2048×2048 pixels (inclusive); aspect ratio must be between 1:5 and 5:1 (inclusive).",
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Upload ID",
+            "description": "The ID of an asset previously uploaded to the Firefly Upload Image API."
+          },
+          "url": {
+            "type": "string",
+            "title": "URL",
+            "description": "URL of the reference image. Presigned URLs are not supported for Image5; images must be uploaded to Adobe storage."
+          }
+        }
+      },
+      "ReferenceBlobUsageV3": {
+        "type": "string",
+        "title": "ReferenceBlobUsageV3",
+        "enum": ["general"]
       },
       "GenerateImagesResponseV3": {
         "properties": {
