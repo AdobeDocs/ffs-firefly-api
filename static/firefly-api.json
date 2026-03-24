@@ -212,10 +212,30 @@
                         }
                       ]
                     }
+                  },
+                  "unsupported_value": {
+                    "summary": "Unsupported value",
+                    "value": {
+                      "error_code": "validation_error",
+                      "validation_errors": [
+                        {
+                          "loc": ["body", "seeds"],
+                          "msg": "ensure this value has at most 1 items",
+                          "type": "value_error.list.max_items"
+                        }
+                      ]
+                    }
+                  },
+                  "assertion_violation": {
+                    "summary": "Assertion violation",
+                    "value": {
+                      "error_code": "cai_assertion_violation_error",
+                      "message": "Request failed content assertion checks."
+                    }
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -457,7 +477,42 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                },
+                "examples": {
+                  "invalid_enum": {
+                    "summary": "Invalid enum value",
+                    "value": {
+                      "error_code": "validation_error",
+                      "validation_errors": [
+                        {
+                          "loc": ["body", "aspectRatio"],
+                          "msg": "value is not a valid enumeration member; permitted: '1:1', '4:3', '3:4', '16:9', '9:16'",
+                          "type": "type_error.enum"
+                        }
+                      ]
+                    }
+                  },
+                  "unsupported_value": {
+                    "summary": "Unsupported value",
+                    "value": {
+                      "error_code": "validation_error",
+                      "validation_errors": [
+                        {
+                          "loc": ["body", "numVariations"],
+                          "msg": "ensure this value is less than or equal to 1",
+                          "type": "value_error.number.not_le"
+                        }
+                      ]
+                    }
+                  },
+                  "assertion_violation": {
+                    "summary": "Assertion violation",
+                    "value": {
+                      "error_code": "cai_assertion_violation_error",
+                      "message": "Request failed content assertion checks."
+                    }
+                  }
                 }
               }
             }
@@ -477,7 +532,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
+                },
+                "examples": {
+                  "prompt_unsafe": {
+                    "summary": "Unsafe prompt",
+                    "value": {
+                      "error_code": "prompt_unsafe",
+                      "message": "The prompt did not pass content policy checks."
+                    }
+                  },
+                  "input_image_unsafe": {
+                    "summary": "Unsafe input image",
+                    "value": {
+                      "error_code": "input_media_unsafe",
+                      "message": "The input image did not pass content policy checks."
+                    }
+                  }
                 }
               }
             }
@@ -706,7 +777,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -927,7 +998,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -1148,7 +1219,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -1359,7 +1430,7 @@
                   }
                 },
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -1460,7 +1531,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
                 }
               }
             }
@@ -1481,6 +1552,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                }
+              }
+            }
+          },
+          "451": {
+            "description": "Unavailable For Legal Reasons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
                 }
               }
             }
@@ -1562,7 +1653,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorGeneric"
                 }
               }
             }
@@ -1583,6 +1674,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorGeneric"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
+                }
+              }
+            }
+          },
+          "451": {
+            "description": "Unavailable For Legal Reasons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
                 }
               }
             }
@@ -1728,7 +1839,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiError"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 }
               }
             },
@@ -2008,7 +2119,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorBody"
+                  "$ref": "#/components/schemas/ContentPolicyErrorResponse"
+                },
+                "examples": {
+                  "prompt_unsafe": {
+                    "summary": "Unsafe prompt",
+                    "value": {
+                      "error_code": "prompt_unsafe",
+                      "message": "The prompt did not pass content policy checks."
+                    }
+                  },
+                  "input_image_unsafe": {
+                    "summary": "Unsafe input image",
+                    "value": {
+                      "error_code": "input_media_unsafe",
+                      "message": "The input image did not pass content policy checks."
+                    }
+                  }
                 }
               }
             }
@@ -2102,11 +2229,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorGeneric"
+                  "$ref": "#/components/schemas/ValidationErrorResponse"
                 },
                 "example": {
-                  "error_code": "string",
-                  "message": "string"
+                  "error_code": "validation_error",
+                  "validation_errors": [
+                    {
+                      "loc": ["parameters", "jobId"],
+                      "msg": "invalid job identifier format",
+                      "type": "value_error"
+                    }
+                  ]
                 }
               }
             }
@@ -2592,12 +2725,23 @@
           }
         }
       },
+      "ValidationErrorCode422": {
+        "type": "string",
+        "title": "ValidationErrorCode422",
+        "description": "Error code for HTTP 422 responses (request validation only).",
+        "enum": [
+          "validation_error",
+          "cai_assertion_violation_error"
+        ]
+      },
       "ValidationErrorResponse": {
         "type": "object",
+        "title": "ValidationErrorResponse",
+        "description": "Error response body for HTTP 422 (validation failures).",
+        "required": ["error_code"],
         "properties": {
           "error_code": {
-            "type": "string",
-            "example": "bad_request"
+            "$ref": "#/components/schemas/ValidationErrorCode422"
           },
           "message": {
             "type": "string",
@@ -2609,6 +2753,35 @@
               "$ref": "#/components/schemas/ValidationErrorDetail"
             },
             "description": "List of field-level validation errors."
+          }
+        }
+      },
+      "ContentPolicyErrorCode451": {
+        "type": "string",
+        "title": "ContentPolicyErrorCode451",
+        "description": "Error code for HTTP 451 responses (content policy, legal, or safety).",
+        "enum": [
+          "legal_error",
+          "prompt_unsafe",
+          "prompt_entity_denied",
+          "image_unsafe",
+          "video_unsafe",
+          "reference_image_unsafe_error",
+          "input_media_unsafe"
+        ]
+      },
+      "ContentPolicyErrorResponse": {
+        "type": "object",
+        "title": "ContentPolicyErrorResponse",
+        "description": "Error response body for HTTP 451 (content policy, legal, or safety).",
+        "required": ["error_code"],
+        "properties": {
+          "error_code": {
+            "$ref": "#/components/schemas/ContentPolicyErrorCode451"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error description."
           }
         }
       },
