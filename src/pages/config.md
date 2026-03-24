@@ -22,6 +22,7 @@
     
 - subPages:
     - [Quickstart](/guides/index.md)
+    - Custom Models header
     - [Concepts](/guides/concepts/custom-models/index.md)
         - [Custom Models Overview](/guides/concepts/custom-models/index.md)
         - [Style Presets](/guides/concepts/style-presets/index.md)
@@ -40,6 +41,14 @@
         - [Using the Firefly Asynchronous API](/guides/how-tos/using-async-apis.md)
         - [Custom Models Generate Image API Tutorial](/guides/how-tos/cm-generate-image/index.md)
         - [Grant apps access to a Custom Model](/guides/how-tos/cm-share-model/index.md)
+    - [Firefly Generate Image API Tutorial](/guides/how-tos/firefly-generate-image-api-tutorial.md)
+    - [Firefly Expand Image API Tutorial](/guides/how-tos/firefly-expand-image-api-tutorial.md)
+    - [Firefly Fill Image API Tutorial](/guides/how-tos/firefly-fill-image-api-tutorial.md)
+    - [Using the Firefly Asynchronous API](/guides/how-tos/using-async-apis.md)
+    - [Custom Models Generate Image API Tutorial](/guides/how-tos/cm-generate-image/index.md)
+    - [Grant apps access to a Custom Model](/guides/how-tos/cm-share-model/index.md)
+    - Composite Operations header
+    - [Composite Operations APIs Feature Guide](/guides/how-tos/object-composite/index.md)
     - Getting Started header
     - [Authentication](/getting-started/index.md)
     - [Create Credentials](/getting-started/create-credentials/index.md)
