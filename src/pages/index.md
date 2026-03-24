@@ -81,6 +81,14 @@ The Custom Models API lets you:
 
 To get started, see the [Custom Models overview](guides/concepts/custom-models/index.md), the [Custom Models Generate Image API tutorial](guides/how-tos/cm-generate-image/index.md), and [Grant apps access to a Custom Model](guides/how-tos/cm-share-model/index.md).
 
+### What's new with Image Model 5?
+
+The Image5 model is Firefly's latest model and is a leap forward in realism, lighting, and composition with native 4 MP resolution for sharper, more expressive results across photography, text, and illustration.​
+
+It also supports the new Instruct Edit capability, which enables users to generate and refine in one seamless workflow using natural language to make precise and intuitive edits.​
+
+If you've already implemented image generation with the Firefly API, you can migrate to the Image5 model by following the [Migrating to Image5](/guides/how-tos/cm-generate-image/breaking-changes.md) guide.
+
 ## Composite Operations APIs
 
 Blend product shots and objects into generated scenes with complementing tones, colors, lighting, shadows, and textures.
