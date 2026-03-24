@@ -54,6 +54,18 @@ Rate limits are standard practice that serve several important purposes, includi
 * Protecting against downtime: Reduces the risk of service interruptions.
 * Controlling costs: Helps manage resource consumption and associated expenses.
 
+## Image API usage
+
+### Supported storage domains
+
+With the Image Model 5 endpoint `/v4/images/generate-async` these domains are supported for image storage:
+
+- amazonaws.com
+- windows.net
+- dropboxusercontent.com
+- storage.googleapis.com
+- frontdoor.prod.azure.cxp.adobe.com
+
 ## Object Composite API usage
 
 These are technical details and known limitations for the Object Composite API.
