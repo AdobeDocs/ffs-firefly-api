@@ -2347,6 +2347,7 @@
         "type": "string",
         "title": "AspectRatio",
         "enum": ["1:1", "4:3", "3:4", "16:9", "9:16"]
+      },
       "ApiErrorGeneric": {
         "type": "object",
         "title": "ApiErrorGeneric",
