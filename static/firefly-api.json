@@ -3374,7 +3374,6 @@
             "title": "Reference blobs",
             "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported. [Pre-signed URLs can be used from supported domains](https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/#image-api-usage).",
             "default": [],
-            "minItems": 0,
             "maxItems": 1
           },
           "seeds": {
