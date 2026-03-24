@@ -3372,9 +3372,10 @@
               "$ref": "#/components/schemas/ReferenceBlobV3"
             },
             "title": "Reference blobs",
-            "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported per request for the instruct edit functionality. Presigned URLs are not supported - images must be uploaded to Adobe storage.",
+            "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported. [Pre-signed URLs can be used from supported domains](https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/#image-api-usage).",
             "default": [],
-            "minItems": 0
+            "minItems": 0,
+            "maxItems": 1
           },
           "seeds": {
             "type": "array",
@@ -3419,7 +3420,7 @@
       "ReferenceBlobSourceV3": {
         "type": "object",
         "title": "ReferenceBlobSourceV3",
-        "description": "Source specification for a reference blob input asset.",
+        "description": "Source specification for a reference blob input asset. Input images must meet these requirements: file size must be 10 MB or less; image area must be between 512×512 and 2048×2048 pixels (inclusive); aspect ratio must be between 1:5 and 5:1 (inclusive).",
         "properties": {
           "uploadId": {
             "type": "string",
