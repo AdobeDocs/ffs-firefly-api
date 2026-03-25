@@ -129,24 +129,22 @@ Demand for high-resolution images is growing across digital platforms, but tradi
 
 ### What can the Upscale API do?
 
-Upsampling use-cases include:
+The Upscale API is designed for workflows that feature these use-cases:
 
-**User Assets Upsampler**: Increase the resolution of your own photos and artwork while preserving detail and avoiding artificial or hallucinated content. Use this use-case to:
+**User Assets Upsampler**
+
+Increase the resolution of your own photos and artwork while preserving detail and avoiding artificial or hallucinated content. Use this use-case to:
 
 - **Preserve the original**: Follow the source image closely and avoid introducing new or artificial elements.
 - **Transform low-resolution sources**: Turn small or low-quality images into high-resolution versions suitable for print, display, or downstream workflows.
 - **Support multiple scale factors**: Upsample to 2×, 4×, or 6× depending on your needs.
 
-**Generated Image Upsampler**: Maintain crispness and correct fine details in images created by generative AI (e.g., textures, patterns) when zooming in.This capability focuses on two dimensions of quality:
+**Generated Image Upsampler**
+
+Maintain crispness and correct fine details in images created by generative AI (e.g., textures, patterns) when zooming in.This capability focuses on two dimensions of quality:
 
 - **Crispness**: The upscaled image retains the sharpness of the original generation.
 - **Correctness**: Fine details (e.g., textures like flowers, grass, or fabric) stay coherent when you zoom in, instead of breaking down into a messy or blurry appearance.
-
-**MD Upsampler (Fill & Expand)**: Upscale only the generated parts of an image (from fill or expand) so they match the sharpness and quality of the rest of the image.This capability lets you:
-
-- **Match the original resolution**: Upscale the generated section so it matches the crispness of the surrounding image.
-- **Improve correctness**: Refine details in the generated area (e.g., textures, edges) so they look correct when zooming in, not like a disorderly or blurry mass.
-- **Create a seamless result**: Make it much less obvious which part of the image was created with Firefly—so the full image feels cohesive.
 
 To get started, see [Getting Started](getting-started/index.md) for authentication and setup, and the [API Reference](api/index.md) for Upscale endpoints and schemas.
 
