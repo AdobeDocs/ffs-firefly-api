@@ -38,6 +38,13 @@ twitter:
 [//]: # (TODO: Update with latest prod details, elaborate on API descriptions)
 # Changelog
 
+## March 25, 2026
+
+**API updates**
+
+* **Launch of Upscale API**: The Upscale API is now available for use.
+  * [Upscale API](../../api/index.md)
+
 ## March 24, 2026
 
 **API updates**
