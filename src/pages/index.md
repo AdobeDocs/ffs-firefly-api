@@ -21,6 +21,8 @@ keywords:
   - Custom Models
   - Custom Models API
   - brand-aligned image generation
+  - upscale
+  - Upscale API
 contributors:
   - https://github.com/amandahuarng
   - https://github.com/nimithajalal
@@ -52,6 +54,12 @@ Generate brand-aligned image variations at scale
 
 Blend product shots and objects into generated scenes with complementing tones, colors, lighting, shadows, and textures.
 
+<DiscoverBlock slots="link, text"/>
+
+[Upscale API (beta)](#upscale-api-beta)
+
+Enhance image resolution and quality at scale with the Upscale API (beta).
+
 ## Custom Models API
 
 Generate brand-aligned image variations at scale with Firefly's Custom Models API. Train models on your brand's aesthetics, characters, or products and use them in your API requests to keep visuals consistent across campaigns and channels.
@@ -72,6 +80,14 @@ The Custom Models API lets you:
 - **Secure hosting and reuse** — Models are hosted by Adobe with clear versioning; reference them by asset ID in your workflows and share them with your technical accounts as needed.
 
 To get started, see the [Custom Models overview](guides/concepts/custom-models/index.md), the [Custom Models Generate Image API tutorial](guides/how-tos/cm-generate-image/index.md), and [Grant apps access to a Custom Model](guides/how-tos/cm-share-model/index.md).
+
+### What's new with Image Model 5?
+
+The Image5 model is Firefly's latest model and is a leap forward in realism, lighting, and composition with native 4 MP resolution for sharper, more expressive results across photography, text, and illustration.​
+
+It also supports the new Instruct Edit capability, which enables users to generate and refine in one seamless workflow using natural language to make precise and intuitive edits.​
+
+If you've already implemented image generation with the Firefly API, you can migrate to the Image5 model by following the [Migrating to Image5](/guides/how-tos/cm-generate-image/breaking-changes.md) guide.
 
 ## Composite Operations APIs
 
@@ -105,13 +121,32 @@ Use Adaptive Composite to:
 
 To get started, see the [Object Composite API Feature Guide](guides/how-tos/object-composite/index.md).
 
-## What's new with Image Model 5?
+## Upscale API (beta)
 
- The Image5 model is Firefly's latest model and is a leap forward in realism, lighting, and composition with native 4 MP resolution for sharper, more expressive results across photography, text, and illustration.​
+Enhance image resolution and quality quickly and effortlessly, without pixelation or retakes.
 
- It also supports the new Instruct Edit capability, which enables users to generate and refine in one seamless workflow using natural language to make precise and intuitive edits.​
+Demand for high-resolution images is growing across digital platforms, but traditional upscaling often causes pixelation and quality loss. The Upscale API delivers automated image enhancement that saves time and resources. Integrate it into Adobe products or use it in your own workflows to improve image quality where it matters, while keeping details crisp and accurate.
 
- If you've already implemented image generation with the Firefly API, you can migrate to the Image5 model by following the [Migrating to Image5](/guides/how-tos/cm-generate-image/breaking-changes.md) guide.
+### What can the Upscale API do?
+
+The Upscale API is designed for workflows that feature these use-cases:
+
+**User Assets Upsampler**
+
+Increase the resolution of your own photos and artwork while preserving detail and avoiding artificial or hallucinated content. Use this use-case to:
+
+- **Preserve the original**: Follow the source image closely and avoid introducing new or artificial elements.
+- **Transform low-resolution sources**: Turn small or low-quality images into high-resolution versions suitable for print, display, or downstream workflows.
+- **Support multiple scale factors**: Upsample to 2×, 4×, or 6× depending on your needs.
+
+**Generated Image Upsampler**
+
+Maintain crispness and correct fine details in images created by generative AI (e.g., textures, patterns) when zooming in.This capability focuses on two dimensions of quality:
+
+- **Crispness**: The upscaled image retains the sharpness of the original generation.
+- **Correctness**: Fine details (e.g., textures like flowers, grass, or fabric) stay coherent when you zoom in, instead of breaking down into a messy or blurry appearance.
+
+To get started, see [Getting Started](getting-started/index.md) for authentication and setup, and the [API Reference](api/index.md) for Upscale endpoints and schemas.
 
 ## Discover
 
