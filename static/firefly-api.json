@@ -4912,14 +4912,15 @@
     },
     "securitySchemes": {
       "AccessToken": {
-        "bearerFormat": "JWT",
+        "type": "http",
         "scheme": "bearer",
-        "type": "http"
+        "description": "The Adobe-generated access token, S2S format."
       },
       "X-Api-Key": {
         "type": "apiKey",
         "name": "x-api-key",
-        "in": "header"
+        "in": "header",
+        "description": "The client ID for authentication."
       }
     }
   }
