@@ -34,6 +34,7 @@ The new API introduces several new configuration properties which may now be req
 - `contentClass`
 - `upsamplerType`
 - `visualIntensity`
+- `modelSpecificPayload.prompt_reasoner` — Controls prompt reasoning strategy (`quality` or `speed`). When set to `quality`, the response includes a populated `altText` field.
 
 ### Removed fields
 

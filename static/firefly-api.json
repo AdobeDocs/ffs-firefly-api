@@ -332,7 +332,8 @@
                     "numVariations": 1,
                     "seeds": [42345],
                     "modelSpecificPayload": {
-                      "localeCode": "en-US"
+                      "localeCode": "en-US",
+                      "prompt_reasoner": "quality"
                     },
                     "referenceBlobs": [
                       {
@@ -3850,6 +3851,14 @@
             "title": "The locale code used for image generations",
             "description": "The locale code (following RFC 5646 format, e.g., 'en-US') will be used to generate content that is more relevant for user's country and language.",
             "example": "en-US"
+          },
+          "prompt_reasoner": {
+            "type": "string",
+            "title": "Prompt reasoner mode",
+            "description": "Controls the prompt reasoning strategy used during image generation. When set to <code>quality</code>, the response includes a populated <code>altText</code> field with a generated description of the image. When set to <code>speed</code>, prompt reasoning is optimized for speed and the <code>altText</code> field is returned empty.",
+            "enum": ["quality", "speed"],
+            "default": "speed",
+            "example": "quality"
           }
         }
       },
@@ -3894,6 +3903,11 @@
       },
       "GenerateImagesResponseV3": {
         "properties": {
+          "altText": {
+            "description": "A generated text description of the image. Populated when <code>prompt_reasoner</code> is set to <code>quality</code> in the request. Returns an empty string otherwise.",
+            "title": "Alt text",
+            "type": "string"
+          },
           "contentClass": {
             "$ref": "#/components/schemas/ContentClassV3",
             "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>."

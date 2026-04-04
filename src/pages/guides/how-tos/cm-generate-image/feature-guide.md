@@ -41,6 +41,29 @@ Text‑to‑Image generation is performed when `referenceBlobs` is empty → The
 }
 ```
 
+## Prompt Reasoner
+
+The `prompt_reasoner` field inside `modelSpecificPayload` controls the prompt reasoning strategy used during generation. It accepts two values:
+
+- **`quality`** — Uses enhanced prompt reasoning. The response includes a populated `altText` field containing a generated text description of the image.
+- **`speed`** (default) — Optimizes for faster generation. The `altText` field is returned empty.
+
+**Example Request Payload**
+
+```json
+{
+  "prompt": "A beagle running through a park toward its owner",
+  "aspectRatio": "4:3",
+  "modelId": "firefly_image",
+  "numVariations": 1,
+  "referenceBlobs": [],
+  "modelSpecificPayload": {
+    "localeCode": "en-US",
+    "prompt_reasoner": "quality"
+  }
+}
+```
+
 ## About Image‑to‑Image instruct edit
 
 Image‑to‑Image instruct edit is performed when `referenceBlobs` contains one or more images → The API performs an instruct edit on the provided image(s). Use this mode to apply prompt‑driven edits to an existing image while preserving its structure and composition.

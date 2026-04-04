@@ -122,9 +122,10 @@ Below is an example of our sample image response and the image it generated:
                     "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-1234..." 
                 } 
             }
-        ], 
-        "contentClass": "art" 
-    } 
+        ],
+        "contentClass": "art",
+        "altText": "A futuristic city with towering glass buildings and glowing neon signs under a twilight sky."
+    }
 }
 ```
 

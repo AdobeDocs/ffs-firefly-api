@@ -261,7 +261,8 @@ The response will look like this:
             }
         }
     ],
-    "contentClass": "art"
+    "contentClass": "art",
+    "altText": "A futuristic city glowing at night with neon lights reflecting off wet streets and flying cars soaring between towering skyscrapers."
 }
 ```
 
