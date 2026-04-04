@@ -1,0 +1,133 @@
+diff --git a/src/pages/guides/concepts/seeds/index.md b/src/pages/guides/concepts/seeds/index.md
+index 8f33a43..dfdb41e 100644
+--- a/src/pages/guides/concepts/seeds/index.md
++++ b/src/pages/guides/concepts/seeds/index.md
+@@ -122,9 +122,10 @@ Below is an example of our sample image response and the image it generated:
+                     "url": "https://pre-signed-firefly-prod.s3-accelerate.amazonaws.com/images/asdf-1234..." 
+                 } 
+             }
+-        ], 
+-        "contentClass": "art" 
+-    } 
++        ],
++        "contentClass": "art",
++        "altText": "A futuristic city with towering glass buildings and glowing neon signs under a twilight sky."
++    }
+ }
+ ```
+ 
+diff --git a/src/pages/guides/how-tos/cm-generate-image/breaking-changes.md b/src/pages/guides/how-tos/cm-generate-image/breaking-changes.md
+index 0a0572c..d6a0a5e 100644
+--- a/src/pages/guides/how-tos/cm-generate-image/breaking-changes.md
++++ b/src/pages/guides/how-tos/cm-generate-image/breaking-changes.md
+@@ -34,6 +34,7 @@ The new API introduces several new configuration properties which may now be req
+ - `contentClass`
+ - `upsamplerType`
+ - `visualIntensity`
++- `modelSpecificPayload.prompt_reasoner` — Controls prompt reasoning strategy (`quality` or `speed`). When set to `quality`, the response includes a populated `altText` field.
+ 
+ ### Removed fields
+ 
+diff --git a/src/pages/guides/how-tos/cm-generate-image/feature-guide.md b/src/pages/guides/how-tos/cm-generate-image/feature-guide.md
+index 7ac514a..fe830ad 100644
+--- a/src/pages/guides/how-tos/cm-generate-image/feature-guide.md
++++ b/src/pages/guides/how-tos/cm-generate-image/feature-guide.md
+@@ -41,6 +41,29 @@ Text‑to‑Image generation is performed when `referenceBlobs` is empty → The
+ }
+ ```
+ 
++## Prompt Reasoner
++
++The `prompt_reasoner` field inside `modelSpecificPayload` controls the prompt reasoning strategy used during generation. It accepts two values:
++
++- **`quality`** — Uses enhanced prompt reasoning. The response includes a populated `altText` field containing a generated text description of the image.
++- **`speed`** (default) — Optimizes for faster generation. The `altText` field is returned empty.
++
++**Example Request Payload**
++
++```json
++{
++  "prompt": "A beagle running through a park toward its owner",
++  "aspectRatio": "4:3",
++  "modelId": "firefly_image",
++  "numVariations": 1,
++  "referenceBlobs": [],
++  "modelSpecificPayload": {
++    "localeCode": "en-US",
++    "prompt_reasoner": "quality"
++  }
++}
++```
++
+ ## About Image‑to‑Image instruct edit
+ 
+ Image‑to‑Image instruct edit is performed when `referenceBlobs` contains one or more images → The API performs an instruct edit on the provided image(s). Use this mode to apply prompt‑driven edits to an existing image while preserving its structure and composition.
+diff --git a/src/pages/guides/how-tos/using-async-apis.md b/src/pages/guides/how-tos/using-async-apis.md
+index 4522804..87c8954 100644
+--- a/src/pages/guides/how-tos/using-async-apis.md
++++ b/src/pages/guides/how-tos/using-async-apis.md
+@@ -154,7 +154,8 @@ After Firefly successfully generates your image, the final status looks similar
+                                 }
+                         }
+                 ],
+-                "contentClass": "art"
++                "contentClass": "art",
++                "altText": "A futuristic city glowing at night with neon lights and flying cars streaking across a dark sky."
+         }
+ }
+ ```
+diff --git a/src/pages/guides/index.md b/src/pages/guides/index.md
+index ce9495a..22498e0 100644
+--- a/src/pages/guides/index.md
++++ b/src/pages/guides/index.md
+@@ -261,7 +261,8 @@ The response will look like this:
+             }
+         }
+     ],
+-    "contentClass": "art"
++    "contentClass": "art",
++    "altText": "A futuristic city glowing at night with neon lights reflecting off wet streets and flying cars soaring between towering skyscrapers."
+ }
+ ```
+ 
+diff --git a/static/firefly-api.json b/static/firefly-api.json
+index 263f3d1..448799f 100644
+--- a/static/firefly-api.json
++++ b/static/firefly-api.json
+@@ -332,7 +332,8 @@
+                     "numVariations": 1,
+                     "seeds": [42345],
+                     "modelSpecificPayload": {
+-                      "localeCode": "en-US"
++                      "localeCode": "en-US",
++                      "prompt_reasoner": "quality"
+                     },
+                     "referenceBlobs": [
+                       {
+@@ -3850,6 +3851,14 @@
+             "title": "The locale code used for image generations",
+             "description": "The locale code (following RFC 5646 format, e.g., 'en-US') will be used to generate content that is more relevant for user's country and language.",
+             "example": "en-US"
++          },
++          "prompt_reasoner": {
++            "type": "string",
++            "title": "Prompt reasoner mode",
++            "description": "Controls the prompt reasoning strategy used during image generation. When set to <code>quality</code>, the response includes a populated <code>altText</code> field with a generated description of the image. When set to <code>speed</code>, prompt reasoning is optimized for speed and the <code>altText</code> field is returned empty.",
++            "enum": ["quality", "speed"],
++            "default": "speed",
++            "example": "quality"
+           }
+         }
+       },
+@@ -3894,6 +3903,11 @@
+       },
+       "GenerateImagesResponseV3": {
+         "properties": {
++          "altText": {
++            "description": "A generated text description of the image. Populated when <code>prompt_reasoner</code> is set to <code>quality</code> in the request. Returns an empty string otherwise.",
++            "title": "Alt text",
++            "type": "string"
++          },
+           "contentClass": {
+             "$ref": "#/components/schemas/ContentClassV3",
+             "description": "Generate an image to being more photographic or more like art. Either <code>photo</code> or <code>art</code>."

@@ -154,7 +154,8 @@ After Firefly successfully generates your image, the final status looks similar 
                                 }
                         }
                 ],
-                "contentClass": "art"
+                "contentClass": "art",
+                "altText": "A futuristic city glowing at night with neon lights and flying cars streaking across a dark sky."
         }
 }
 ```
