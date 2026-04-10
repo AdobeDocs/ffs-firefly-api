@@ -95,7 +95,7 @@ Next, you need an access token. To generate an access token, use the following c
 
 ```bash
 curl -X POST 'https://ims-na1.adobelogin.com/ims/token/v3' \
--H 'Content-Type: application/x-www-form-urlencoded'
+-H 'Content-Type: application/x-www-form-urlencoded' \
 -d 'client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&grant_type=client_credentials&scope=AdobeID,openid,read_organizations,additional_info.projectedProductContext,additional_info.roles,adobeio_api,read_client_secret,manage_client_secrets'
 ```
 
