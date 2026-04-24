@@ -300,7 +300,7 @@
       "post": {
         "operationId": "firefly_image_v5_generate_async_v4",
         "summary": "Generate images with Image5",
-        "description": "Generate images asynchronously using Firefly's Image5 model.",
+        "description": "Generate images asynchronously using Firefly's Image5 model. When referenceBlobs is not empty, omit aspectRatio or set it to auto.",
         "tags": ["Common Operations"],
         "parameters": [
           {
@@ -327,7 +327,8 @@
                   "summary": "Full payload example",
                   "value": {
                     "prompt": "A futuristic city glowing at night, with neon lights and flying cars",
-                    "aspectRatio": "16:9",
+                    "aspectRatio": "auto",
+                    "resolutionLevel": "2MP",
                     "modelId": "firefly_image",
                     "numVariations": 1,
                     "seeds": [42345],
@@ -350,6 +351,7 @@
                   "value": {
                     "prompt": "A hyper-detailed illustration of a floating city at sunrise",
                     "aspectRatio": "16:9",
+                    "resolutionLevel": "4MP",
                     "modelId": "firefly_image",
                     "numVariations": 1,
                     "referenceBlobs": []
@@ -359,6 +361,7 @@
                   "summary": "Image-to-Image instruct edit",
                   "value": {
                     "prompt": "Add warm sunset lighting and enhance the reflection on the water",
+                    "resolutionLevel": "auto",
                     "modelId": "firefly_image",
                     "numVariations": 1,
                     "referenceBlobs": [
@@ -492,7 +495,7 @@
                       "validation_errors": [
                         {
                           "loc": ["body", "aspectRatio"],
-                          "msg": "value is not a valid enumeration member; permitted: '1:1', '4:3', '3:4', '16:9', '9:16'",
+                          "msg": "value is not a valid enumeration member; permitted: '1:1', '4:3', '3:4', '16:9', '9:16', 'auto'",
                           "type": "type_error.enum"
                         }
                       ]
@@ -2640,7 +2643,7 @@
       "AspectRatio": {
         "type": "string",
         "title": "AspectRatio",
-        "enum": ["1:1", "4:3", "3:4", "16:9", "9:16"]
+        "enum": ["1:1", "4:3", "3:4", "16:9", "9:16", "auto"]
       },
       "ApiErrorGeneric": {
         "type": "object",
@@ -3804,7 +3807,15 @@
           },
           "aspectRatio": {
             "$ref": "#/components/schemas/AspectRatio",
-            "description": "The aspect ratio of the requested generations. This controls the size of the generated image."
+            "description": "`aspectRatio`: The aspect ratio of the requested generations. This controls the size of the generated image. When <code>referenceBlobs</code> is not empty, this property should be omitted or set to <code>auto</code>."
+       
+          },
+          "resolutionLevel": {
+            "type": "string",
+            "title": "Resolution level",
+            "description": "The resolution level.",
+            "enum": ["1MP", "2MP", "4MP", "auto"],
+            "default": "auto"
           },
           "modelId": {
             "$ref": "#/components/schemas/FireflyModelId",
@@ -3826,7 +3837,7 @@
               "$ref": "#/components/schemas/ReferenceBlobV3"
             },
             "title": "Reference blobs",
-            "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported. [Pre-signed URLs can be used from supported domains](https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/#image-api-usage).",
+            "description": "List of reference blobs that will be used as additional input for the generation process. Only one reference image is supported. When this array is not empty, aspectRatio must be omitted or set to auto. [Pre-signed URLs can be used from supported domains](https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/#image-api-usage).",
             "default": [],
             "maxItems": 1
           },
