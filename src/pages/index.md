@@ -56,9 +56,9 @@ Blend product shots and objects into generated scenes with complementing tones, 
 
 <DiscoverBlock slots="link, text"/>
 
-[Upscale API (beta)](#upscale-api-beta)
+[Upscale API](#upscale-api)
 
-Enhance image resolution and quality at scale with the Upscale API (beta).
+Enhance image resolution and quality at scale with the Upscale API.
 
 ## Custom Models API
 
@@ -121,7 +121,7 @@ Use Adaptive Composite to:
 
 To get started, see the [Object Composite API Feature Guide](guides/how-tos/object-composite/index.md).
 
-## Upscale API (beta)
+## Upscale API
 
 Enhance image resolution and quality quickly and effortlessly, without pixelation or retakes.
 

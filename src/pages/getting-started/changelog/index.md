@@ -38,6 +38,67 @@ twitter:
 [//]: # (TODO: Update with latest prod details, elaborate on API descriptions)
 # Changelog
 
+## April 24, 2026
+
+### Upscale API: Beta to GA (Breaking Change)
+
+During the beta period, the `/v3/images/upscale` endpoint was named and documented as the "creative upsampler"; however the underlying model being called was always the **precise upsampler**. This GA release corrects that naming inconsistency. The service behavior is unchanged; only the names are being aligned to reflect reality.
+
+### ⚠️ Breaking Changes
+
+#### 1. `creative_upsampler_v1` header value rejected
+
+Passing `creative_upsampler_v1` in the `x-model-version` header now returns a **422 Unprocessable Entity**:
+
+```json
+{
+  "error_code": "validation_error",
+  "message": "Invalid x-model-version: creative_upsampler_v1. Only 'precise_upsampler_v1' is supported."
+}
+```
+
+**Action required:** Update or remove the `x-model-version` header. The new default is `precise_upsampler_v1`.
+
+```http
+x-model-version: precise_upsampler_v1
+```
+
+#### 2. Schema and operation identifiers renamed
+
+All `Creative*` upsampler identifiers have been renamed to `Precise*` to reflect the correct underlying model. If you are using a generated SDK or referencing schema `$ref` values directly, update accordingly.
+
+| Old name (beta) | New name (GA) |
+| --- | --- |
+| `creativeUpsamplerV3Async` | `preciseUpsamplerV3Async` |
+| `CreativeUpsamplerRequestV3` | `PreciseUpsamplerRequestV3` |
+| `CreativeUpscaleAcceptResponseV3` | `PreciseUpscaleAcceptResponseV3` |
+| `CreativeUpscaleTaskLink` | `PreciseUpscaleTaskLink` |
+| `CreativeUpsamplerResponse` | `PreciseUpsamplerResponse` |
+
+> **Note:** The request body shape and response structure are **unchanged**. This is a rename only; no fields have been added, removed, or modified.
+
+### Summary of all spec changes
+
+| Area | Before (beta) | After (GA) |
+| --- | --- | --- |
+| `x-model-version` accepted values | `creative_upsampler_v1` | `precise_upsampler_v1` |
+| `x-model-version` default | `creative_upsampler_v1` | `precise_upsampler_v1` |
+| Invalid model version response | Undefined behaviour | `422` with `validation_error` |
+| `operationId` | `creativeUpsamplerV3Async` | `preciseUpsamplerV3Async` |
+| Request schema | `CreativeUpsamplerRequestV3` | `PreciseUpsamplerRequestV3` |
+| Accept response schema | `CreativeUpscaleAcceptResponseV3` | `PreciseUpscaleAcceptResponseV3` |
+| Task link schema | `CreativeUpscaleTaskLink` | `PreciseUpscaleTaskLink` |
+| Result schema | `CreativeUpsamplerResponse` | `PreciseUpsamplerResponse` |
+| Endpoint summary | `Upscale image (beta)` | `Upscale image` |
+| `Upscale` tag description | `...creative upsampler (beta)` | `...precise upsampler` |
+
+### Deprecation timeline
+
+| Date | Event |
+| --- | --- |
+| Prior to 2026-04-24 | Beta: `creative_upsampler_v1` available; underlying model was always the precise upsampler |
+| **2026-04-24** | **GA: `creative_upsampler_v1` removed; `precise_upsampler_v1` is the only supported value; all schema identifiers corrected** |
+
 ## March 25, 2026
 
 **API updates**
