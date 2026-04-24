@@ -3807,7 +3807,8 @@
           },
           "aspectRatio": {
             "$ref": "#/components/schemas/AspectRatio",
-            "description": "The aspect ratio of the requested generations. This controls the size of the generated image. When referenceBlobs is not empty, omit this property or set it to auto."
+            "description": "`aspectRatio`: The aspect ratio of the requested generations. This controls the size of the generated image. When <code>referenceBlobs</code> is not empty, this property should be omitted or set to <code>auto</code>."
+       
           },
           "resolutionLevel": {
             "type": "string",
