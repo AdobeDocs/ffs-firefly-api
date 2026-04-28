@@ -4473,7 +4473,7 @@
             ]
           },
           "sizes": {
-            "description": "The dimensions of the generated video.",
+            "description": "The dimensions of the generated video. Consult the [supported aspect ratios in the usage notes](https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/usage-notes/#supported-aspect-ratios) for allowed values.",
             "items": {
               "$ref": "#/components/schemas/ClinetoSize"
             },
