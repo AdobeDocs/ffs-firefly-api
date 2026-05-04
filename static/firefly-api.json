@@ -3915,7 +3915,7 @@
           "url": {
             "type": "string",
             "title": "URL",
-            "description": "URL of the reference image. Presigned URLs are not supported for Image5; images must be uploaded to Adobe storage."
+            "description": "URL of the reference image."
           }
         }
       },
