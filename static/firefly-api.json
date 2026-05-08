@@ -328,7 +328,7 @@
                   "value": {
                     "prompt": "A futuristic city glowing at night, with neon lights and flying cars",
                     "aspectRatio": "auto",
-                    "resolutionLevel": "2MP",
+                    "resolutionLevel": "2.4MP",
                     "modelId": "firefly_image",
                     "numVariations": 1,
                     "seeds": [42345],
@@ -361,7 +361,7 @@
                   "summary": "Image-to-Image instruct edit",
                   "value": {
                     "prompt": "Add warm sunset lighting and enhance the reflection on the water",
-                    "resolutionLevel": "auto",
+                    "resolutionLevel": "2.4MP",
                     "modelId": "firefly_image",
                     "numVariations": 1,
                     "referenceBlobs": [
@@ -3826,8 +3826,8 @@
             "type": "string",
             "title": "Resolution level",
             "description": "The resolution level.",
-            "enum": ["1MP", "2MP", "4MP", "auto"],
-            "default": "auto"
+            "enum": ["1MP", "2.4MP", "4MP"],
+            "default": "2.4MP"
           },
           "modelId": {
             "$ref": "#/components/schemas/FireflyModelId",
