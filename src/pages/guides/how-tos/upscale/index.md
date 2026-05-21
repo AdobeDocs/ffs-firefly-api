@@ -106,7 +106,7 @@ At 2x scale, results are highly stable and suitable for direct use in most catal
 
 For full schema details, see the [API Reference](../../../api/index.md).
 
-## Getting started
+## Ready to get started?
 
 1. Obtain Firefly Services credentials from the [Adobe Developer Console](https://developer.adobe.com/console/).
 2. Exchange your Client ID and Client Secret for an access token via Adobe IMS.
