@@ -45,7 +45,9 @@
         - [Custom Models Generate Image API Tutorial](/guides/how-tos/cm-generate-image/index.md)
     - [Grant apps access to a Custom Model](/guides/how-tos/cm-share-model/index.md)
     - Composite Operations header
-    - [Composite Operations APIs Feature Guide](/guides/how-tos/object-composite/index.md)
+    - [Composite Operations API Feature Guide](/guides/how-tos/object-composite/index.md)
+    - Upscale Image header
+    - [Upscale Image API Feature Guide](/guides/how-tos/upscale/index.md)
     - Getting Started header
     - [Authentication](/getting-started/index.md)
     - [Create Credentials](/getting-started/create-credentials/index.md)
