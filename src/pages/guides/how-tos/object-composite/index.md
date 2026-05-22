@@ -10,204 +10,44 @@ keywords:
   - Adaptive Composite
   - Precise Composite
 ---
-# Using the Object Composite API
+# Compositing feature guide
 
-This guide explains the Object Composite API and the key processing features it offers for generating composites with its various endpoints.
+The Firefly API includes a suite of compositing operations for integrating objects into scenes with realistic lighting, shadows, and harmonization. There are three distinct compositing operations available, each designed for a different workflow and level of creative control.
 
-## Overview
+The three composite operations are:
 
-The Object Composite API operations offer Adobe's enterprise-grade image compositing capabilities and other more specific compositing operations that unlocks new compositional workflows.
+- **Generate Object Composite** generates a background from a text prompt and composites your object into it. Use when no background image exists yet.
+- **Precise Composite** places an object into an existing background with pixel-perfect subject fidelity. Use when the subject must not be altered.
+- **Adaptive Composite** composites an object into an existing background by adapting and regenerating the subject to match the scene. Use when realism and seamless integration are the priority.
 
-The API enables intelligent object insertion, replacement, and harmonization within images, with powerful capabilities for integrating objects into background scenes with realistic lighting, shadows, and harmonization.
-
-For Object Composite operations there are a few choices:
-
-### Object Composite
-
-Object Composite is Adobe's enterprise-grade image compositing capability.
-
-Execute this operations using a **object composite** request with the endpoint `/v3/images/generate-object-composite-async`.
-
-### Precise Composite
-
-Precise Composite places the subject in the masked region and applies generative harmonization so the subject blends naturally with the background. Use when you want AI-driven harmonization and a single, consistent style.
-
-Execute this operations using a **precise composite** request with the endpoint `/v3/images/precise-composite`.
-
-### Adaptive Composite
-
-Adaptive Composite composites the subject seamlessly into the background at the masked location, with control over shadows and background preservation. Use when you need seamless product compositing, context-aware alignment, and parameters such as `shadowIntensity` and `preserveBackground`.
-
-Execute this operations using an **adaptive composite** request with the endpoint `/v3/images/adaptive-composite`.
-
-### Inputs
-
-The API is powerful in a variety of workflows but will often require these inputs:
-
-- **Background image** - The destination scene where the object will be placed. For the best results, use:
-  - Use high-resolution images (minimum 1024px on shortest side recommended).
-  - Ensure good lighting and clarity.
-  - Clean backgrounds (without objects) work best for object insertion.
-- **Reference image** - The object to be composited into the background. For the best results:
-  - Pre-segment objects with clean edges.
-  - Include transparency or provide an accurate mask.
-  - Ensure an object is properly lit for the best harmonization results.
-- **Mask layer image** - A mask layer image (from Photoshop), indicating the areas of the destination scene where Firefly's AI performs the composite. In a mask image, the white-painted areas are the dynamic, changeable areas. Note that:
-  - White pixels (#FFFFFF) indicate areas to composite objects into.
-  - Black pixels (#000000) indicate areas to preserve.
-  - Use clean, anti-aliased masks for smooth edges.
-
-Precise Composite feature parameters:
-
-- `blend` - Control the blend between harmonized and original object appearance.
-
-Adaptive Composite feature parameters:
-
-- `shadowIntensity` - Control how strongly shadows are applied to the composited result. Use higher values (for example, 0.8–1) when objects should cast realistic shadows, natural lighting is important, or the scene has directional lighting. Lower values reduce shadow intensity.
-- `harmonization` - Control the intensity of the harmonization process to match the background's lighting, color temperature, and atmosphere. Generative Harmonization introduces and enhances lighting and shadow correction for composite realism.
-- `preserveBackground` - Preserves the original background details within the masked area during compositing.
+All three operations are asynchronous. Each request returns a `jobId` and a `statusUrl` for polling job status.
 
 For full technical details, see the [Object Composite API Reference](../../../api/index.md).
 
-## Direct object insertion
+## Which API should I use?
 
-Using Adaptive Composite, customers can composite products into existing or custom-generated backgrounds, such as brand-specific environments produced with Firefly Custom Models.
+Use this decision tree to determine the right endpoint for your use case:
 
-![Image of the background, a clean modern kitchen countertop](./XStitch-comp1.png)
-
-**Background**
-
-![Image of the product, a cereal box](./XStitch-comp2.png)
-
-**Product**
-
-![Image of the composite, the cereal box on the kitchen countertop](./XStitch-comp3.png)
-
-**Composite**
-
-### Key parameters
-
-- `background.image` - The destination scene.
-- `background.fillAreaMask` - The area of the destination scene where the object will be placed.
-- `object.image` - The source object image.
-- `object.mask` - The object segmentation mask.
-
-<AccordionItem slots="heading, text, code"/>
-
-### Example payload
-
-This is a payload example.
-
-```json
-{
-  "background": {
-    "image": {
-      "source": {
-        "url": "https://example.com/living-room.jpg"
-      }
-    },
-    "fillAreaMask": {
-      "source": {
-        "url": "https://example.com/placement-mask.png"
-      }
-    }
-  },
-  "object": {
-    "image": {
-      "source": {
-        "url": "https://example.com/chair.png"
-      }
-    },
-    "mask": {
-      "source": {
-        "url": "https://example.com/chair-mask.png"
-      }
-    }
-  },
-  "harmonization": 0.7,
-  "shadowIntensity": 1,
-  "seeds": [333]
-}
+```mermaid
+flowchart TD
+  startNode["Existing background image?"]
+  startNode -->|No| genNode["Generate Object Composite<br/>POST /v3/images/generate-object-composite-async"]
+  startNode -->|Yes| fidelityNode["Pixel-perfect subject fidelity?"]
+  fidelityNode -->|Yes| preciseNode["Precise Composite<br/>POST /v3/images/precise-composite"]
+  fidelityNode -->|No, realism first| adaptiveNode["Adaptive Composite<br/>POST /v3/images/adaptive-composite"]
 ```
 
-<AccordionItem slots="heading, text, code"/>
+## Generate Object Composite
 
-### Python implementation
+This service generates a background from a prompt and composites the object into that background.
 
-An example of a Python implementation.
+Use this service when you have an object image ready and need a background created for a final asset.
 
-```python
-import requests
-import json
+Execute this operation using an object composite request with the endpoint `/v3/images/generate-object-composite-async`.
 
-# Configuration
-API_BASE = "https://firefly-api.adobe.io"
-ACCESS_TOKEN = "your_access_token"
-API_KEY = "your_api_key"
+### Example request
 
-headers = {
-    "Authorization": f"Bearer {ACCESS_TOKEN}",
-    "x-api-key": API_KEY,
-    "Content-Type": "application/json",
-}
-
-# Request payload
-payload = {
-    "background": {
-        "image": {
-            "source": {
-                "url": "https://example.com/background.jpg"
-            }
-        },
-        "fillAreaMask": {
-            "source": {
-                "url": "https://example.com/mask.png"
-            }
-        }
-    },
-    "object": {
-        "image": {
-            "source": {
-                "url": "https://example.com/object.png"
-            }
-        },
-        "mask": {
-            "source": {
-                "url": "https://example.com/object-mask.png"
-            }
-        }
-    },
-    "harmonization": 0.7,
-    "preserveBackground": False,
-    "shadowIntensity": 1,
-    "seeds": [333],
-    "output": {
-        "mediaType": "image/png"
-    }
-}
-
-# Submit job
-response = requests.post(
-    f"{API_BASE}/v3/images/adaptive-composite",
-    headers=headers,
-    json=payload
-)
-
-if response.status_code == 202:
-    result = response.json()
-    job_id = result["jobId"]
-    status_url = result.get("statusUrl")
-    print(f"Job submitted successfully. Job ID: {job_id}")
-else:
-    print(f"Error: {response.status_code}")
-    print(response.json())
-```
-
-<AccordionItem slots="heading, text, code"/>
-
-### JavaScript implementation
-
-An example of a JavaScript implementation.
+#### JavaScript
 
 ```javascript
 const axios = require('axios');
@@ -216,156 +56,40 @@ const API_BASE = 'https://firefly-api.adobe.io';
 const ACCESS_TOKEN = 'your_access_token';
 const API_KEY = 'your_api_key';
 
-async function adaptiveComposite() {
+async function generateObjectComposite() {
   const payload = {
-    background: {
-      image: {
-        source: {
-          url: 'https://example.com/background.jpg'
-        }
-      },
-      fillAreaMask: {
-        source: {
-          url: 'https://example.com/mask.png'
-        }
-      }
-    },
-    object: {
-      image: {
-        source: {
-          url: 'https://example.com/object.png'
-        }
-      },
-      mask: {
-        source: {
-          url: 'https://example.com/object-mask.png'
-        }
-      }
-    },
-    harmonization: 0.7,
-    preserveBackground: false,
-    shadowIntensity: 1,
-    seeds: [333],
-    output: {
-      mediaType: 'image/png'
+    prompt: 'a product on a wooden table in a cozy kitchen',
+    image: {
+      source: { url: 'https://example.com/product.png' }
     }
   };
 
-  try {
-    const response = await axios.post(
-      `${API_BASE}/v3/images/adaptive-composite`,
-      payload,
-      {
-        headers: {
-          'Authorization': `Bearer ${ACCESS_TOKEN}`,
-          'x-api-key': API_KEY,
-          'Content-Type': 'application/json',
-        }
-      }
-    );
-
-    console.log('Job ID:', response.data.jobId);
-    return response.data;
-  } catch (error) {
-    console.error('Error:', error.response?.data || error.message);
-    throw error;
-  }
-}
-
-async function checkJobStatus(jobId) {
-  const url = `${API_BASE}/v3/status/${jobId}`;
-  
-  try {
-    const response = await axios.get(url, {
+  const response = await axios.post(
+    `${API_BASE}/v3/images/generate-object-composite-async`,
+    payload,
+    {
       headers: {
         'Authorization': `Bearer ${ACCESS_TOKEN}`,
-        'x-api-key': API_KEY
-      }
-    });
-
-    return response.data;
-  } catch (error) {
-    console.error('Error checking status:', error.response?.data || error.message);
-    throw error;
-  }
-}
-
-// Usage
-(async () => {
-  const job = await adaptiveComposite();
-  const status = await checkJobStatus(job.jobId);
-  console.log('Job Status:', status);
-})();
-```
-
-## Background preservation
-
-Users can insert objects while maintaining the original background details within the masked area when they enable Background Preservation mode. Even within the masked area, the background details are preserved in the composite. Some strong use cases for background preservation are:
-
-- Placing objects on patterned floors or textured surfaces.
-- Maintaining architectural details.
-- Preserving branded or specific background elements.
-
-![Background image of a hand holding a phone in front of a bookcase](./background-preserve1.png)
-**Background image**
-
-![Product image, the back of a phone](./background-preserve-asset.png)
-**Product image**
-
-![Mask image, a rectangle around the phone](./background-preserve-mask.png)
-**Mask area image (white area is the dynamic, changeable area)**
-
-![Generated composite showing the back of the phone](./background-preserve2.png)
-**Example composite with background preservation**
-
-### Key parameters
-
-- `preserveBackground` - Set to `true` to preserve the original background details within the masked area.
-
-<AccordionItem slots="heading, text, code"/>
-
-### Example payload
-
-This is a payload example.
-
-```json
-{
-  "background": {
-    "image": {
-      "source": {
-        "url": "https://example.com/textured-floor.jpg"
-      }
-    },
-    "fillAreaMask": {
-      "source": {
-        "url": "https://example.com/placement-area.png"
+        'x-api-key': API_KEY,
+        'Content-Type': 'application/json'
       }
     }
-  },
-  "object": {
-    "image": {
-      "source": {
-        "url": "https://example.com/vase.png"
-      }
-    }
-  },
-  "preserveBackground": true,  // Enable Background Preservation mode
-  "harmonization": 0.8,  // Harmonization strength (0-1)
-  "seeds": [333]  // A single seed value for the composite
+  );
+
+  console.log('Job ID:', response.data.jobId);
+  console.log('Status URL:', response.data.statusUrl);
+  console.log('Cancel URL:', response.data.cancelUrl);
+  return response.data;
 }
+
+generateObjectComposite();
 ```
 
-<AccordionItem slots="heading, text, code"/>
-
-### Python implementation
-
-An example of a Python implementation.
+#### Python
 
 ```python
 import requests
-import json
 
-# Configuration
 API_BASE = "https://firefly-api.adobe.io"
 ACCESS_TOKEN = "your_access_token"
 API_KEY = "your_api_key"
@@ -373,170 +97,375 @@ API_KEY = "your_api_key"
 headers = {
     "Authorization": f"Bearer {ACCESS_TOKEN}",
     "x-api-key": API_KEY,
-    "Content-Type": "application/json",
+    "Content-Type": "application/json"
 }
 
-# Request payload
 payload = {
-    "background": {
-        "image": {
-            "source": {
-                "url": "https://example.com/wooden-floor.jpg"
-            }
-        },
-        "fillAreaMask": {
-            "source": {
-                "url": "https://example.com/placement-mask.png"
-            }
-        }
-    },
-    "object": {
-        "image": {
-            "source": {
-                "url": "https://example.com/furniture.png"
-            }
-        }
-    },
-    "preserveBackground": True,  # Keep floor texture visible
-    "harmonization": 0.8,
-    "shadowIntensity": 1,
-    "seeds": [42, 84, 126],  # Generate 3 variations
-    "output": {
-        "mediaType": "image/png"
+    "prompt": "a product on a wooden table in a cozy kitchen",
+    "image": {
+        "source": { "url": "https://example.com/product.png" }
     }
 }
 
-# Submit job
 response = requests.post(
-    f"{API_BASE}/v3/images/adaptive-composite",
+    f"{API_BASE}/v3/images/generate-object-composite-async",
     headers=headers,
     json=payload
 )
-
-if response.status_code == 202:
-    result = response.json()
-    job_id = result["jobId"]
-    status_url = result.get("statusUrl")
-    print(f"Job submitted successfully. Job ID: {job_id}")
-else:
-    print(f"Error: {response.status_code}")
-    print(response.json())
+response.raise_for_status()
+result = response.json()
+print("Job ID:", result["jobId"])
+print("Status URL:", result.get("statusUrl"))
+print("Cancel URL:", result.get("cancelUrl"))
 ```
 
-<AccordionItem slots="heading, text, code"/>
-
-### JavaScript implementation
-
-An example of a JavaScript implementation.
-
-```javascript
-const axios = require('axios');
-
-const API_BASE = 'https://firefly-api.adobe.io';
-const ACCESS_TOKEN = 'your_access_token';
-const API_KEY = 'your_api_key';
-
-async function adaptiveComposite() {
-  const payload = {
-    background: {
-      image: {
-        source: {
-          url: 'https://example.com/wooden-floor.jpg'
-        }
-      },
-      fillAreaMask: {
-        source: {
-          url: 'https://example.com/placement-mask.png'
-        }
-      }
-    },
-    object: {
-      image: {
-        source: {
-          url: 'https://example.com/furniture.png'
-        }
-      }
-    },
-    preserveBackground: true,  // Keep floor texture visible
-    harmonization: 0.8,
-    shadowIntensity: 1,
-    seeds: [42, 84, 126],  // Generate 3 variations
-    output: {
-      mediaType: 'image/png'
-    }
-  };
-
-  try {
-    const response = await axios.post(
-      `${API_BASE}/v3/images/adaptive-composite`,
-      payload,
-      {
-        headers: {
-          'Authorization': `Bearer ${ACCESS_TOKEN}`,
-          'x-api-key': API_KEY,
-          'Content-Type': 'application/json',
-        }
-      }
-    );
-
-    console.log('Job ID:', response.data.jobId);
-    return response.data;
-  } catch (error) {
-    console.error('Error:', error.response?.data || error.message);
-    throw error;
-  }
-}
-
-async function checkJobStatus(jobId) {
-  const url = `${API_BASE}/v3/status/${jobId}`;
-  
-  try {
-    const response = await axios.get(url, {
-      headers: {
-        'Authorization': `Bearer ${ACCESS_TOKEN}`,
-        'x-api-key': API_KEY
-      }
-    });
-
-    return response.data;
-  } catch (error) {
-    console.error('Error checking status:', error.response?.data || error.message);
-    throw error;
-  }
-}
-
-// Usage
-(async () => {
-  const job = await adaptiveComposite();
-  const status = await checkJobStatus(job.jobId);
-  console.log('Job Status:', status);
-})();
-```
-
-## Cancel a job
-
-The API allows you to cancel in-progress jobs with the `PUT /v3/cancel/{jobId}` endpoint to save resources and processing time.
-
-Use the cancellation request to cancel a job:
+#### cURL
 
 ```bash
-curl -X PUT "https://firefly-api.adobe.io/v3/cancel/{jobId}" \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-  -H "x-api-key: YOUR_API_KEY"
+curl --location 'https://firefly-api.adobe.io/v3/images/generate-object-composite-async' \
+  --header 'Authorization: Bearer $ACCESS_TOKEN' \
+  --header 'x-api-key: $API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "prompt": "a product on a wooden table in a cozy kitchen",
+    "image": {
+      "source": { "url": "https://example.com/product.png" }
+    }
+  }'
 ```
 
-When polling a cancelled job's status, you'll receive:
+## Precise Composite
 
-```json
-{
-  "status": "cancelled",
-  "jobId": "job-id-here",
-  "error_code": "job_cancelled",
-  "message": "Job was cancelled by user request"
+Precise Composite places an object into an existing background while preserving the subject exactly as provided.
+
+Use this service when maintaining pixel-perfect fidelity of the subject is critical.
+
+Execute this operation using a precise composite request with the endpoint `/v3/images/precise-composite`.
+
+### Example request
+
+#### JavaScript
+
+```javascript
+const axios = require('axios');
+
+const API_BASE = 'https://firefly-api.adobe.io';
+const ACCESS_TOKEN = 'your_access_token';
+const API_KEY = 'your_api_key';
+
+async function preciseComposite() {
+  const payload = {
+    background: {
+      image: {
+        source: { url: 'https://example.com/background.jpg' }
+      },
+      fillAreaMask: {
+        source: { url: 'https://example.com/placement-mask.png' }
+      }
+    },
+    object: {
+      image: {
+        source: { url: 'https://example.com/product.png' }
+      }
+    },
+    blend: 0.5,
+    output: { mediaType: 'image/jpeg' }
+  };
+
+  const response = await axios.post(
+    `${API_BASE}/v3/images/precise-composite`,
+    payload,
+    {
+      headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`,
+        'x-api-key': API_KEY,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+
+  console.log('Job ID:', response.data.jobId);
+  console.log('Status URL:', response.data.statusUrl);
+  console.log('Cancel URL:', response.data.cancelUrl);
+  return response.data;
+}
+
+preciseComposite();
+```
+
+#### Python
+
+```python
+import requests
+
+API_BASE = "https://firefly-api.adobe.io"
+ACCESS_TOKEN = "your_access_token"
+API_KEY = "your_api_key"
+
+headers = {
+    "Authorization": f"Bearer {ACCESS_TOKEN}",
+    "x-api-key": API_KEY,
+    "Content-Type": "application/json"
+}
+
+payload = {
+    "background": {
+        "image": {
+            "source": { "url": "https://example.com/background.jpg" }
+        },
+        "fillAreaMask": {
+            "source": { "url": "https://example.com/placement-mask.png" }
+        }
+    },
+    "object": {
+        "image": {
+            "source": { "url": "https://example.com/product.png" }
+        }
+    },
+    "blend": 0.5,
+    "output": { "mediaType": "image/jpeg" }
+}
+
+response = requests.post(
+    f"{API_BASE}/v3/images/precise-composite",
+    headers=headers,
+    json=payload
+)
+response.raise_for_status()
+result = response.json()
+print("Job ID:", result["jobId"])
+print("Status URL:", result.get("statusUrl"))
+print("Cancel URL:", result.get("cancelUrl"))
+```
+
+#### cURL
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/precise-composite' \
+  --header 'Authorization: Bearer $ACCESS_TOKEN' \
+  --header 'x-api-key: $API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "background": {
+      "image": {
+        "source": { "url": "https://example.com/background.jpg" }
+      },
+      "fillAreaMask": {
+        "source": { "url": "https://example.com/placement-mask.png" }
+      }
+    },
+    "object": {
+      "image": {
+        "source": { "url": "https://example.com/product.png" }
+      }
+    },
+    "blend": 0.5,
+    "output": { "mediaType": "image/jpeg" }
+  }'
+```
+
+## Adaptive Composite
+
+Adaptive Composite composites an object image into an existing background by adapting and regenerating the subject to match the scene.
+
+Use when realism and seamless integration are the priority.
+
+Execute this operation using an adaptive composite request with the endpoint `/v3/images/adaptive-composite`.
+
+### Background preservation
+
+Adaptive Composite supports a `preserveBackground` parameter. When set to `true`, the original background pixels are retained and only the composited object region is modified. This is useful when you want to maintain specific background details — such as floor textures or brand environments — while still achieving natural object integration.
+
+### Example request
+
+#### JavaScript
+
+```javascript
+const axios = require('axios');
+
+const API_BASE = 'https://firefly-api.adobe.io';
+const ACCESS_TOKEN = 'your_access_token';
+const API_KEY = 'your_api_key';
+
+async function adaptiveComposite() {
+  const payload = {
+    background: {
+      image: {
+        source: { url: 'https://example.com/living-room.jpg' }
+      },
+      fillAreaMask: {
+        source: { url: 'https://example.com/placement-mask.png' }
+      }
+    },
+    object: {
+      image: {
+        source: { url: 'https://example.com/chair.png' }
+      },
+      mask: {
+        source: { url: 'https://example.com/chair-mask.png' }
+      }
+    },
+    preserveBackground: true,
+    harmonization: 0.7,
+    shadowIntensity: 1,
+    seeds: [42, 84, 126],
+    output: { mediaType: 'image/png' }
+  };
+
+  const response = await axios.post(
+    `${API_BASE}/v3/images/adaptive-composite`,
+    payload,
+    {
+      headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`,
+        'x-api-key': API_KEY,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+
+  console.log('Job ID:', response.data.jobId);
+  console.log('Status URL:', response.data.statusUrl);
+  console.log('Cancel URL:', response.data.cancelUrl);
+  return response.data;
+}
+
+adaptiveComposite();
+```
+
+#### Python
+
+```python
+import requests
+
+API_BASE = "https://firefly-api.adobe.io"
+ACCESS_TOKEN = "your_access_token"
+API_KEY = "your_api_key"
+
+headers = {
+    "Authorization": f"Bearer {ACCESS_TOKEN}",
+    "x-api-key": API_KEY,
+    "Content-Type": "application/json"
+}
+
+payload = {
+    "background": {
+        "image": {
+            "source": { "url": "https://example.com/living-room.jpg" }
+        },
+        "fillAreaMask": {
+            "source": { "url": "https://example.com/placement-mask.png" }
+        }
+    },
+    "object": {
+        "image": {
+            "source": { "url": "https://example.com/chair.png" }
+        },
+        "mask": {
+            "source": { "url": "https://example.com/chair-mask.png" }
+        }
+    },
+    "preserveBackground": True,
+    "harmonization": 0.7,
+    "shadowIntensity": 1,
+    "seeds": [42, 84, 126],
+    "output": { "mediaType": "image/png" }
+}
+
+response = requests.post(
+    f"{API_BASE}/v3/images/adaptive-composite",
+    headers=headers,
+    json=payload
+)
+response.raise_for_status()
+result = response.json()
+print("Job ID:", result["jobId"])
+print("Status URL:", result.get("statusUrl"))
+print("Cancel URL:", result.get("cancelUrl"))
+```
+
+#### cURL
+
+```bash
+curl --location 'https://firefly-api.adobe.io/v3/images/adaptive-composite' \
+  --header 'Authorization: Bearer $ACCESS_TOKEN' \
+  --header 'x-api-key: $API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "background": {
+      "image": {
+        "source": { "url": "https://example.com/living-room.jpg" }
+      },
+      "fillAreaMask": {
+        "source": { "url": "https://example.com/placement-mask.png" }
+      }
+    },
+    "object": {
+      "image": {
+        "source": { "url": "https://example.com/chair.png" }
+      },
+      "mask": {
+        "source": { "url": "https://example.com/chair-mask.png" }
+      }
+    },
+    "preserveBackground": true,
+    "harmonization": 0.7,
+    "shadowIntensity": 1,
+    "seeds": [42, 84, 126],
+    "output": { "mediaType": "image/png" }
+  }'
+```
+
+## Canceling a job
+
+All three endpoints above are asynchronous. Each returns a **202 Accepted** response containing a `jobId`, a `statusUrl` for polling job status, and a `cancelUrl` for stopping the job if needed.
+
+To cancel an in-progress job, send a `PUT` request to the `cancelUrl` from the initial response. A successful cancel typically returns **200** with an empty body.
+
+### JavaScript
+
+```javascript
+async function cancelJob(cancelUrl) {
+  const response = await axios.put(
+    cancelUrl,
+    {},
+    {
+      headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`,
+        'x-api-key': API_KEY,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+  console.log('Job canceled:', response.status);
+  return response.data;
 }
 ```
 
-## Additional resources
+### Python
 
-To get started with your own development, start with [Composite Authentication](../../../getting-started/index.md).
-For more details on the Composite Operations APIs, [see the Composite Operations APIs API Reference](../../../api/index.md).
+```python
+def cancel_job(cancel_url):
+    response = requests.put(
+        cancel_url,
+        headers={
+            "Authorization": f"Bearer {ACCESS_TOKEN}",
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json"
+        }
+    )
+    response.raise_for_status()
+    print("Job canceled:", response.status_code)
+    return response.json() if response.content else None
+```
+
+### cURL
+
+```bash
+curl --location --request PUT '$CANCEL_URL' \
+  --header 'Authorization: Bearer $ACCESS_TOKEN' \
+  --header 'x-api-key: $API_KEY' \
+  --header 'Content-Type: application/json'
+```
+
+For full technical details, see the [Object Composite API Reference](../../../api/index.md).
