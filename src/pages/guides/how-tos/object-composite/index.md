@@ -33,7 +33,6 @@ Use this decision tree to determine the right endpoint for your use case:
 ## Generate Object Composite
 
 This service generates a background from a prompt and composites the object into that background.
-
 Use this service when you have an object image ready and need a background created for a final asset.
 
 Execute this operation using an object composite request with the endpoint `/v3/images/generate-object-composite-async`.
@@ -136,7 +135,6 @@ curl --location 'https://firefly-api.adobe.io/v3/images/generate-object-composit
 ## Precise Composite
 
 Precise Composite places an object into an existing background while preserving the subject exactly as provided.
-
 Use this service when maintaining pixel-perfect fidelity of the subject is critical.
 
 Execute this operation using a precise composite request with the endpoint `/v3/images/precise-composite`.
@@ -272,14 +270,34 @@ curl --location 'https://firefly-api.adobe.io/v3/images/precise-composite' \
 ## Adaptive Composite
 
 Adaptive Composite composites an object image into an existing background by adapting and regenerating the subject to match the scene.
-
 Use when realism and seamless integration are the priority.
+
+**Background Image**
+![Image of the background, a clean modern kitchen countertop](./XStitch-comp1.png)
+
+**Product Image**
+![Image of the product, a cereal box](./XStitch-comp2.png)
+
+**Completed Composite**
+![Image of the composite, the cereal box on the kitchen countertop](./XStitch-comp3.png)
 
 Execute this operation using an adaptive composite request with the endpoint `/v3/images/adaptive-composite`.
 
 ### Background preservation
 
 Adaptive Composite supports a `preserveBackground` parameter. When set to `true`, the original background pixels are retained and only the composited object region is modified. This is useful when you want to maintain specific background details — such as floor textures or brand environments — while still achieving natural object integration.
+
+**Background Image**
+![Background image of a hand holding a phone in front of a bookcase](./background-preserve1.png)
+
+**Product Image**
+![Product image, the back of a phone](./background-preserve-asset.png)
+
+**Mask Area Image (white area is the dynamic, changeable area)**
+![Mask image, a rectangle around the phone](./background-preserve-mask.png)
+
+**Completed Composite**
+![Completed Composite showing the back of the phone](./background-preserve2.png)
 
 ### Example request
 
