@@ -12,15 +12,15 @@ keywords:
 ---
 # Compositing feature guide
 
-The Firefly API includes a suite of compositing operations for integrating objects into scenes with realistic lighting, shadows, and harmonization. There are three distinct compositing operations available, each designed for a different workflow and level of creative control.
+The Firefly API includes a suite of compositing operations for integrating objects into scenes with realistic lighting, shadows, and image harmonization. There are three distinct compositing operations available, each designed for a different workflow and level of creative control.
+
+All three operations are asynchronous. Each request returns a `jobId` and a `statusUrl` for polling job status.
 
 The three composite operations are:
 
 - **Generate Object Composite** generates a background from a text prompt and composites your object into it. Use when no background image exists yet.
 - **Precise Composite** places an object into an existing background with pixel-perfect subject fidelity. Use when the subject must not be altered.
 - **Adaptive Composite** composites an object into an existing background by adapting and regenerating the subject to match the scene. Use when realism and seamless integration are the priority.
-
-All three operations are asynchronous. Each request returns a `jobId` and a `statusUrl` for polling job status.
 
 For full technical details, see the [Object Composite API Reference](../../../api/index.md).
 
