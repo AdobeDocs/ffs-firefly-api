@@ -38,7 +38,9 @@ Use this service when you have an object image ready and need a background creat
 
 Execute this operation using an object composite request with the endpoint `/v3/images/generate-object-composite-async`.
 
-### Example request
+### Example requests
+
+<AccordionItem slots="heading, text"/>
 
 #### JavaScript
 
@@ -78,6 +80,8 @@ async function generateObjectComposite() {
 generateObjectComposite();
 ```
 
+<AccordionItem slots="heading, text"/>
+
 #### Python
 
 ```python
@@ -112,6 +116,8 @@ print("Status URL:", result.get("statusUrl"))
 print("Cancel URL:", result.get("cancelUrl"))
 ```
 
+<AccordionItem slots="heading, text"/>
+
 #### cURL
 
 ```bash
@@ -136,6 +142,8 @@ Use this service when maintaining pixel-perfect fidelity of the subject is criti
 Execute this operation using a precise composite request with the endpoint `/v3/images/precise-composite`.
 
 ### Example request
+
+<AccordionItem slots="heading, text"/>
 
 #### JavaScript
 
@@ -186,6 +194,8 @@ async function preciseComposite() {
 preciseComposite();
 ```
 
+<AccordionItem slots="heading, text"/>
+
 #### Python
 
 ```python
@@ -231,6 +241,8 @@ print("Status URL:", result.get("statusUrl"))
 print("Cancel URL:", result.get("cancelUrl"))
 ```
 
+<AccordionItem slots="heading, text"/>
+
 #### cURL
 
 ```bash
@@ -270,6 +282,8 @@ Execute this operation using an adaptive composite request with the endpoint `/v
 Adaptive Composite supports a `preserveBackground` parameter. When set to `true`, the original background pixels are retained and only the composited object region is modified. This is useful when you want to maintain specific background details — such as floor textures or brand environments — while still achieving natural object integration.
 
 ### Example request
+
+<AccordionItem slots="heading, text"/>
 
 #### JavaScript
 
@@ -326,6 +340,8 @@ async function adaptiveComposite() {
 adaptiveComposite();
 ```
 
+<AccordionItem slots="heading, text"/>
+
 #### Python
 
 ```python
@@ -377,6 +393,8 @@ print("Status URL:", result.get("statusUrl"))
 print("Cancel URL:", result.get("cancelUrl"))
 ```
 
+<AccordionItem slots="heading, text"/>
+
 #### cURL
 
 ```bash
@@ -415,6 +433,8 @@ All three endpoints above are asynchronous. Each returns a **202 Accepted** resp
 
 To cancel an in-progress job, send a `PUT` request to the `cancelUrl` from the initial response. A successful cancel typically returns **200** with an empty body.
 
+<AccordionItem slots="heading, text"/>
+
 ### JavaScript
 
 ```javascript
@@ -435,6 +455,8 @@ async function cancelJob(cancelUrl) {
 }
 ```
 
+<AccordionItem slots="heading, text"/>
+
 ### Python
 
 ```python
@@ -451,6 +473,8 @@ def cancel_job(cancel_url):
     print("Job canceled:", response.status_code)
     return response.json() if response.content else None
 ```
+
+<AccordionItem slots="heading, text"/>
 
 ### cURL
 
