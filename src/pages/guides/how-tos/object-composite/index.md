@@ -28,14 +28,7 @@ For full technical details, see the [Object Composite API Reference](../../../ap
 
 Use this decision tree to determine the right endpoint for your use case:
 
-```mermaid
-flowchart TD
-  startNode["Existing background image?"]
-  startNode -->|No| genNode["Generate Object Composite<br/>POST /v3/images/generate-object-composite-async"]
-  startNode -->|Yes| fidelityNode["Pixel-perfect subject fidelity?"]
-  fidelityNode -->|Yes| preciseNode["Precise Composite<br/>POST /v3/images/precise-composite"]
-  fidelityNode -->|No, realism first| adaptiveNode["Adaptive Composite<br/>POST /v3/images/adaptive-composite"]
-```
+![Decision tree for choosing Generate Object Composite, Precise Composite, or Adaptive Composite based on whether you have a background image and whether pixel-perfect subject fidelity is required.](./composite-api-decision-tree.svg)
 
 ## Generate Object Composite
 
