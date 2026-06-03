@@ -27,11 +27,6 @@ Key value propositions:
 
 The API supports 2x and 4x upscaling via an asynchronous pattern: submit a job, receive a job ID, poll for status, then retrieve the output.
 
-### Endpoint
-
-- **Internal:** `POST /v1/images/upsample-async` (`creativeUpsamplerV3Async`)
-- **External:** `v3/images/upscale` (`precise_upsampler_v1`)
-
 ## How it works
 
 1. Submit an upscale request with your source image and desired scale factor.
@@ -45,7 +40,7 @@ This async approach is especially useful for batch pipelines processing multiple
 
 ### 1. Upscaling product images for eCommerce
 
-**Scenario:** A retailer needs catalog images at a higher resolution for product detail pages, zoom functionality, or print-quality output without any altered texture or color that could misrepresent the product.
+**Scenario:** A retailer needs catalogue images at a higher resolution for product detail pages, zoom functionality, or print-quality output without any altered texture or color that could misrepresent the product.
 
 **Why Firefly Upscale:** The API is built around source fidelity. It consistently preserves structural proportions, color accuracy, and tonal range, meaning the product looks like the product and not a sharpened interpretation of it. Color and tone stay consistent with the source, and fine surface details such as fabric, packaging, and labels are retained without over-sharpening.
 
