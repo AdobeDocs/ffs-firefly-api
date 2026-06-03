@@ -27,7 +27,6 @@ Key value propositions:
 
 The API supports 2x and 4x upscaling via an asynchronous pattern: submit a job, receive a job ID, poll for status, then retrieve the output.
 
-
 ## How it works
 
 1. Submit an upscale request with your source image and desired scale factor.

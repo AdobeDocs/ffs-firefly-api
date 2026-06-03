@@ -146,7 +146,7 @@ Maintain crispness and correct fine details in images created by generative AI (
 - **Crispness**: The upscaled image retains the sharpness of the original generation.
 - **Correctness**: Fine details (e.g., textures like flowers, grass, or fabric) stay coherent when you zoom in, instead of breaking down into a messy or blurry appearance.
 
-To get started, see [Getting Started](getting-started/index.md) for authentication and setup, and the [API Reference](api/index.md) for Upscale endpoints and schemas.
+To get started, see the [Firefly Upscale Image API Feature Guide](guides/how-tos/upscale/index.md). See [Getting Started](getting-started/index.md) for authentication and setup, and the [API Reference](api/index.md) for Upscale endpoints and schemas.
 
 ## Discover
 
